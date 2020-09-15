@@ -3,7 +3,11 @@
 @section('content')
     <script>
         tinymce.init({
-            selector: '#mytextarea',
+            selector: '#contentTextArea',
+            height: "600"
+        });
+        tinymce.init({
+            selector: '#extrasTextArea',
             height: "600"
         });
     </script>
@@ -26,8 +30,15 @@
             <input class="form-control" type="text" name="title" placeholder="Enter lesson title" value="{{$lesson['title']}}"><br/>
             <input class="form-control" type="text" name="description" placeholder="Enter lesson description" value="{{$lesson['description']}}"><br/>
 
-            <textarea id="mytextarea" name="content" value="{!!$lesson['content']!!}">
+            <label>Content</label>
+            <textarea id="contentTextArea" name="content" value="{!!$lesson['content']!!}
             </textarea>
+
+            <br/><br/>
+            <label>Extras</label>
+            <textarea id="extrasTextArea" name="extras" value="{!!$lesson['extras']!!}
+            </textarea>
+
 
             <input type="submit" name="submit" class="btn btn-primary">
         </form>

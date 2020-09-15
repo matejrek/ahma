@@ -29,23 +29,37 @@
 </head>
 <body>
     <div id="app">
-        <div class="sidebar">
-
-            <ul class="navbar">
-                <li class="navItem">
-                    <a class="navLink" href="/">Home</a>
-                </li>
-                <li class="navItem">
-                    <a class="navLink" href="/dashboard">Dashboard</a>
-                </li>
-                <li class="navItem">
-                    <a class="navLink" href="/lesson/create">Create new lesson</a>
-                </li>
-            </ul>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="mysidebar card">
+                        <ul class="menu">
+                            <li class="item">
+                                <a class="link" href="/">Home</a>
+                            </li>
+                            <li class="item">
+                                <a class="link" href="/dashboard">Dashboard</a>
+                            </li>
+                            <li class="item">
+                                <a class="link" href="/lessons">Lessons</a>
+                            </li>
+                            <li class="item">
+                                <a class="link" href="/lesson/create">Create new lesson</a>
+                            </li>
+                            <li class="item">
+                                <br/><br/><br/>
+                                <a class="link" href="/send">Send mails manually</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <main class="mainContent card">
+                        @yield('content')
+                    </main>
+                </div>
+            </div>
         </div>
-        <main class="mainContent">
-            @yield('content')
-        </main>
     </div>
 
 

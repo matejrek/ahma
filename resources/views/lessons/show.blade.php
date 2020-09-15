@@ -10,6 +10,8 @@
         <p>{{$lesson->description}}</p>
         <hr/>
         {!! $lesson->content !!}
+        <hr/>
+        {!! $lesson->extras !!}
     </div>
 @endsection
 

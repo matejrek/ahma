@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Mail;
 
+use App\Models\User;
+use App\Models\Progress;
+
 class LessonController extends Controller
 {
     /**
@@ -31,10 +34,6 @@ class LessonController extends Controller
         return view('lessons/create');
     }
 
-    public function new()
-    {
-        return view('lessons/create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -50,6 +49,7 @@ class LessonController extends Controller
         $lesson->title = $requestArr['title'];
         $lesson->description = $requestArr['description'];
         $lesson->content = $requestArr['content'];
+        $lesson->extras = $requestArr['extras'];
 
         $lesson->save();
 
@@ -88,20 +88,8 @@ class LessonController extends Controller
      * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lesson $lesson)
+    public function update($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Lesson  $lesson
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Lesson $lesson)
-    {
-
         Lesson:all()->whereId($id)->delete();
 
         $requestArr = $request->all();
@@ -117,10 +105,34 @@ class LessonController extends Controller
         return redirect('/lessons');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Lesson  $lesson
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+
+        Lesson:all()->whereId($id)->delete();
+
+        /*$requestArr = $request->all();
+        $lesson = new Lesson();
+        $lesson->user_id = auth()->user()->id;
+        $lesson->title = $requestArr['title'];
+        $lesson->description = $requestArr['description'];
+        $lesson->content = $requestArr['content'];
+
+
+        $lesson->save();*/
+
+        return redirect('/lessons');
+    }
+
 
     public function send()
     {
-        $to_name = 'RECEIVER_NAME';
+        /*$to_name = 'RECEIVER_NAME';
         $to_email = 'matej_rek@ymail.com';
 
         $lesson = Lesson::all()->first();
@@ -131,8 +143,64 @@ class LessonController extends Controller
         Mail::send('mail', $data, function($message) use ($to_name, $to_email){
             $message->to($to_email, $to_name)->subject('AHMAlearn.com');
             $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
-        });
+        });*/
 
-        return view('welcome');
+        $users = User::all();
+        foreach($users as $user){
+            //get user id
+            $cuserid = $user['id'];
+            //get his progress if he has any at all
+            $progress = Progress::all()->where('user_id', $cuserid)->first();
+            //if he has progress
+            if($progress){
+                //send next mail from progress
+                $to_name = $user['name'];
+                $to_email = $user['email'];
+
+
+                $lesson = Lesson::all()->where('id', '>', $progress['lesson_id'])->first();
+
+                $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
+
+                Mail::send('mail', $data, function($message) use ($to_name, $to_email){
+                    $message->to($to_email, $to_name)->subject('AHMAlearn.com');
+                    $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                });
+                //update progress
+                $cprogress = Progress::all()->where('user_id', $user['id'])->first();
+
+                $newid = $lesson['id'];
+
+                //\DB::table('progress')->where('id', $cprogress->id)->update('lesson_id', $newid);
+                Progress::all()->where('user_id', $user['id'])->first()->delete();
+                $newprog = new Progress();
+                $newprog->user_id = $user['id'];
+                $newprog->lesson_id = $lesson['id'];
+                $newprog->save();
+
+            }
+            else{
+                //send first mail
+                $to_name = $user['name'];
+                $to_email = $user['email'];
+
+                $lesson = Lesson::all()->first();
+
+                $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
+
+                Mail::send('mail', $data, function($message) use ($to_name, $to_email){
+                    $message->to($to_email, $to_name)->subject('AHMAlearn.com');
+                    $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                });
+                //create progress
+                $newprogress = new Progress();
+                $newprogress->user_id = $user['id'];
+                $newprogress->lesson_id = $lesson->id;
+                $newprogress->save();
+            }
+
+        }
+
+        return redirect('/lessons');
     }
 }

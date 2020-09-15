@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/lessons', 'App\Http\Controllers\LessonController@index');
+Route::get('/lessons', 'App\Http\Controllers\LessonController@index')->name('lessons');
 
 
 Route::get('/lesson/create', 'App\Http\Controllers\LessonController@create');
