@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Models\User;
 use App\Models\Progress;
+use App\Models\Role;
 
 class LessonController extends Controller
 {
@@ -31,7 +32,22 @@ class LessonController extends Controller
      */
     public function create()
     {
-        return view('lessons/create');
+
+        //Role::all()->where('user_id', $userId)->where('admin', 1)->first();
+        $userId = auth()->user()->id;
+        $isadmin = Role::all()->where('user_id', $userId)->first();
+
+        if($isadmin){
+            if($isadmin['admin'] == 1){
+                return view('lessons/create');
+            }
+            else{
+                return redirect('/');
+            }
+        }
+        else{
+            return redirect('/');
+        }
     }
 
 
@@ -160,23 +176,29 @@ class LessonController extends Controller
 
                 $lesson = Lesson::all()->where('id', '>', $progress['lesson_id'])->first();
 
-                $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
+                if($lesson->count() > 1){
 
-                Mail::send('mail', $data, function($message) use ($to_name, $to_email){
-                    $message->to($to_email, $to_name)->subject('AHMAlearn.com');
-                    $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
-                });
-                //update progress
-                $cprogress = Progress::all()->where('user_id', $user['id'])->first();
+                    $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
 
-                $newid = $lesson['id'];
+                    Mail::send('mail', $data, function($message) use ($to_name, $to_email){
+                        $message->to($to_email, $to_name)->subject('AHMAlearn.com');
+                        $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                    });
+                    //update progress
+                    $cprogress = Progress::all()->where('user_id', $user['id'])->first();
 
-                //\DB::table('progress')->where('id', $cprogress->id)->update('lesson_id', $newid);
-                Progress::all()->where('user_id', $user['id'])->first()->delete();
-                $newprog = new Progress();
-                $newprog->user_id = $user['id'];
-                $newprog->lesson_id = $lesson['id'];
-                $newprog->save();
+                    $newid = $lesson['id'];
+
+                    //\DB::table('progress')->where('id', $cprogress->id)->update('lesson_id', $newid);
+                    Progress::all()->where('user_id', $user['id'])->first()->delete();
+                    $newprog = new Progress();
+                    $newprog->user_id = $user['id'];
+                    $newprog->lesson_id = $lesson['id'];
+                    $newprog->save();
+                }
+                else{
+                    //user's progress is on last lesson so skip email till new lesson is added
+                }
 
             }
             else{

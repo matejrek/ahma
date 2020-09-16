@@ -35,10 +35,6 @@ Route::put('/lesson/{id}/edit/save', 'App\Http\Controllers\LessonController@upda
 
 Route::post('/lesson/store', 'App\Http\Controllers\LessonController@store');
 
-Route::get('/new', function(){
-    return 'AHMA';
-});
-
 
 Route::get('/send', 'App\Http\Controllers\LessonController@send');
 
