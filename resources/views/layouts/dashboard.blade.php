@@ -47,6 +47,9 @@
                                 <a class="link" href="/lesson/create">Create new lesson</a>
                             </li>
                             <li class="item">
+                                <a class="link" href="/lesson/type/create">Create new lesson type</a>
+                            </li>
+                            <li class="item">
                                 <br/><br/><br/>
                                 <a class="link" href="/send">Send mails manually</a>
                             </li>

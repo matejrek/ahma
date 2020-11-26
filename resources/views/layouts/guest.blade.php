@@ -12,11 +12,14 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        
+        <!-- Styles -->
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.2.1/dist/alpine.js" defer></script>
     </head>
-    <body>
+    <body class="guest-layout">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>

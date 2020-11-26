@@ -1,0 +1,82 @@
+.courseDashboard{float:left; width:100%; 
+    .dashHeader{float:left; width:100%; padding:0px 0px; background:$blue;
+        background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
+                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
+        .logo{float:left; width:auto; 
+            a{float:left; /*background:darken($blue,7%);*/ height:60px; width:150px; padding:15px 20px;}
+            img{float:left; height:30px; width:auto;}
+        }
+        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
+            .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
+                &:hover, &:active, &:focus{color:$blue;}
+            }
+        }
+    }
+    .dashSidebar{float:left; width:150px; min-height:calc(100vh - 60px); /*background:$blue; padding:40px 0;*/
+        background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 100%), 
+            linear-gradient(to top, rgba($green,1) 0%,rgba($white,0) 100%); 
+        .item{float:left; width:100%; text-align:center; margin:0; color:$white;
+            a{float:left; width:100%; padding:15px; text-align:center; color:$white; /*background:$blue;*/ border-bottom:1px solid rgba($white,0.4);
+                font-size:1rem; text-transform:uppercase;
+                i{font-size:1.35rem; float:left; width:100%; text-align:center; margin:0 0 5px 0;}
+                &:hover, &:active, &:focus{/*background:lighten($blue,10%);*/ background:darken($blue,7%);}
+            }
+            &:nth-child(1){border-top:1px solid rgba($white,0.4);}
+        }
+    }
+    .dashContent{float:left; width:calc(100% - 150px); padding:20px; min-height:calc(100vh - 60px); padding-bottom:100px; position:relative;
+        background:$sky;
+        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $black;
+            h1{float:left; width:100%; margin:20px 0;}
+        }
+    }
+
+    .dashFooter{float:left; width:100%; text-align:center; background:$sky; border-top:1px solid $grey; color:$black; height:80px; line-height:80px;
+        position:absolute; left:0; bottom:1px; right:0; 
+        /*background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); */
+        a{color:$black; text-decoration:none;}
+    }
+}
+
+.courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
+    .item{float:left; width:100%; padding:10px;
+        .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:center;
+            h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
+                a{color:$black;
+                    &:hover{color:$blue;}
+                }
+            }
+            p{color:$black;}
+        }
+        a:hover{
+            h3{color:$blue;}
+        }
+    }
+}
+
+
+@media only screen and (min-width:600px){
+    .courseList{
+        .item{width:50%;
+            &:nth-child(2n + 1){clear:both;}
+        }
+    }
+}
+
+@media only screen and (min-width:1024px){
+    .courseList{
+        .item{width:33.33333%;
+            &:nth-child(2n + 1){clear:none;}
+            &:nth-child(3n + 1){clear:both;}
+        }
+    }
+}
+
+@media only screen and (min-width:1360px){
+
+}
+
+@media only screen and (min-width:1600px){
+
+}

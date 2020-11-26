@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Mail;
 use App\Models\User;
 use App\Models\Progress;
 use App\Models\Role;
+use App\Models\LessonType;
+use App\Models\Enrolls;
+use App\Models\LessonAccessLevel;
+
+use App\Jobs\sendMails;
 
 class LessonController extends Controller
 {
@@ -39,7 +44,8 @@ class LessonController extends Controller
 
         if($isadmin){
             if($isadmin['admin'] == 1){
-                return view('lessons/create');
+                $types = LessonType::all();
+                return view('lessons/create', compact('types'));
             }
             else{
                 return redirect('/');
@@ -59,9 +65,11 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         $requestArr = $request->all();
         $lesson = new Lesson();
         $lesson->user_id = auth()->user()->id;
+        $lesson->lesson_type_id = $requestArr['lesson_type'];
         $lesson->title = $requestArr['title'];
         $lesson->description = $requestArr['description'];
         $lesson->content = $requestArr['content'];
@@ -81,8 +89,13 @@ class LessonController extends Controller
     //public function show(Lesson $lesson)
     public function show($id)
     {
+        $subPlan = LessonType::has('subscription.user')->where('id', $id)->get();
+        return $subPlan;
+        /*$courseAccess = Sub
+
+        $lessonsWithAccessLevel = "";
         $lesson = Lesson::findOrFail($id);
-        return view('lessons/show', compact('lesson'));
+        return view('courses/lesson', compact('lesson'));*/
     }
 
     /**
@@ -145,84 +158,197 @@ class LessonController extends Controller
         return redirect('/lessons');
     }
 
+    public function enroll(Request $request, $id)
+    {
+        $any = Enrolls::all()->where('user_id', auth()->user()->id)->where('lesson_type_id', $id);
+
+        $enroll = new Enrolls();
+        $enroll->user_id = auth()->user()->id;
+        $enroll->lesson_type_id = $id;
+        $enroll->save();
+        
+        return redirect('/courses');
+    }
+
 
     public function send()
     {
-        /*$to_name = 'RECEIVER_NAME';
-        $to_email = 'matej_rek@ymail.com';
+        /*$enrolls = Enrolls::all();
+      
+        foreach($enrolls as $enroll){
+            $cuserid = $enroll['user_id'];
+            $clessonType = $enroll['lesson_type_id'];
+            //check for progress on lesson type
+            $progress = Progress::all()->where('user_id', $cuserid)->where('lesson_type_id', $clessonType)->first();
 
-        $lesson = Lesson::all()->first();
-
-        $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
-
-
-        Mail::send('mail', $data, function($message) use ($to_name, $to_email){
-            $message->to($to_email, $to_name)->subject('AHMAlearn.com');
-            $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
-        });*/
-
-        $users = User::all();
-        foreach($users as $user){
-            //get user id
-            $cuserid = $user['id'];
-            //get his progress if he has any at all
-            $progress = Progress::all()->where('user_id', $cuserid)->first();
-            //if he has progress
             if($progress){
-                //send next mail from progress
-                $to_name = $user['name'];
-                $to_email = $user['email'];
+                error_log("has progress: ".$progress);
+                $lesson = Lesson::all()->where('lesson_type_id', $clessonType)->where('id', '>' , $progress['lesson_id'])->first();
+                error_log("get next lesson: ".$lesson);
 
+                if($lesson){
+                    error_log("new lesson exists...");
 
-                $lesson = Lesson::all()->where('id', '>', $progress['lesson_id'])->first();
+                    $oldProgress = Progress::all()->where('user_id', $cuserid)->where('lesson_type_id', $clessonType)->first();
+                    $oldProgress->delete();
+                    error_log("deleted old progress: " . $oldProgress);
 
-                if($lesson->count() > 1){
+                    $newProgress = new Progress();
+                    $newProgress->user_id = $cuserid;
+                    $newProgress->lesson_id = $lesson->id;
+                    $newProgress->lesson_type_id = $clessonType;
+                    $newProgress->save();
 
-                    $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
-
-                    Mail::send('mail', $data, function($message) use ($to_name, $to_email){
-                        $message->to($to_email, $to_name)->subject('AHMAlearn.com');
-                        $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
-                    });
-                    //update progress
-                    $cprogress = Progress::all()->where('user_id', $user['id'])->first();
-
-                    $newid = $lesson['id'];
-
-                    //\DB::table('progress')->where('id', $cprogress->id)->update('lesson_id', $newid);
-                    Progress::all()->where('user_id', $user['id'])->first()->delete();
-                    $newprog = new Progress();
-                    $newprog->user_id = $user['id'];
-                    $newprog->lesson_id = $lesson['id'];
-                    $newprog->save();
+                    $subscribed = LessonType::has('subscription.user')->where('id', $clessonType)->first();
+                    $premium=false;
+                    if($subscribed!=null){
+                        $premium=true;
+                    }
+                    error_log("is premium: ".$premium);
+                    //create record for lesson and if premium
+                    $newAccessLevel = new LessonAccessLevel();
+                    $newAccessLevel->user_id = $cuserid;
+                    $newAccessLevel->lesson_type_id = $clessonType;
+                    $newAccessLevel->lesson_id = $lesson->id;
+                    $newAccessLevel->premium = $premium;
+                    $newAccessLevel->save();
                 }
                 else{
-                    //user's progress is on last lesson so skip email till new lesson is added
+                    //no new lesson, dont send...
                 }
 
             }
             else{
-                //send first mail
+                error_log("has no progress: ".$progress);
+                $lesson = Lesson::all()->where('lesson_type_id', $clessonType)->first();
+                error_log("sending first: ".$lesson);
+
+                //send mail
+
+                $newProgress = new Progress();
+                $newProgress->user_id = $cuserid;
+                $newProgress->lesson_id = $lesson->id;
+                $newProgress->lesson_type_id = $clessonType;
+                $newProgress->save();
+
+                $subscribed = LessonType::has('subscription.user')->where('id', $clessonType)->first();
+                $premium=false;
+                if($subscribed!=null){
+                    $premium=true;
+                }
+                error_log("is premium: ".$premium);
+                //create record for lesson and if premium
+                $newAccessLevel = new LessonAccessLevel();
+                $newAccessLevel->user_id = $cuserid;
+                $newAccessLevel->lesson_type_id = $clessonType;
+                $newAccessLevel->lesson_id = $lesson->id;
+                $newAccessLevel->premium = $premium;
+                $newAccessLevel->save();
+            }
+        }*/
+        
+        /*$enrolls = Enrolls::all();
+      
+        foreach($enrolls as $enroll){
+            $cuserid = $enroll['user_id'];
+            $clessonType = $enroll['lesson_type_id'];
+            //check for progress on lesson type
+            $progress = Progress::all()->where('user_id', $cuserid)->where('lesson_type_id', $clessonType)->first();
+
+            if($progress){
+                //error_log("has progress: ".$progress);
+                $lesson = Lesson::all()->where('lesson_type_id', $clessonType)->where('id', '>' , $progress['lesson_id'])->first();
+                //error_log("get next lesson: ".$lesson);
+
+                if($lesson){
+                    //error_log("new lesson exists...");
+
+                    $oldProgress = Progress::all()->where('user_id', $cuserid)->where('lesson_type_id', $clessonType)->first();
+                    $oldProgress->delete();
+                    //error_log("deleted old progress: " . $oldProgress);
+
+                    $newProgress = new Progress();
+                    $newProgress->user_id = $cuserid;
+                    $newProgress->lesson_id = $lesson->id;
+                    $newProgress->lesson_type_id = $clessonType;
+                    $newProgress->save();
+
+                    $subscribed = LessonType::has('subscription.user')->where('id', $clessonType)->first();
+                    $premium=false;
+                    if($subscribed!=null){
+                        $premium=true;
+                    }
+
+                    $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
+                    $user = User::all()->where('id',$cuserid)->first();
+                    
+                    $to_name = $user['name'];
+                    $to_email = $user['email'];
+
+                    error_log("USER:" . $user . "####NAME:" . $user['name'] . "EMAIL:" . $user['email']);
+                    Mail::send('mail', $data, function($message) use ($to_name, $to_email){
+                        $message->to($to_email, $to_name)->subject('AHMAlearn.com');
+                        $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                    });
+                    //error_log("is premium: ".$premium);
+                    //create record for lesson and if premium
+                    $newAccessLevel = new LessonAccessLevel();
+                    $newAccessLevel->user_id = $cuserid;
+                    $newAccessLevel->lesson_type_id = $clessonType;
+                    $newAccessLevel->lesson_id = $lesson->id;
+                    $newAccessLevel->premium = $premium;
+                    $newAccessLevel->save();
+                }
+                else{
+                    //no new lesson, dont send...
+                }
+
+            }
+            else{
+                //error_log("has no progress: ".$progress);
+                $lesson = Lesson::all()->where('lesson_type_id', $clessonType)->first();
+                //error_log("sending first: ".$lesson);
+
+                //send mail
+
+                $newProgress = new Progress();
+                $newProgress->user_id = $cuserid;
+                $newProgress->lesson_id = $lesson->id;
+                $newProgress->lesson_type_id = $clessonType;
+                $newProgress->save();
+
+                $subscribed = LessonType::has('subscription.user')->where('id', $clessonType)->first();
+                $premium=false;
+                if($subscribed!=null){
+                    $premium=true;
+                }
+
+                $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
+                $user = User::all()->where('id',$cuserid)->first();
+                
                 $to_name = $user['name'];
                 $to_email = $user['email'];
 
-                $lesson = Lesson::all()->first();
-
-                $data = array('title'=>$lesson->title, 'description' => $lesson->description, 'content'=>$lesson->content);
-
+                error_log("USER:" . $user . "####NAME:" . $user['name'] . "EMAIL:" . $user['email']);
                 Mail::send('mail', $data, function($message) use ($to_name, $to_email){
                     $message->to($to_email, $to_name)->subject('AHMAlearn.com');
                     $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
                 });
-                //create progress
-                $newprogress = new Progress();
-                $newprogress->user_id = $user['id'];
-                $newprogress->lesson_id = $lesson->id;
-                $newprogress->save();
+                //error_log("is premium: ".$premium);
+                //create record for lesson and if premium
+                $newAccessLevel = new LessonAccessLevel();
+                $newAccessLevel->user_id = $cuserid;
+                $newAccessLevel->lesson_type_id = $clessonType;
+                $newAccessLevel->lesson_id = $lesson->id;
+                $newAccessLevel->premium = $premium;
+                $newAccessLevel->save();
             }
+        }*/
 
-        }
 
+        
+        //return redirect('/lessons');
+        sendMails::dispatch();//you can use chunk method and pass your $users as params
         return redirect('/lessons');
     }
 }

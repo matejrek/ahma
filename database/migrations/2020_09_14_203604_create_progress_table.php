@@ -17,6 +17,7 @@ class CreateProgressTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('lesson_id');
+            $table->unsignedBigInteger('lesson_type_id');
 
             $table->timestamps();
         });

@@ -17,6 +17,7 @@ class CreateLessonsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('lesson_type_id');
 
             $table->string('title');
             $table->string('description');

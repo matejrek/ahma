@@ -26,6 +26,14 @@
                     </ul>
                 </div>
             @endif
+            <br/>
+            <select class="form-control" name="lesson_type">
+                @foreach ($types as $type)
+                    <option value="{{$type['id']}}">{{$type['name']}}</option>
+                @endforeach
+            </select>
+            <br/>
+            <br/>
 
             <input class="form-control" type="text" name="title" placeholder="Enter lesson title"><br/>
             <input class="form-control" type="text" name="description" placeholder="Enter lesson description"><br/>
