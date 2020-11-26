@@ -83,8 +83,10 @@ class WebsiteController extends Controller
      */
     public function show($id)
     {
+        $course = LessonType::where('id', $id)->first();
+        $subPlan = LessonType::has('subscription.user')->where('id', $id)->get();
         $lessons = Lesson::all()->where('lesson_type_id', $id)->sortByDesc('created_at');
-        return view('courses/course', compact('lessons'));
+        return view('courses/course', compact('lessons', 'subPlan', 'course'));
     }
 
     /**

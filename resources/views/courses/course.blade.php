@@ -4,15 +4,21 @@
 @section('content')
    <div class="container">
         <div class="heading">
-            <h1>Course: </h1>
+            <h1>{{$course->name}}</h1>
         </div>
         
+        @if($subPlan->isEmpty())
+            <div class="subscribe">
+                Subscribe to this course to get the most benefits <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+            </div>
+        @endif
+
         <div class="lessonList">
             @foreach($lessons as $item)
                 <div class="item">
-                <a href="/course/lesson/{{$item->id}}" class="lesson">
-                    {{$item->title}}
-                </a>
+                    <a href="/course/lesson/{{$item->id}}" class="lesson">
+                        {{$item->title}}
+                    </a>
                 </div>
             @endforeach
         </div>

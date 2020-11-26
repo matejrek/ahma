@@ -8,8 +8,19 @@
         </div>
         
         <div class="lesson">
-            {{$lesson->content}}
-            {{$lesson->extras}}
+            <div class="content">
+                {{$lesson->content}}
+            </div>
+
+            @if($subPlan->isEmpty())
+                <div class="subscribe">
+                    Subscribe to this course to get the extended content <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+                </div>
+            @else
+                <div class="extras">
+                    {{$lesson->extras}}
+                </div>
+            @endif
         </div>
 
 

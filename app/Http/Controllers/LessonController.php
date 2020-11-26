@@ -89,13 +89,11 @@ class LessonController extends Controller
     //public function show(Lesson $lesson)
     public function show($id)
     {
-        $subPlan = LessonType::has('subscription.user')->where('id', $id)->get();
-        return $subPlan;
-        /*$courseAccess = Sub
-
-        $lessonsWithAccessLevel = "";
+        $courseId = Lesson::select('lesson_type_id')->where('id', $id)->first();
+        $subPlan = LessonType::has('subscription.user')->where('id', $courseId->lesson_type_id)->get();
+        $course = LessonType::where('id', $courseId->lesson_type_id)->first();
         $lesson = Lesson::findOrFail($id);
-        return view('courses/lesson', compact('lesson'));*/
+        return view('courses/lesson', compact('lesson', 'subPlan', 'course'));
     }
 
     /**
