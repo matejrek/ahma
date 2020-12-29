@@ -57,7 +57,7 @@
         <div class="welcome">
             <div class="container">
                 <div class="content">
-                    <span class="welcomeText">{{__('localization.welcome')}}</span>
+                    <!--span class="welcomeText">{{__('localization.welcome')}}</span-->
                     <h1>{!!__('localization.web_title')!!}<br/></h1>
                     <span class="subtitleText">{!!__('localization.web_subtitle')!!}</span>
                     <!--span class="subtitleSpecial">{{__('localization.web_subtitle_special')}}</span--><br/>
@@ -69,54 +69,87 @@
         <div class="courses">
             <div class="container">
                 <span>Welcome to AHMAlearn</span>
-                <h2>Our featured courses</h2>
+                <h2>Our amazing courses</h2>
                 <p>
-                    Choose from our thoughtfully crafted courses,<br/> which offer a comparable corriculum and pace as school corriculums.
+                    Choose from our thoughtfully crafted lectires,<br/> which offer a comparable corriculum and pace as highly reputed schools.
                 </p>
                 <div class="row">
                     <div class="courseList">
-                        @foreach($lessons as $item)
-                            <div class="item">
-                                <div class="courseBox">
-                                    <div class="learn">
-                                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                                    </div>
-                                    <div class="lang">
-                                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                                    </div>
-                                    <h3>{{$item->name}}</h3>
-                                    <p>This curriculum is in english.
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-
-                                    </p>
-                                    <a href="{{ route('login') }}" class="button">Enroll</a>
-                                    <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
+                        <div class="item">
+                            <div class="courseBox">
+                                <div class="icon">
+                                    <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
                                 </div>
-                                <div class="courseBox">
-                                    <div class="learn">
-                                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                                    </div>
-                                    <div class="lang">
-                                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                                    </div>
-                                    <h3>{{$item->name}}</h3>
-                                    <p>This curriculum is in english.
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                                <h3>Learn Korean (EN)</h3>
+                                <p>This curriculum is instructed in english.
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
 
-                                    </p>
-                                    <a href="{{ route('login') }}" class="button">Enroll</a>
-                                    <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
-                                </div>
+                                </p>
+                                <a href="{{ route('login') }}" class="button">Read more</a>
+                                <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
                             </div>
-                        @endforeach
+                            <div class="courseBox">
+                                <div class="icon">
+                                    <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                                </div>
+                                <h3>Learn English (KR)</h3>
+                                <p>This curriculum is instructed in korean.
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+
+                                </p>
+                                <a href="{{ route('login') }}" class="button">Read more</a>
+                                <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
+                            </div>
+                        </div>
                     </div>
                 </div>
              </div>
         </div>
-        <div class="cta-lr">
-            <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
+        <div class="centerCta">
+            <div class="container">
+                <div class="ctaPanel">
+                    <h2>What are you waiting for?</h2>
+                    <p>Signup or login and start your new learning journey</p>
+                    <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
+                </div>
+            </div>
         </div>
         
+        <div class="steps">
+            <div class="container">
+
+                <div class="text">
+                    <h2>How it all works</h2>
+                    <div class="step one">
+                        <div class="icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Signup and enroll</h3>
+                        <p>Signup for an account and enroll to one or multiple courses - all for free!</p>
+                    </div>
+
+                    <div class="step two">
+                        <div class="icon">
+                            <i class="fab fa-readme"></i>
+                        </div>
+                        <h3>Follow your curriculum</h3>
+                        <p>On set days, you will new lectures with instructions and tasks on new topics for you to learn. Or login to our web application on follow the course there!</p>
+                    </div>
+
+                    <div class="step three">
+                        <div class="icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Need more guidance?</h3>
+                        <p>Subscribe to a course to enhance your learning journey. With a active sunscription you will get access to extended exercises, even more detailed explanations and examples, so you can climb the ladder of success with ease!</p>
+                    </div>
+                </div>
+                <div class="image">
+                    <img src="{{ URL::to('/') }}/img/app.png" />
+                </div>
+            </div>
+        </div>
+
 
     </body>
 </html>

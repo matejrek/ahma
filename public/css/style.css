@@ -201,7 +201,7 @@ a:hover {
   float: left;
   width: 100%;
   padding: 10px;
-  background: #f5f7fa;
+  background: #fff;
   text-align: center;
   font-weight: 400;
 }
@@ -235,7 +235,7 @@ a:hover {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: #f5f7fa;
+  background: #fff;
 }
 
 .welcome .content {
@@ -295,7 +295,7 @@ a:hover {
   position: relative;
   text-align: center;
   height: 100px;
-  background: #f5f7fa;
+  background: #fff;
   display: none;
 }
 
@@ -307,74 +307,20 @@ a:hover {
   transform: translateX(-50%);
 }
 
-/*.courses{float:left; width:100%; padding:5px;
-    .course{float:left; width:calc(100% - 10px); margin:5px; padding:20px; background:$sky; text-align:center;
-        .content{float:left; width:100%; margin:40px 0;
-            .lang{float:left; width:100%;
-                img{width:50px; height:50px; border:1px solid $black; border-radius:50%;}
-            }
-            h2{float:left; width:100%; margin:5px 0 10px 0; font-size:1.75rem; font-weight:700; text-transform:uppercase;
-                span{float:left; width:100%; text-transform:none; font-weight:700; font-size:1.2rem;}
-            }
-            .instructed{float:left; width:100%; font-size:1rem; margin:0 0 20px 0;}
-        }
-        &.kr{background:linear-gradient(to bottom, rgba($sky,0.35) 0%,rgba($sky,0.35) 100%), url('../img/seoul.jpg'); background-size:cover; background:$blue; color:$white;}
-        &.en{background:linear-gradient(to bottom, rgba($blue,0.35) 0%,rgba($blue,0.35) 100%), url('../img/eng-1.jpg'); background-size:cover;background:$green; color:$white;}
-    }
+/*.cta-lr{float:left; width:100%; padding:20px; text-align:center;
+    background:linear-gradient(to right, rgba($blue,0.3) 0%,rgba($white,0) 100%), 
+                linear-gradient(to left, rgba($green,0.3) 0%,rgba($white,0) 100%),
+                url('../img/kr-1.jpg'); 
+    background-size:cover;
 }*/
-
-.cta-lr {
-  float: left;
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  background: linear-gradient(to right, rgba(26, 115, 232, 0.3) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, rgba(9, 138, 167, 0.3) 0%, rgba(255, 255, 255, 0) 100%), url(/images/kr-1.jpg?dd717d46d336b446d93fc4cc205d3f70);
-  background-size: cover;
-}
-
-/* 
-.wp-1{float:left; width:100%; padding:10px; background:$sky; text-align:center;
-    h1{font-size:1.2rem; font-weight:400; line-height:1.5;}
-}*/
-
-/*.courses{float:left; width:100%; padding:5px; 
-    .course{float:left; width:calc(100% - 10px); margin:5px; background:$blue; color:$white; text-align:center; padding:150px 20px;
-        h2{float:left; width:100%; font-size:2rem; font-weight:600; margin:0 0 10px 0;}
-        span{float:left; width:100%; font-size:1rem; font-weight:400;}
-        &:nth-child(2){background:$red;}
-        &.eng{background:
-            linear-gradient(to right, rgba($green,0.5) 50%,rgba($green,0.5) 50%), 
-            url('../img/eng-1.jpg'); background-size:cover;
-        }
-        &.kr{background:
-            linear-gradient(to right, rgba($blue,0.5) 50%,rgba($blue,0.5) 50%),  
-            url('../img/kr-1.jpg'); background-size:cover;  background-position:center;
-
-        }
-    }
-}*/
-
-/*
-
-.welcome{float:left; width:100%; background:linear-gradient(to bottom, rgba($black,0.7) 0%,rgba($black,0.7) 100%), 
-    url('../img/header-4.jpg'); 
-    background-size:cover; background-position:center; position:relative;
-    padding:0; color:$white; min-height:80vh;
-    .text{float:left; text-align:left; position:absolute; top:50%; transform:translateY(-50%);}
-    h1{font-size:3rem; font-weight:700; text-shadow:$shadow; margin:0 0 30px 0;}
-    p{font-size:1.25rem; font-weight:500; text-shadow:$shadow; margin:15px 0 45px 0;}
-    a{display:inline-block; margin:0 20px 0 0;}
-}
-*/
 
 .courses {
   float: left;
   width: 100%;
   text-align: center;
-  padding: 60px 0 60px 0;
+  padding: 60px 0 20px 0;
   position: relative;
-  background: #f5f7fa;
-  margin-top: -120px;
+  background: #fff;
 }
 
 .courses span {
@@ -402,15 +348,17 @@ a:hover {
 
 .courses .courseList {
   float: left;
-  width: 100%;
+  width: calc(100% + 20px);
+  margin: 10px -10px;
 }
 
 .courses .courseList .courseBox {
   float: left;
-  width: 100%;
+  width: calc(100% - 20px);
+  margin: 10px;
   padding: 60px 45px;
   position: relative;
-  background: #f5f7fa;
+  background: #f4f4f4;
   box-shadow: none;
   border-radius: 5px;
   transition: all 0.2s ease;
@@ -448,6 +396,22 @@ a:hover {
   border-radius: 50%;
 }
 
+.courses .courseList .courseBox .icon {
+  float: left;
+  width: 100%;
+  padding: 15px;
+  text-align: center;
+}
+
+.courses .courseList .courseBox .icon img,
+.courses .courseList .courseBox .icon svg {
+  display: inline-block;
+  width: 40px;
+  height: auto;
+  border: 1px solid #098aa7;
+  border-radius: 50%;
+}
+
 .courses .courseList .courseBox h3 {
   margin: 0 0 30px 0;
   font-size: 1.5rem;
@@ -465,32 +429,110 @@ a:hover {
   margin: 0 10px;
 }
 
-.courses .courseList .courseBox:hover {
-  box-shadow: 0 8px 16px 0 rgba(146, 184, 255, 0.2);
-  transform: translateY(-10px);
+.centerCta {
+  float: left;
+  width: 100%;
+  background: #fff;
+}
+
+.centerCta h2 {
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.centerCta p {
+  color: #ffffff;
+  margin: 0 0 20px 0;
+}
+
+.centerCta .ctaPanel {
+  float: left;
+  width: 100%;
+  padding: 40px;
+  text-align: center;
+  background: linear-gradient(to right, rgba(26, 115, 232, 0.65) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, rgba(9, 138, 167, 0.65) 0%, rgba(255, 255, 255, 0) 100%), url(/images/kr-3.jpg?861da8c4909b94eb8581e085fed8bc91);
+  background-size: cover;
+  background-position: center;
+}
+
+.steps {
+  float: left;
+  width: 100%;
+  padding: 60px 0;
+  background: #fff;
+  text-align: left;
+  /*background:linear-gradient(to right, rgba($sky,1) 50%,rgba($white,0) 100%), 
+      linear-gradient(to bottom, rgba($sky,1) 0%,rgba($white,0) 25%), 
+      linear-gradient(to top, rgba($sky,1) 0%,rgba($white,0) 45%), 
+      url('../img/steps-2.jpg');
+  background-size:cover; background-position:center right;*/
+}
+
+.steps .text {
+  float: left;
+  width: 50%;
+}
+
+.steps .image {
+  float: left;
+  width: 70%;
+  text-align: center;
+  margin-right: -20%;
+}
+
+.steps .image img {
+  max-width: 90%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.steps h2 {
+  margin: 0 0 30px 0;
+  color: #333333;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.steps .step {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  text-align: left;
+  padding: 15px 15px 15px 80px;
+  position: relative;
+  clear: both;
+  /*border:2px solid rgba($silver,0.5);*/
   transition: all 0.2s ease;
+  background: #f4f4f4;
+  border-radius: 5px;
+}
+
+.steps .step .icon {
+  float: left;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  font-size: 2.5rem;
+  color: #098aa7;
+  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.steps .step h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0px 0 10px 0;
 }
 
 /*
-.steps{float:left; width:100%; padding:45px 0; background:$white; text-align:left;
-    background:linear-gradient(to right, rgba($sky,1) 50%,rgba($white,0) 100%), 
-        linear-gradient(to bottom, rgba($sky,1) 0%,rgba($white,0) 25%), 
-        linear-gradient(to top, rgba($sky,1) 0%,rgba($white,0) 45%), 
-        url('../img/steps-1.jpg');
-    background-size:contain; background-position:center right;
-
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-    .step{float:left; width:50%; margin:0 0 45px 0; text-align:left; padding:15px 15px 15px 80px; position:relative; clear:both;
-        .icon{float:left; width:80px; height:80px; position:absolute; left:0; top:15px; font-size:2.5rem; color:$green;
-            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
-        }
-        h3{font-size:2rem; font-weight:600; margin:0px 0 10px 0;}
-    }
-}
-
 .startCta{float:left; width:100%; padding:230px 0; line-height:40px; text-align:center; 
     span{color:$white; font-weight:700; font-size:1.5rem; float:left; width:100%; margin:0 0 10px 0;}
     a{margin:0 10px;}
@@ -593,7 +635,8 @@ a:hover {
 
 @media only screen and (min-width: 1024px) {
   .courses .courseList .courseBox {
-    width: 50%;
+    width: calc(50% - 20px);
+    margin: 10px;
   }
 }
 
