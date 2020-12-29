@@ -14,7 +14,7 @@
 
     <div class="container">
 
-        <form method="POST" action="/lesson/{{$lesson->id}}/edit/save" class="mrsif-form">
+        <form method="POST" action="/admin/lesson/{{$lesson->id}}/edit/save" class="mrsif-form">
             {{ csrf_field() }}
 
             @if(count($errors) >0)

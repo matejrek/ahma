@@ -6,6 +6,14 @@
         <div class="heading">
             <h1>{{$course->name}}</h1>
         </div>
+        <div class="courseAbout">
+            <div class="headingAbout">
+                Introduction
+            </div>
+            <div class="contentAbout">
+                {!!$course->about!!}
+            </div>
+        </div>
         
         @if($subPlan->isEmpty())
             <div class="subscribe">
@@ -104,6 +112,14 @@
             @endforeach
 
         </div>--}}
+    <script>
+        $(function(){
+            $('.headingAbout').on('click', function(){
+                $(this).toggleClass('active');
+                $(this).next().toggle();
+            });
+        });
+    </script>
 
     
 @endsection

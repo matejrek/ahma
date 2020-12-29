@@ -38,20 +38,20 @@
                                 <a class="link" href="/">Home</a>
                             </li>
                             <li class="item">
-                                <a class="link" href="/dashboard">Dashboard</a>
+                                <a class="link" href="/admin">Dashboard</a>
                             </li>
                             <li class="item">
-                                <a class="link" href="/lessons">Lessons</a>
+                                <a class="link" href="/admin">Lessons</a>
                             </li>
                             <li class="item">
-                                <a class="link" href="/lesson/create">Create new lesson</a>
+                                <a class="link" href="/admin/lesson/create">Create new lesson</a>
                             </li>
                             <li class="item">
-                                <a class="link" href="/lesson/type/create">Create new lesson type</a>
+                                <a class="link" href="/admin/lesson/type/create">Create new lesson type</a>
                             </li>
                             <li class="item">
                                 <br/><br/><br/>
-                                <a class="link" href="/send">Send mails manually</a>
+                                <a class="link" href="/admin/send">Send mails manually</a>
                             </li>
                         </ul>
                     </div>

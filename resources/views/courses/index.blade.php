@@ -7,6 +7,9 @@
             <h1>Courses</h1>
         </div>
 
+        @if($paymentMethods->isEmpty())
+            <div>Setup a payment method in billing before you can subscribe</div>
+        @endif
 
         <div class="courseList">
             @foreach($subscribed as $item)
@@ -59,7 +62,7 @@
                 </div>
             @endforeach
 
-            @foreach($enrolled as $item)
+            @foreach($remaining as $item)
                 <div class="item">
                     <div class="box">
                         <!--div class="learn">

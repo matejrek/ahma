@@ -197,44 +197,175 @@ a:hover {
   color: #1a73e8;
 }
 
+.language {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  background: #f5f7fa;
+  text-align: center;
+  font-weight: 400;
+}
+
+.language a {
+  text-decoration: none;
+  font-weight: 700;
+  color: #333333;
+}
+
+.language a:hover {
+  color: #1a73e8;
+}
+
 .welcome {
   float: left;
   width: 100%;
-  background: linear-gradient(to bottom, rgba(51, 51, 51, 0.7) 0%, rgba(51, 51, 51, 0.7) 100%), url(/images/header-4.jpg?2e89b2966233b8c6b77a8f61c24731a9);
-  background-size: cover;
-  background-position: center;
+  padding: 20px;
+  text-align: center;
   position: relative;
-  padding: 0;
-  color: #ffffff;
   min-height: 80vh;
+  background: url(/images/hero-overlay-4.png?fe2ae06f5b2c2e535bd38a7e27d8f83e) bottom center;
+  background-size: cover;
 }
 
-.welcome .text {
-  float: left;
-  text-align: left;
+.welcome:after {
+  content: "";
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: #f5f7fa;
+}
+
+.welcome .content {
+  float: left;
+  width: 100%;
+  position: relative;
+  margin: 10vh 0;
+  z-index: 3;
+}
+
+.welcome span.welcomeText {
+  float: left;
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-transform: uppercase;
 }
 
 .welcome h1 {
-  font-size: 3rem;
+  float: left;
+  width: 100%;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  margin: 20px 0 20px 0;
+  text-transform: uppercase;
   font-weight: 700;
-  text-shadow: 0 8px 16px 0 rgba(146, 184, 255, 0.2);
+}
+
+.welcome h1 span {
+  float: left;
+  width: 100%;
+  font-weight: 400;
+}
+
+.welcome span.subtitleText {
+  float: left;
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin: 0 0 20px 0;
+}
+
+.welcome span.subtitleSpecial {
+  float: left;
+  width: 100%;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 1.5;
   margin: 0 0 30px 0;
 }
 
-.welcome p {
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-shadow: 0 8px 16px 0 rgba(146, 184, 255, 0.2);
-  margin: 15px 0 45px 0;
+.devices {
+  float: left;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  height: 100px;
+  background: #f5f7fa;
+  display: none;
 }
 
-.welcome a {
-  display: inline-block;
-  margin: 0 20px 0 0;
+.devices img {
+  max-width: 600px;
+  bottom: 10px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
 }
+
+/*.courses{float:left; width:100%; padding:5px;
+    .course{float:left; width:calc(100% - 10px); margin:5px; padding:20px; background:$sky; text-align:center;
+        .content{float:left; width:100%; margin:40px 0;
+            .lang{float:left; width:100%;
+                img{width:50px; height:50px; border:1px solid $black; border-radius:50%;}
+            }
+            h2{float:left; width:100%; margin:5px 0 10px 0; font-size:1.75rem; font-weight:700; text-transform:uppercase;
+                span{float:left; width:100%; text-transform:none; font-weight:700; font-size:1.2rem;}
+            }
+            .instructed{float:left; width:100%; font-size:1rem; margin:0 0 20px 0;}
+        }
+        &.kr{background:linear-gradient(to bottom, rgba($sky,0.35) 0%,rgba($sky,0.35) 100%), url('../img/seoul.jpg'); background-size:cover; background:$blue; color:$white;}
+        &.en{background:linear-gradient(to bottom, rgba($blue,0.35) 0%,rgba($blue,0.35) 100%), url('../img/eng-1.jpg'); background-size:cover;background:$green; color:$white;}
+    }
+}*/
+
+.cta-lr {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  background: linear-gradient(to right, rgba(26, 115, 232, 0.3) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, rgba(9, 138, 167, 0.3) 0%, rgba(255, 255, 255, 0) 100%), url(/images/kr-1.jpg?dd717d46d336b446d93fc4cc205d3f70);
+  background-size: cover;
+}
+
+/* 
+.wp-1{float:left; width:100%; padding:10px; background:$sky; text-align:center;
+    h1{font-size:1.2rem; font-weight:400; line-height:1.5;}
+}*/
+
+/*.courses{float:left; width:100%; padding:5px; 
+    .course{float:left; width:calc(100% - 10px); margin:5px; background:$blue; color:$white; text-align:center; padding:150px 20px;
+        h2{float:left; width:100%; font-size:2rem; font-weight:600; margin:0 0 10px 0;}
+        span{float:left; width:100%; font-size:1rem; font-weight:400;}
+        &:nth-child(2){background:$red;}
+        &.eng{background:
+            linear-gradient(to right, rgba($green,0.5) 50%,rgba($green,0.5) 50%), 
+            url('../img/eng-1.jpg'); background-size:cover;
+        }
+        &.kr{background:
+            linear-gradient(to right, rgba($blue,0.5) 50%,rgba($blue,0.5) 50%),  
+            url('../img/kr-1.jpg'); background-size:cover;  background-position:center;
+
+        }
+    }
+}*/
+
+/*
+
+.welcome{float:left; width:100%; background:linear-gradient(to bottom, rgba($black,0.7) 0%,rgba($black,0.7) 100%), 
+    url('../img/header-4.jpg'); 
+    background-size:cover; background-position:center; position:relative;
+    padding:0; color:$white; min-height:80vh;
+    .text{float:left; text-align:left; position:absolute; top:50%; transform:translateY(-50%);}
+    h1{font-size:3rem; font-weight:700; text-shadow:$shadow; margin:0 0 30px 0;}
+    p{font-size:1.25rem; font-weight:500; text-shadow:$shadow; margin:15px 0 45px 0;}
+    a{display:inline-block; margin:0 20px 0 0;}
+}
+*/
 
 .courses {
   float: left;
@@ -243,6 +374,7 @@ a:hover {
   padding: 60px 0 60px 0;
   position: relative;
   background: #f5f7fa;
+  margin-top: -120px;
 }
 
 .courses span {
@@ -339,111 +471,47 @@ a:hover {
   transition: all 0.2s ease;
 }
 
-.steps {
-  float: left;
-  width: 100%;
-  padding: 45px 0;
-  background: #ffffff;
-  text-align: left;
-  background: linear-gradient(to right, #f5f7fa 50%, rgba(255, 255, 255, 0) 100%), linear-gradient(to bottom, #f5f7fa 0%, rgba(255, 255, 255, 0) 25%), linear-gradient(to top, #f5f7fa 0%, rgba(255, 255, 255, 0) 45%), url(/images/steps-1.jpg?eb98c9553b12dd302d5fc239911f1d96);
-  background-size: contain;
-  background-position: center right;
+/*
+.steps{float:left; width:100%; padding:45px 0; background:$white; text-align:left;
+    background:linear-gradient(to right, rgba($sky,1) 50%,rgba($white,0) 100%), 
+        linear-gradient(to bottom, rgba($sky,1) 0%,rgba($white,0) 25%), 
+        linear-gradient(to top, rgba($sky,1) 0%,rgba($white,0) 45%), 
+        url('../img/steps-1.jpg');
+    background-size:contain; background-position:center right;
+
+    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
+    .step{float:left; width:50%; margin:0 0 45px 0; text-align:left; padding:15px 15px 15px 80px; position:relative; clear:both;
+        .icon{float:left; width:80px; height:80px; position:absolute; left:0; top:15px; font-size:2.5rem; color:$green;
+            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+        h3{font-size:2rem; font-weight:600; margin:0px 0 10px 0;}
+    }
 }
 
-.steps h2 {
-  margin: 0 0 30px 0;
-  color: #333333;
-  font-size: 2.5rem;
-  font-weight: 700;
+.startCta{float:left; width:100%; padding:230px 0; line-height:40px; text-align:center; 
+    span{color:$white; font-weight:700; font-size:1.5rem; float:left; width:100%; margin:0 0 10px 0;}
+    a{margin:0 10px;}
+    background:
+        linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+            linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%),
+            url('../img/header-1.jpg'); 
+    background-size:cover; background-position:center;
 }
 
-.steps .step {
-  float: left;
-  width: 50%;
-  margin: 0 0 45px 0;
-  text-align: left;
-  padding: 15px 15px 15px 80px;
-  position: relative;
-  clear: both;
+.cta{float:left; width:100%; padding:180px 0 250px 0; text-align:center; display:none;
+    background:url('../img/header-1.jpg'); 
+    background-size:cover;
+    h2{font-size:3rem; font-weight:700; margin:0 0 30px 0;}
+    a{margin:0 10px;}
 }
 
-.steps .step .icon {
-  float: left;
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  left: 0;
-  top: 15px;
-  font-size: 2.5rem;
-  color: #098aa7;
-  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.steps .step h3 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0px 0 10px 0;
-}
-
-.startCta {
-  float: left;
-  width: 100%;
-  padding: 230px 0;
-  line-height: 40px;
-  text-align: center;
-  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%), url(/images/header-1.jpg?7a8240141e260d732034823de867d316);
-  background-size: cover;
-  background-position: center;
-}
-
-.startCta span {
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 1.5rem;
-  float: left;
-  width: 100%;
-  margin: 0 0 10px 0;
-}
-
-.startCta a {
-  margin: 0 10px;
-}
-
-.cta {
-  float: left;
-  width: 100%;
-  padding: 180px 0 250px 0;
-  text-align: center;
-  display: none;
-  background: url(/images/header-1.jpg?7a8240141e260d732034823de867d316);
-  background-size: cover;
-}
-
-.cta h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin: 0 0 30px 0;
-}
-
-.cta a {
-  margin: 0 10px;
-}
-
-.footer {
-  float: left;
-  width: 100%;
-  text-align: center;
-  background: #098aa7;
-  color: #ffffff;
-  padding: 30px 0;
-  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%);
-}
-
-.footer a {
-  color: #ffffff;
-  text-decoration: none;
+.footer{float:left; width:100%; text-align:center; background:$green; color:$white; padding:30px 0;
+    background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
+    a{color:$white; text-decoration:none;}
 }
 
 /*
@@ -524,28 +592,157 @@ a:hover {
 }*/
 
 @media only screen and (min-width: 1024px) {
-  .courses .item {
-    width: 33.33333%;
+  .courses .courseList .courseBox {
+    width: 50%;
   }
 }
 
 @media only screen and (min-width: 1360px) {
   .container {
-    max-width: 1350px;
-    margin: 0 calc(50% - 675px);
+    max-width: 1200px;
+    margin: 0 calc(50% - 600px);
   }
 }
 
-@media only screen and (min-width: 1600px) {
-  .container {
-    max-width: 1500px;
-    margin: 0 calc(50% - 750px);
-  }
+/*.courseDashboard{float:left; width:100%; 
+    .dashHeader{float:left; width:100%; padding:0px 0px; background:$blue;
+        background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
+                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
+        .logo{float:left; width:auto; 
+            a{float:left; height:60px; width:150px; padding:15px 20px;}
+            img{float:left; height:30px; width:auto;}
+        }
+        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
+            .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
+                &:hover, &:active, &:focus{color:$blue;}
+            }
+        }
+    }
+    .dashSidebar{float:left; width:150px; min-height:calc(100vh - 60px); 
+        background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 100%), 
+            linear-gradient(to top, rgba($green,1) 0%,rgba($white,0) 100%); 
+        .item{float:left; width:100%; text-align:center; margin:0; color:$white;
+            a{float:left; width:100%; padding:15px; text-align:center; color:$white; border-bottom:1px solid rgba($white,0.4);
+                font-size:1rem; text-transform:uppercase;
+                i{font-size:1.35rem; float:left; width:100%; text-align:center; margin:0 0 5px 0;}
+                &:hover, &:active, &:focus{background:darken($blue,7%);}
+            }
+            &:nth-child(1){border-top:1px solid rgba($white,0.4);}
+        }
+    }
+    .dashContent{float:left; width:calc(100% - 150px); padding:20px; min-height:calc(100vh - 60px); padding-bottom:100px; position:relative;
+        background:$sky;
+        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $black;
+            h1{float:left; width:100%; margin:20px 0;}
+        }
+    }
+
+    .dashFooter{float:left; width:100%; text-align:center; background:$sky; border-top:1px solid $grey; color:$black; height:80px; line-height:80px;
+        position:absolute; left:0; bottom:1px; right:0; 
+        //background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+         //           linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
+        a{color:$black; text-decoration:none;}
+    }
 }
+
+.courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
+    .item{float:left; width:100%; padding:10px;
+        .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:center;
+            h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
+                a{color:$black;
+                    &:hover{color:$blue;}
+                }
+            }
+            p{color:$black;}
+        }
+        a:hover{
+            h3{color:$blue;}
+        }
+    }
+}
+
+.subscribe-alert{float:left; max-width:100%; padding:10px; border:1px solid darken($gold,5%); background:$gold; position:relative;
+    font-weight:600; text-align:center; //left:50%; transform:translateX(-50%);
+}
+
+
+//coming soon page
+.comingSoonPage{float:left; width:100%; margin:0; padding:0; background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 100%), 
+                    linear-gradient(to left, rgba($green,0.9) 0%,rgba($white,0) 100%), url('../img/seoul.jpg'); background-size:cover; background-repeat:no-repeat;
+                    text-transform:2px 2px 5px rgba($black,0.75); min-height:100vh;
+    .pageCenter{float:left; width:100%; position:absolute; top:50%; transform:translateY(-50%);}               
+        .logo{float:left; width:100%; text-align:center;
+            img{height:50px; width:auto;}
+        }
+        .cd-text{float:left; width:100%; text-align:center; color:$white; font-size:1.5rem; font-weight:700; margin:10px 0; text-transform:uppercase;}
+        .cd-paragraph{float:left; width:100%; text-align:center; color:$white; font-size:1.2rem; line-height:1.5; font-weight:600;}
+        .countdown{float:left; width:100%; text-align:center; color:$white; font-size:4rem; font-weight:600; margin:5px 0; min-height:100px; line-height:100px;}
+        .instagram{margin:10px; display:inline-block;
+            img{height:60px; width:auto;}
+        }
+}
+
+.courseAbout{float:left; width:100%; margin:0 0 20px 0;
+    .headingAbout{float:left; width:100%; padding:10px; font-size:1.2rem; text-transform:uppercase; font-weight:600; background:$grey; border:1px solid rgba($black,0.3);
+        transition:all 0.2s ease-in-out;
+        &.active{background:darken($grey,3%);}
+        &:hover{background:darken($grey,5%); cursor:pointer; transition:all 0.2s ease-in-out;}
+    }
+    .contentAbout{float:left; width:100%; padding:10px; background:$grey; border-bottom:1px solid rgba($black,0.3); display:none;
+        border-left:1px solid rgba($black,0.3); border-right:1px solid rgba($black,0.3);
+    }
+}
+.lessonList{float:left; width:100%; margin:0 0 20px 0;
+    .item{float:left; width:100%; margin:0 0 1px 0;
+        a{float:left; width:100%; padding:10px; color:$white; font-size:1.1rem; font-weight:600;background:$blue;
+            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
+                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
+            &:hover{background:$blue;
+                background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 70%), 
+                        linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
+
+            }
+        }
+    }
+}
+
+.lesson{float:left; width:100%;
+    p{margin:0;}
+    p + p{margin-top:1rem;}
+    .content{float:left; width:100%;}
+    .extras{float:left; width:100%; padding:10px; background:$grey; margin:20px 0 0 0;}
+}
+
+
+@media only screen and (min-width:600px){
+    .courseList{
+        .item{width:50%;
+            &:nth-child(2n + 1){clear:both;}
+        }
+    }
+}
+
+@media only screen and (min-width:1024px){
+    .courseList{
+        .item{width:33.33333%;
+            &:nth-child(2n + 1){clear:none;}
+            &:nth-child(3n + 1){clear:both;}
+        }
+    }
+}
+
+@media only screen and (min-width:1360px){
+
+}
+
+@media only screen and (min-width:1600px){
+
+}*/
 
 .courseDashboard {
   float: left;
   width: 100%;
+  background: rgba(51, 51, 51, 0.3);
 }
 
 .courseDashboard .dashHeader {
@@ -563,7 +760,6 @@ a:hover {
 
 .courseDashboard .dashHeader .logo a {
   float: left;
-  /*background:darken($blue,7%);*/
   height: 60px;
   width: 150px;
   padding: 15px 20px;
@@ -599,28 +795,21 @@ a:hover {
 
 .courseDashboard .dashSidebar {
   float: left;
-  width: 150px;
-  min-height: calc(100vh - 60px);
-  /*background:$blue; padding:40px 0;*/
-  background: linear-gradient(to bottom, #1a73e8 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to top, #098aa7 0%, rgba(255, 255, 255, 0) 100%);
+  width: 300px;
+  padding: 40px 0;
 }
 
 .courseDashboard .dashSidebar .item {
   float: left;
   width: 100%;
-  text-align: center;
-  margin: 0;
-  color: #ffffff;
 }
 
 .courseDashboard .dashSidebar .item a {
   float: left;
   width: 100%;
   padding: 15px;
-  text-align: center;
   color: #ffffff;
-  /*background:$blue;*/
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  line-height: 50px;
   font-size: 1rem;
   text-transform: uppercase;
 }
@@ -628,30 +817,26 @@ a:hover {
 .courseDashboard .dashSidebar .item a i {
   font-size: 1.35rem;
   float: left;
-  width: 100%;
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
   text-align: center;
-  margin: 0 0 5px 0;
+  margin: 0 10px 5px 0;
 }
 
-.courseDashboard .dashSidebar .item a:hover,
-.courseDashboard .dashSidebar .item a:active,
-.courseDashboard .dashSidebar .item a:focus {
-  /*background:lighten($blue,10%);*/
-  background: #1463ca;
-}
-
-.courseDashboard .dashSidebar .item:nth-child(1) {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+.courseDashboard .dashSidebar .item a:hover {
+  color: #1a73e8;
 }
 
 .courseDashboard .dashContent {
   float: left;
-  width: calc(100% - 150px);
+  width: calc(100% - 300px);
   padding: 20px;
   min-height: calc(100vh - 60px);
   padding-bottom: 100px;
   position: relative;
-  background: #f5f7fa;
 }
 
 .courseDashboard .dashContent .heading {
@@ -665,96 +850,5 @@ a:hover {
   float: left;
   width: 100%;
   margin: 20px 0;
-}
-
-.courseDashboard .dashFooter {
-  float: left;
-  width: 100%;
-  text-align: center;
-  background: #f5f7fa;
-  border-top: 1px solid #ebebeb;
-  color: #333333;
-  height: 80px;
-  line-height: 80px;
-  position: absolute;
-  left: 0;
-  bottom: 1px;
-  right: 0;
-  /*background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-              linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); */
-}
-
-.courseDashboard .dashFooter a {
-  color: #333333;
-  text-decoration: none;
-}
-
-.courseList {
-  float: left;
-  width: calc(100% + 20px);
-  margin: 0 -10px;
-}
-
-.courseList .item {
-  float: left;
-  width: 100%;
-  padding: 10px;
-}
-
-.courseList .item .box {
-  float: left;
-  width: 100%;
-  border: 1px solid #ebebeb;
-  background: #ebebeb;
-  padding: 20px;
-  text-align: center;
-}
-
-.courseList .item .box h3 {
-  color: #333333;
-  float: left;
-  width: 100%;
-  margin: 0 0 10px 0;
-  font-size: 1.7rem;
-}
-
-.courseList .item .box h3 a {
-  color: #333333;
-}
-
-.courseList .item .box h3 a:hover {
-  color: #1a73e8;
-}
-
-.courseList .item .box p {
-  color: #333333;
-}
-
-.courseList .item a:hover h3 {
-  color: #1a73e8;
-}
-
-@media only screen and (min-width: 600px) {
-  .courseList .item {
-    width: 50%;
-  }
-
-  .courseList .item:nth-child(2n+1) {
-    clear: both;
-  }
-}
-
-@media only screen and (min-width: 1024px) {
-  .courseList .item {
-    width: 33.33333%;
-  }
-
-  .courseList .item:nth-child(2n+1) {
-    clear: none;
-  }
-
-  .courseList .item:nth-child(3n+1) {
-    clear: both;
-  }
 }
 

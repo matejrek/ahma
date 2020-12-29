@@ -79,7 +79,7 @@ class sendMails implements ShouldQueue
                     $to_email = $user['email'];
                     Mail::send('mail', $data, function($message) use ($to_name, $to_email){
                         $message->to($to_email, $to_name)->subject('AHMAlearn.com');
-                        $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                        $message->from('noreply@ahmalearn.com','Learn KOREA with AHMAlearn.com');
                     });
                     //error_log("is premium: ".$premium);
                     //create record for lesson and if premium
@@ -121,7 +121,7 @@ class sendMails implements ShouldQueue
                 $to_email = $user['email'];
                 Mail::send('mail', $data, function($message) use ($to_name, $to_email){
                     $message->to($to_email, $to_name)->subject('AHMAlearn.com');
-                    $message->from('lessons@mrsif.com','Learn KOREA with AHMAlearn.com');
+                    $message->from('noreply@ahmalearn.com','Learn KOREA with AHMAlearn.com');
                 });
                 //error_log("is premium: ".$premium);
                 //create record for lesson and if premium

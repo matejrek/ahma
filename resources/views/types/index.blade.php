@@ -10,22 +10,22 @@
         <ul>
         @foreach($lessons as $item)
             <li>
-                <a href="lesson/{{$item->id}}">
+                <a href="admin/lesson/{{$item->id}}">
                     {{ $item['title'] }}
                 </a>
                 |
-                <a href="lesson/edit/{{$item->id}}">
+                <a href="admin/lesson/edit/{{$item->id}}">
                     Edit
                 </a>
                 |
-                <a href="lesson/delete/{{$item->id}}">
+                <a href="admin/lesson/delete/{{$item->id}}">
                     Delete
                 </a>
             </li>
         @endforeach
         </ul>
 
-        <a class="btn btn-primary" href="/lesson/create">Create new lesson</a>
+        <a class="btn btn-primary" href="/admin/lesson/create">Create new lesson</a>
     </div>
 @endsection
 

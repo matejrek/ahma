@@ -8,7 +8,10 @@ use App\Models\LessonType;
 use App\Models\Enrolls;
 use App\Models\Subscriptions;
 use App\Models\Lesson;
+use App\Models\Progress;
+use App\Models\LessonAccessLevel;
 use DB;
+
 
 class WebsiteController extends Controller
 {
@@ -21,6 +24,11 @@ class WebsiteController extends Controller
     {
         $lessons = LessonType::all();
         return view('welcome', compact('lessons'));
+    }
+
+    public function soon()
+    {
+        return view('comingsoon');
     }
 
     public function courses()
@@ -50,8 +58,14 @@ class WebsiteController extends Controller
         $enrolled = LessonType::doesntHave('enrolls.lessonType.subscription.user')->has('enrolls.lessonType')->get();
         $remaining = LessonType::doesntHave('enrolls')->get();
         
-
-        return view('courses/index', compact('enrolled', 'subscribed', 'remaining'));
+        //$userPaymentMethod = $user->paymentMethods();
+        
+        $user = auth()->user();
+        $paymentMethods = $user->paymentMethods()->map(function($paymentMethod){
+            return $paymentMethod->asStripePaymentMethod();
+        });
+    
+        return view('courses/index', compact('enrolled', 'subscribed', 'remaining', 'paymentMethods'));
     }
 
     /**
@@ -82,10 +96,25 @@ class WebsiteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
+        $userId = auth()->user()->id;
         $course = LessonType::where('id', $id)->first();
         $subPlan = LessonType::has('subscription.user')->where('id', $id)->get();
-        $lessons = Lesson::all()->where('lesson_type_id', $id)->sortByDesc('created_at');
+        $progress = Progress::where('lesson_type_id', $id)->where('user_id', $userId)->first();
+
+        $lessons = [];
+        if($progress){
+            $lessons = Lesson::all()->where('lesson_type_id', $id)->where('id', '<=', $progress->lesson_id)->sortByDesc('created_at');
+        }
+        else{
+            //handle for no lessons to type "wait for 1st scheduled lesson"
+        }
+
+
+        /*$lessons = Lesson::join('lesson_access_levels', 'lessons.id', '=', 'lesson_access_levels.lesson_id')
+            ->get()->where('lesson_type_id', $id)->where('lessons.id', '<=', $progress->lesson_id)->where('user_id', $userId)
+            ->sortByDesc('created_at');*/
+
         return view('courses/course', compact('lessons', 'subPlan', 'course'));
     }
 

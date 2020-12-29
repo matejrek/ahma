@@ -18,7 +18,7 @@ class SubscriptionController extends Controller
         $request->user()->createOrGetStripeCustomer();
 
         return $request->user()->redirectToBillingPortal(
-            route('lessons')
+            route('courses')
         );
     }
 
@@ -67,7 +67,7 @@ class SubscriptionController extends Controller
         
         $user->newSubscription('default', $sub_key)->create($paymentMethod);
 
-        return redirect('/lessons');
+        return redirect('/courses');
     }
 
 
@@ -121,7 +121,7 @@ class SubscriptionController extends Controller
 
         //return redirect('/dashboard');
         checkSubscription::dispatch();//you can use chunk method and pass your $users as params
-        return redirect('/lessons');
+        return redirect('/courses');
 
     }   
 }

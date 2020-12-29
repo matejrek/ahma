@@ -7,105 +7,81 @@
             <h1>{{$lesson->title}}</h1>
         </div>
         
+        @if($subPlan->isEmpty())
+            <div class="subscribe">
+                Subscribe to this course to get the extended content <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+            </div>
+        @endif 
+
         <div class="lesson">
             <div class="content">
-                {{$lesson->content}}
+                {!!$lesson->content!!}
             </div>
 
-            @if($subPlan->isEmpty())
+            @if($accessLevel->premium == 0)
                 <div class="subscribe">
-                    Subscribe to this course to get the extended content <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+                    To unlock extra content for lessons you unlocked while you were not subscribed <div onclick="getLessonData()" class="button">Purchase lesson extras</div>
                 </div>
             @else
+                <h4>Extras:</h4>
                 <div class="extras">
-                    {{$lesson->extras}}
+                    {!!$lesson->extras!!}
                 </div>
             @endif
         </div>
 
 
-        {{--<div class="lessonList">
-            @foreach($subscribed as $item)
-                <div class="item">
-                    <a href="course/{{$item->id}}" class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>{{$item->name}}</h3>
-                        <p>This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-
-                        </p>
-                        <span class="button">Go to course</span>
-                    </a>
-                    <div class="button subscribed">
-                        Active subscription
-                    </div>
-                </div>
-            @endforeach
-
-            @foreach($enrolled as $item)
-                <div class="item">
-                    <div class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>
-                            <a href="course/{{$item->id}}">
-                                {{$item->name}}
-                            </a>
-                        </h3>
-                        <p>
-                            This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </p>
-                        <a href="course/{{$item->id}}" class="button">
-                            Go to course
-                        </a>
-                    </div>
-                    <a href="course/subscribe/{{$item->id}}" class="button subscribe">
-                        Subscribe
-                    </a>
-                </div>
-            @endforeach
-
-            @foreach($enrolled as $item)
-                <div class="item">
-                    <div class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>
-                            <a href="course/{{$item->id}}">
-                                {{$item->name}}
-                            </a>
-
-                        </h3>
-                        <p>
-                            This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </p>
-                        <a href="course/{{$item->id}}" class="button">
-                            Go to course
-                        </a>
-                    </div>
-                    <a href="course/enroll/{{$item->id}}" class="button enroll">
-                        Enroll
-                    </a>
-                </div>
-            @endforeach
-
-        </div>--}}
-
+      
     
 @endsection
 
+<script src="https://js.stripe.com/v3/"></script>
+
+<script>
+
+    function getLessonData(){
+        var lessonId = @json($lesson->id);
+        $.ajax({
+            type: 'GET',
+            url: '/unlockLessonData/'+lessonId+'',
+            success: function (data){
+                console.log(data);
+
+                /*const value = Object.values(data).map(e => e.value)
+                console.log(value)
+
+                const label = Object.values(data).map(e => e.created_at)
+                console.log(label)*/
+
+                //rebuild graph
+                payOne(data)
+            },
+            error: function(e){
+                //console.log(e);
+            }
+        });
+    }
+
+    function payOne(params){
+        const stripe = Stripe('pk_test_51HT7trLFv1NQex0wDGt418pRQVPj2yb8LvhvDotXwV3Ve6xp56hyYXy5txlYCgwG8WXMrRgrBe8b2Ip0FwBm1pqc00U7EQSuh8');
+
+        stripe.redirectToCheckout({
+        lineItems: [{
+            price: 'price_1He4fkLFv1NQex0w239HmfiN', // Replace with the ID of your price
+            quantity: 1,
+        }],
+        mode: 'payment',
+            successUrl: 'http://127.0.0.1:8000/single/success?session_id={CHECKOUT_SESSION_ID}'+params+'',  // add param here
+            cancelUrl: 'http://127.0.0.1:8000/single/cancel',
+        }).then(function (result) {
+            // If `redirectToCheckout` fails due to a browser or network session_id=cs_test_bWvOwplvj2pWX06DtA7D6HKjuZAh5Hzk3bFKmCMxHiJldwcygmcMxGcn
+            // error, display the localized error message to your customer session_id=cs_test_saE64rbF4irnVFPhkw4BmYl9kbXD1n5QnwjfeHKvw55dW6MFawuQhovu
+            // using `result.error.message`. 
+            /*
+                session = Stripe::Checkout::Session.retrieve(params[:session_id])
+                customer = Stripe::Checkout::Customer.retrieve(session.customer)
+                shranjujem oid- orderId pa session id na success in dam enabled, 
+            */
+        });
+    }
+</script>

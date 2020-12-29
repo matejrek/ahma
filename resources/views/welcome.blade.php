@@ -49,12 +49,19 @@
                 @endif
             </div>
         </div>
+        <div class="language">
+            {{__('localization.select_language')}}:
+            <a href="/lang/en">EN</a>
+            <a href="/lang/kr">KR</a>
+        </div>
         <div class="welcome">
             <div class="container">
-                <div class="text">
-                    <h1>Start your learning journey today!</h1>
-                    <p>Structured and prepared so you can learn even with a tight schedule.</p>
-                    <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a>
+                <div class="content">
+                    <span class="welcomeText">{{__('localization.welcome')}}</span>
+                    <h1>{!!__('localization.web_title')!!}<br/></h1>
+                    <span class="subtitleText">{!!__('localization.web_subtitle')!!}</span>
+                    <!--span class="subtitleSpecial">{{__('localization.web_subtitle_special')}}</span--><br/>
+                    <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
                 </div>
             </div>
         </div>
@@ -85,63 +92,31 @@
                                     <a href="{{ route('login') }}" class="button">Enroll</a>
                                     <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
                                 </div>
+                                <div class="courseBox">
+                                    <div class="learn">
+                                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
+                                    </div>
+                                    <div class="lang">
+                                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                                    </div>
+                                    <h3>{{$item->name}}</h3>
+                                    <p>This curriculum is in english.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+
+                                    </p>
+                                    <a href="{{ route('login') }}" class="button">Enroll</a>
+                                    <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
+                                </div>
                             </div>
                         @endforeach
                     </div>
                 </div>
              </div>
         </div>
-
-        <!--div class="startCta">
-            <div class="container">
-                <span>Start learning:</span> <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a>
-            </div>
-        </div-->
-
-        <div class="steps">
-            <div class="container">
-                <h2>How it all works</h2>
-                <div class="step one">
-                    <div class="icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <h3>Signup and enroll</h3>
-                    <p>Signup for an account and enroll to one or multiple courses - all for free!</p>
-                </div>
-
-                <div class="step two">
-                    <div class="icon">
-                        <i class="fab fa-readme"></i>
-                    </div>
-                    <h3>Follow your curriculum</h3>
-                    <p>On set days, you will receive an email with instructions and tasks on new topics for you to learn. Or login to our web application on follow the course there!</p>
-                </div>
-
-                <div class="step three">
-                    <div class="icon">
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <h3>Need more guidance?</h3>
-                    <p>Subscribe to a course to enhance your learning journey. With a active sunscription you will get access to extended exercises, even more detailed explanations and examples, so you can climb the ladder of success with ease!</p>
-                </div>
-            </div>
+        <div class="cta-lr">
+            <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
         </div>
-        <div class="startCta">
-            <div class="container">
-                <span>What are you waiting for? - Start now</span> 
-                <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a>
-            </div>
-        </div>
-        <div class="cta">
-            <div class="container">
-                <h2>What are you waiting for? - Sign up now</h2>
-                <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a>
-            </div>
-        </div>
+        
 
-
-        <div class="footer">
-            <a href="#">Instagram</a>
-        </div>
     </body>
 </html>

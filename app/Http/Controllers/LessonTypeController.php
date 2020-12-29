@@ -55,6 +55,7 @@ class LessonTypeController extends Controller
         $type = new LessonType();
         $type->name = $requestArr['name'];
         $type->stripe_sub_id = $requestArr['stripe_sub_id'];
+        $type->about = $requestArr['about'];
 
         $type->save();
 
