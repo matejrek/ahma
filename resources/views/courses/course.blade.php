@@ -2,10 +2,11 @@
 
 
 @section('content')
-   <div class="container">
+
         <div class="heading">
             <h1>{{$course->name}}</h1>
         </div>
+
         <div class="courseAbout">
             <div class="headingAbout">
                 Introduction
@@ -16,12 +17,13 @@
         </div>
         
         @if($subPlan->isEmpty())
-            <div class="subscribe">
+            <div class="subscribeNotice">
                 Subscribe to this course to get the most benefits <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
             </div>
         @endif
 
         <div class="lessonList">
+            <h2>Select a lesson to begin:</h2>
             @foreach($lessons as $item)
                 <div class="item">
                     <a href="/course/lesson/{{$item->id}}" class="lesson">
@@ -112,14 +114,14 @@
             @endforeach
 
         </div>--}}
-    <script>
+    <!--script>
         $(function(){
             $('.headingAbout').on('click', function(){
                 $(this).toggleClass('active');
                 $(this).next().toggle();
             });
         });
-    </script>
+    </script-->
 
     
 @endsection

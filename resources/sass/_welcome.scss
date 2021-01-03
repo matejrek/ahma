@@ -11,18 +11,21 @@ $white:#ffffff;
 $black:#333333;
 $silver:#c0c0c0;
 $gold:#FFDF00;
-$sky:#fff;//#f5f7fa;
+$sky:#f5f7fa;
 $red:#da0606;
 $samgrey:#f4f4f4;
+$footerbg:#f2f2f2;
 
-$shadow:0 8px 16px 0 rgba(146,184,255,.2);
+$shadow:0 8px 16px 0 rgba($black,0.2);//rgba(146,184,255,.2);
 $radius:5px;
+$faicons:"Font Awesome 5 Free";
+
 //transform: translateY(-10px);
 .guest-layout{background:linear-gradient(to right, rgba($blue,0.7) 0%,rgba($green,0.7) 100%);}
 .bg-gray-100{background:linear-gradient(to right, rgba($blue,0.7) 0%,rgba($green,0.7) 100%);}
 .logo{max-height:50px; max-width:100%;}
 
-.container{float:left; width:100%; padding:0 15px;}
+.container{float:left; width:100%;}
 .row{float:left; width:calc(100% + 30px); margin:0 -15px}
 
 .button{display:inline-block; background:$blue; color:$white; font-size:1rem; line-height:1.1; padding:11px 30px; transition:all 0.2s ease; text-decoration:none;
@@ -32,6 +35,11 @@ $radius:5px;
     &.secondary{background:$green;
         &:hover, &:active, &:focus{background:lighten($green,7%); color:$white;}
     }
+
+    &.terciary{background:$black;
+        &:hover, &:active, &:focus{background:lighten($black,7%); color:$white;}
+    }
+
     &.subscribe{background:$gold; width:100%; border-radius:0; text-align:center; margin:7px 0 20px 0; position:relative; color:$black; text-transform:uppercase;
         &:before{content:''; width:0; height:0; border-left:7px solid transparent; border-right:7px solid transparent;
             border-bottom:7px solid $gold; position:absolute; bottom:100%; left:50%; transform:translateX(-50%);
@@ -52,211 +60,110 @@ $radius:5px;
 }
 
 .header{float:left; width:100%; padding:15px 0;
-    background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
+    background:/*linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
+                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); */
+                $sky;
     .logo{float:left; width:auto;
         img{float:left; height:30px; width:auto;}
     }
     .authBar, .menuBar{float:right; width:auto;
-        .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
+        .link{display:inline-block; color:$black; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
             &:hover, &:active, &:focus{color:$blue;}
         }
     }
 }
-.language{float:left; width:100%; padding:10px; background:$sky; text-align:center; font-weight:400;
-    a{text-decoration:none; font-weight:700; color:$black;
-        &:hover{color:$blue; }
+.language{float:left; width:100%; padding:10px; background:$blue; text-align:center; font-weight:400; color:$white;
+    a{text-decoration:none; font-weight:700; color:$white;
+        &:hover{color:$green; }
     }
 }
-.welcome{float:left; width:100%; padding:20px; text-align:center; position:relative; min-height:80vh;
-    background:url('../img/hero-overlay-4.png') bottom center; background-size:cover;
-    //background:linear-gradient(to bottom, rgba($black,0.75) 0%,rgba($black,0.75) 100%), url('../img/kr-3.jpg'); background-size:cover; background-position:center;
-    &:after{content:''; position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1;
-        //background:url('../img/kr-3.jpg'); background-size:cover; background-position:center;
-        background:$sky;
+.welcome{float:left; width:100%;
+    .heroBoard{display:flex; padding:80px;
+        background:url('../img/heading-img-2.jpg') center center; background-size:cover;
+        .content{float:left; width:50%; position:relative; margin:5% 0; color:$white;
+            h1{font-size:3.5rem; font-weight:800; margin:0 0 40px 0; line-height:1; text-transform:uppercase;}
+            span{font-size:1.25rem; font-weight:400;}
+            .button{margin:40px 0 0 0;}
+        }
     }
-    .content{float:left; width:100%; position:relative; margin:10vh 0; z-index:3;}
-    span.welcomeText{float:left; width:100%; color:$white; font-size:1.2rem; text-transform:uppercase;}
-    h1{float:left; width:100%; color:$white; font-size:2.5rem; line-height:1.1; margin:20px 0 20px 0; text-transform:uppercase; font-weight:700;
-        span{float:left; width:100%; font-weight:400;}
-    }
-    span.subtitleText{float:left; width:100%; color:$white; font-size:1.2rem; line-height:1.5; margin:0 0 20px 0;}
-    span.subtitleSpecial{float:left; width:100%; color:$white; font-size:1.2rem; line-height:1.5; margin:0 0 30px 0;}//{border:1px solid $blue; color:$blue; padding:2px 5px; border-radius:2px; margin:0 0 20px 0; display:inline-block;}
 } 
-
-.devices{float:left; width:100%; position:relative; text-align:center; height:100px; background:$sky; display:none;
-    img{max-width:600px; bottom:10px; left:50%; position:absolute; transform:translateX(-50%);}
-}
-
-/*.cta-lr{float:left; width:100%; padding:20px; text-align:center;
-    background:linear-gradient(to right, rgba($blue,0.3) 0%,rgba($white,0) 100%), 
-                linear-gradient(to left, rgba($green,0.3) 0%,rgba($white,0) 100%),
-                url('../img/kr-1.jpg'); 
-    background-size:cover;
-}*/
-
-.courses{float:left; width:100%; text-align:center; padding:60px 0 20px 0; position:relative; background:$sky;
+.courses{float:left; width:100%; text-align:center; padding:80px 0 20px 0; position:relative; background:$sky;
     span{float:left; width:100%; margin:0 0 10px 0; text-transform:uppercase; color:$blue; font-weight:600; font-size:1rem;}
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-    .item{float:left; width:100%; padding:15px;}
-    .courseList{float:left; width:calc(100% + 20px); margin:10px -10px;
-        .courseBox{float:left; width:calc(100% - 20px); margin:10px; padding:60px 45px; position:relative; background:$samgrey; box-shadow:none; border-radius:$radius;
-            //border:2px solid rgba($silver,0.5);
-            .learn{float:left; width:50%; padding:15px; text-align:right;
-                img,svg{display:inline-block; width:40px; height:auto; border:1px solid $green; border-radius:50%;}
+    h2{margin:0; color:$black; font-size:2.5rem; font-weight:700; line-height:1;}
+
+    p{font-weight:400; margin:20px 0 50px 0; font-size:1.2rem;}
+    .courseList{display:flex; gap:20px; flex-direction:column; flex-flow:wrap;
+        .courseBox{background:$samgrey; padding:80px 80px; width:100%; text-align:left; flex:2; position:relative;
+            span{text-transform:uppercase; font-weight:600; font-size:1rem; color:$green; margin:0;}
+            h3{margin:10px 0; color:$black; font-size:2rem; font-weight:700;}
+            p{margin:0 0 20px 0; font-weight:400; color:$black;}
+            .icon{width:70px; height:70px; position:absolute; top:50%; right:80px; transform:translateY(-50%); display:none;
+                svg,img{width:70px;}
             }
-            .lang{float:left; width:50%; padding:15px; text-align:left;
-                img,svg{display:inline-block; width:40px; height:auto; border:1px solid $green; border-radius:50%;}
+            &.kr{background:#e7d8d4; background:url('../img/kr-bg.jpg') center right; background-size:cover;}
+            &.en{background:#d1ebf2; background:url('../img/en-bg.jpg') center right; background-size:cover;}
+            transition:all 0.5s ease-in-out;
+            /*&:hover{transition:all 0.5s ease-in-out;
+                background-position:10px -10px;
+            }*/
+        }
+    }
+}
+
+.superTop{float:left; width:100%; text-align:center; padding-bottom:80px; background:$sky;
+    .content{background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-top.jpg') bottom center; background-size:cover;
+        padding:80px 0; color:$white;
+        h2{float:left; width:100%; margin:0; font-size:2.2rem; font-weight:700;}
+        span{float:left; width:100%; margin:0px 0 20px 0; font-weight:400; font-size:1.2rem;}
+    }
+}
+
+.steps{float:left; width:100%; padding:80px 0; background:$sky; margin:0; text-align:center;
+    h2{margin:0 0 20px 0; color:$black; font-size:2.5rem; font-weight:700; float:left; width:100%;}
+    .links{float:left; width:100%; margin:0 0 20px 0;}
+    .stepList{float:left; width:100%; padding:5px;
+        .step{padding:20px 20px 20px 80px; position:relative; text-align:left; margin:5px 5px 15px 5px; width:calc(100% - 10px); float:left;
+            background:$white; /*border:1px solid $silver;*/ box-shadow:none;
+            .icon{float:left; width:80px; height:80px; position:absolute; left:15px; top:15px; font-size:2.5rem; color:$green;
+                background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
+                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
+                -webkit-background-clip:text;
+                -webkit-text-fill-color:transparent;
             }
-            .icon{float:left; width:100%; padding:15px; text-align:center;
-                img,svg{display:inline-block; width:40px; height:auto; border:1px solid $green; border-radius:50%;}
+            h3{font-size:2rem; font-weight:600; margin:0px 0 10px 0;}
+            transition:all 0.2s ease-in-out;
+            &:hover{transition:all 0.2s ease-in-out;
+                box-shadow:$shadow;
             }
-            //&:before{content:''; width:33.3333%; height:5px; background:$green; position:absolute; top:-5px; left:50%; transform:translateX(-50%);}
-            h3{margin:0 0 30px 0; font-size:1.5rem; font-weight:700; color:$black;}
-            p{color:$black; margin:0 0 20px 0;}
-            a{display:inline-block; margin:0 10px;}
-             transition:all 0.2s ease;
-            //&:hover{box-shadow:$shadow; transform:translateY(-10px); transition:all 0.2s ease;}
         }
     }
 }
 
-.centerCta{float:left; width:100%; background:$sky;
-    h2{float:left; width:100%; text-align:center; color:$white; font-size:1.75rem; font-weight:700; margin:0 0 10px 0;}
-    p{color:$white; margin:0 0 20px 0;}
-    .ctaPanel{float:left; width:100%; padding:40px; text-align:center;
-        background:linear-gradient(to right, rgba($blue,0.65) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,0.65) 0%,rgba($white,0) 100%),
-                    url('../img/kr-3.jpg'); 
-        background-size:cover; background-position:center;
+.superBottom{float:left; width:100%; text-align:center;
+    background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-bottom.jpg') bottom center; background-size:cover;
+    .content{
+        padding:80px 0; color:$white;
+        h2{float:left; width:100%; margin:0; font-size:2.2rem; font-weight:700;}
+        span{float:left; width:100%; margin:0px 0 20px 0; font-weight:400; font-size:1.2rem;}
     }
 }
 
-
-.steps{float:left; width:100%; padding:60px 0; background:$sky; text-align:left;
-    /*background:linear-gradient(to right, rgba($sky,1) 50%,rgba($white,0) 100%), 
-        linear-gradient(to bottom, rgba($sky,1) 0%,rgba($white,0) 25%), 
-        linear-gradient(to top, rgba($sky,1) 0%,rgba($white,0) 45%), 
-        url('../img/steps-2.jpg');
-    background-size:cover; background-position:center right;*/
-    .text{float:left; width:50%;}
-    .image{float:left; width:70%; text-align:center; margin-right:-20%;
-        img{max-width:90%; position:relative; margin-top:50px;}
-    }
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-    .step{float:left; width:100%; margin:0 0 20px 0; text-align:left; padding:15px 15px 15px 80px; position:relative; clear:both;
-        /*border:2px solid rgba($silver,0.5);*/ transition:all 0.2s ease;
-        background:$samgrey; border-radius:$radius;
-        .icon{float:left; width:80px; height:80px; position:absolute; left:15px; top:10px; font-size:2.5rem; color:$green;
-            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-            -webkit-background-clip:text;
-            -webkit-text-fill-color:transparent;
+.footer{float:left; width:100%; padding:40px 0; background:$footerbg;
+    .column{float:left; width:100%; padding:10px;
+        h4{font-size:1.2rem; text-transform:uppercase; font-weight:700; color:$black; margin:0 0 10px 0;}
+        ul{float:left; width:100%; padding:0; margin:0; list-style-type:none;;
+            li{float:left; width:100%; margin:0 0 8px 0; padding:0;}
         }
-        h3{font-size:2rem; font-weight:600; margin:0px 0 10px 0;}
-        //&:hover{box-shadow:$shadow; transform:translateY(-10px); transition:all 0.2s ease;}
-    }
-}
-/*
-.startCta{float:left; width:100%; padding:230px 0; line-height:40px; text-align:center; 
-    span{color:$white; font-weight:700; font-size:1.5rem; float:left; width:100%; margin:0 0 10px 0;}
-    a{margin:0 10px;}
-    background:
-        linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-            linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%),
-            url('../img/header-1.jpg'); 
-    background-size:cover; background-position:center;
-}
-
-.cta{float:left; width:100%; padding:180px 0 250px 0; text-align:center; display:none;
-    background:url('../img/header-1.jpg'); 
-    background-size:cover;
-    h2{font-size:3rem; font-weight:700; margin:0 0 30px 0;}
-    a{margin:0 10px;}
-}
-
-.footer{float:left; width:100%; text-align:center; background:$green; color:$white; padding:30px 0;
-    background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-    a{color:$white; text-decoration:none;}
-}
-
-/*
-.button{display:inline-block; background:$blue; color:$white; font-size:1rem; line-height:1.1; padding:10px 27px; transition:all 0.2s ease; text-decoration:none;
-    &:hover, &:active, &:focus{background:lighten($blue,7%);}
-
-    &.secondary{background:$green;
-        &:hover, &:active, &:focus{background:lighten($green,7%);}
-    }
-}
-
-
-.header{float:left; width:100%; background:$blue; padding:15px 0;
-    .logo{float:left; width:auto;
-        img{float:left; height:30px; width:auto;}
-    }
-    .authBar{float:right; width:auto;
-        .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
-            &:hover, &:active, &:focus{color:$green;}
+        a{display:inline-block;font-size:1rem; color:$black; text-decoration:none;
+            &:hover{color:$blue; text-decoration:none;}
         }
     }
+    .notation{float:left; width:calc(100% - 20px); border-top:1px solid $silver; margin:20px 10px 0; padding:20px 0;}
 }
 
-.welcome{float:left; width:100%; background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 70%), 
-    linear-gradient(to top, rgba($white,1) 0%,rgba($white,0) 70%), 
-    url('../img/header-2.jpg'); 
-    background-size:cover; text-align:center; position:relative;
-    padding:30vh 0; color:$white;
-    h1{font-size:3rem; font-weight:700; text-shadow:$shadow; margin:0 0 30px 0;}
-    p{font-size:1.5rem; font-weight:600; text-shadow:$shadow; margin:15px 0 45px 0;}
-    a{display:inline-block; margin:0 10px;}
+.cookiesNotice{float:left; width:100%; background:$samgrey; height:40px; line-height:40px; box-shadow:$shadow;
+    .cookieButton{color:$white; background:$blue; padding:3px 10px; margin:0 5px;}
 }
-
-.courses{float:left; width:100%; text-align:center; padding:30px 0 60px 0; position:relative; margin-top:-160px;
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-
-    .courseList{float:left; width:100%;
-        .courseBox{float:left; width:100%; border:1px solid $grey; padding:60px 15px; position:relative; background:$white; box-shadow:$shadow; border-radius:4px;
-            //&:before{content:''; width:33.3333%; height:5px; background:$green; position:absolute; top:-5px; left:50%; transform:translateX(-50%);}
-            h3{margin:0 0 30px 0; font-size:1.5rem; font-weight:700; color:$black;}
-            p{color:$black; margin:0 0 30px 0;}
-            a{display:inline-block; margin:0 10px;}
-        }
-    }
-}
-
-.steps{float:left; width:100%; padding:45px 0; background:$white; text-align:center;
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-    .step{float:left; width:100%; margin:0 0 45px 0; text-align:left; padding:30px 30px 30px 120px; position:relative;
-        box-shadow:$shadow;
-        &:before{content:''; color:$white; position:absolute; width:90px; top:50%; left:0; font-size:3rem; text-align:center; line-height:1;
-            transform:translateY(-50%); z-index:2;
-        }
-        &:after{content:''; background:$blue; position:absolute; width:90px; top:0; left:0; height:100%;}
-        &.one{
-            &:before{content:'1';}
-        }
-        &.two{
-            &:before{content:'2';}
-        }
-        &.three{
-            &:before{content:'3';}
-        }
-        h3{font-size:2rem; font-weight:600; margin:10px 0 30px 0;}
-    }
-}
-
-.cta{float:left; width:100%; padding:180px 0 250px 0; text-align:center; 
-    background:linear-gradient(to bottom, rgba($white,1) 0%,rgba($white,0) 40%), 
-        linear-gradient(to top, rgba($blue,1) 0%,rgba($white,0) 60%), url('../img/header-1.jpg'); 
-    background-size:cover;
-    h2{font-size:3rem; font-weight:700; margin:0 0 30px 0;}
-    a{margin:0 10px;}
-}
-
-.footer{float:left; width:100%; text-align:center; background:$blue; color:$white; padding:30px 0;
-    a{color:$white; text-decoration:none;}
-}*/
 
 @media only screen and (min-width:600px){
 
@@ -264,10 +171,21 @@ $radius:5px;
 
 @media only screen and (min-width:1024px){
     .courses{
+        h2{font-size:2.5rem;}
         .courseList{
-            .courseBox{width:calc(50% - 20px); margin:10px;
+            .courseBox{flex:1;}
+        }
+    }
+
+    .steps{
+        .stepList{
+            .step{max-width:760px; margin:5px calc(50% - 380px) 15px;
+                &:nth-child(2n + 1){clear:both;}
             }
         }
+    }
+    .footer{
+        .column{width:25%;}
     }
 }
 
@@ -277,5 +195,6 @@ $radius:5px;
 }
 
 @media only screen and (min-width:1600px){
-    //.container{max-width:1500px; margin:0 calc(50% - 750px);}
+    .container{max-width:1600px; margin:0 calc(50% - 800px);}
+    .container.ext{max-width:1500px; margin:0 calc(50% - 750px);}
 }

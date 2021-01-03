@@ -1,148 +1,12 @@
-/*.courseDashboard{float:left; width:100%; 
-    .dashHeader{float:left; width:100%; padding:0px 0px; background:$blue;
-        background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
+.courseDashboard{float:left; width:100%; background:$sky; //lighten($black,3%);
+    border-bottom:1px solid $black;
+    .dashHeader{float:left; width:100%; padding:0px 0px; background:$sky; border-bottom:1px solid $black;
         .logo{float:left; width:auto; 
             a{float:left; height:60px; width:150px; padding:15px 20px;}
             img{float:left; height:30px; width:auto;}
         }
         .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
-            .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
-                &:hover, &:active, &:focus{color:$blue;}
-            }
-        }
-    }
-    .dashSidebar{float:left; width:150px; min-height:calc(100vh - 60px); 
-        background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 100%), 
-            linear-gradient(to top, rgba($green,1) 0%,rgba($white,0) 100%); 
-        .item{float:left; width:100%; text-align:center; margin:0; color:$white;
-            a{float:left; width:100%; padding:15px; text-align:center; color:$white; border-bottom:1px solid rgba($white,0.4);
-                font-size:1rem; text-transform:uppercase;
-                i{font-size:1.35rem; float:left; width:100%; text-align:center; margin:0 0 5px 0;}
-                &:hover, &:active, &:focus{background:darken($blue,7%);}
-            }
-            &:nth-child(1){border-top:1px solid rgba($white,0.4);}
-        }
-    }
-    .dashContent{float:left; width:calc(100% - 150px); padding:20px; min-height:calc(100vh - 60px); padding-bottom:100px; position:relative;
-        background:$sky;
-        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $black;
-            h1{float:left; width:100%; margin:20px 0;}
-        }
-    }
-
-    .dashFooter{float:left; width:100%; text-align:center; background:$sky; border-top:1px solid $grey; color:$black; height:80px; line-height:80px;
-        position:absolute; left:0; bottom:1px; right:0; 
-        //background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-         //           linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-        a{color:$black; text-decoration:none;}
-    }
-}
-
-.courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
-    .item{float:left; width:100%; padding:10px;
-        .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:center;
-            h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
-                a{color:$black;
-                    &:hover{color:$blue;}
-                }
-            }
-            p{color:$black;}
-        }
-        a:hover{
-            h3{color:$blue;}
-        }
-    }
-}
-
-.subscribe-alert{float:left; max-width:100%; padding:10px; border:1px solid darken($gold,5%); background:$gold; position:relative;
-    font-weight:600; text-align:center; //left:50%; transform:translateX(-50%);
-}
-
-
-//coming soon page
-.comingSoonPage{float:left; width:100%; margin:0; padding:0; background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,0.9) 0%,rgba($white,0) 100%), url('../img/seoul.jpg'); background-size:cover; background-repeat:no-repeat;
-                    text-transform:2px 2px 5px rgba($black,0.75); min-height:100vh;
-    .pageCenter{float:left; width:100%; position:absolute; top:50%; transform:translateY(-50%);}               
-        .logo{float:left; width:100%; text-align:center;
-            img{height:50px; width:auto;}
-        }
-        .cd-text{float:left; width:100%; text-align:center; color:$white; font-size:1.5rem; font-weight:700; margin:10px 0; text-transform:uppercase;}
-        .cd-paragraph{float:left; width:100%; text-align:center; color:$white; font-size:1.2rem; line-height:1.5; font-weight:600;}
-        .countdown{float:left; width:100%; text-align:center; color:$white; font-size:4rem; font-weight:600; margin:5px 0; min-height:100px; line-height:100px;}
-        .instagram{margin:10px; display:inline-block;
-            img{height:60px; width:auto;}
-        }
-}
-
-.courseAbout{float:left; width:100%; margin:0 0 20px 0;
-    .headingAbout{float:left; width:100%; padding:10px; font-size:1.2rem; text-transform:uppercase; font-weight:600; background:$grey; border:1px solid rgba($black,0.3);
-        transition:all 0.2s ease-in-out;
-        &.active{background:darken($grey,3%);}
-        &:hover{background:darken($grey,5%); cursor:pointer; transition:all 0.2s ease-in-out;}
-    }
-    .contentAbout{float:left; width:100%; padding:10px; background:$grey; border-bottom:1px solid rgba($black,0.3); display:none;
-        border-left:1px solid rgba($black,0.3); border-right:1px solid rgba($black,0.3);
-    }
-}
-.lessonList{float:left; width:100%; margin:0 0 20px 0;
-    .item{float:left; width:100%; margin:0 0 1px 0;
-        a{float:left; width:100%; padding:10px; color:$white; font-size:1.1rem; font-weight:600;background:$blue;
-            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
-            &:hover{background:$blue;
-                background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 70%), 
-                        linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-
-            }
-        }
-    }
-}
-
-.lesson{float:left; width:100%;
-    p{margin:0;}
-    p + p{margin-top:1rem;}
-    .content{float:left; width:100%;}
-    .extras{float:left; width:100%; padding:10px; background:$grey; margin:20px 0 0 0;}
-}
-
-
-@media only screen and (min-width:600px){
-    .courseList{
-        .item{width:50%;
-            &:nth-child(2n + 1){clear:both;}
-        }
-    }
-}
-
-@media only screen and (min-width:1024px){
-    .courseList{
-        .item{width:33.33333%;
-            &:nth-child(2n + 1){clear:none;}
-            &:nth-child(3n + 1){clear:both;}
-        }
-    }
-}
-
-@media only screen and (min-width:1360px){
-
-}
-
-@media only screen and (min-width:1600px){
-
-}*/
-
-.courseDashboard{float:left; width:100%; background:rgba($black,0.3);
-    .dashHeader{float:left; width:100%; padding:0px 0px; background:$blue;
-        background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
-        .logo{float:left; width:auto; 
-            a{float:left; height:60px; width:150px; padding:15px 20px;}
-            img{float:left; height:30px; width:auto;}
-        }
-        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
-            .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
+            .link{display:inline-block; color:$black; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
                 &:hover, &:active, &:focus{color:$blue;}
             }
         }
@@ -150,25 +14,94 @@
 
     .dashSidebar{float:left; width:300px; padding:40px 0;
         .item{float:left; width:100%; 
-            a{float:left; width:100%; padding:15px; color:$white; line-height:50px; font-size:1rem; text-transform:uppercase;
-                i{font-size:1.35rem; float:left; width:50px; height:50px; line-height:48px; border-radius:50%; border:1px solid $white; text-align:center; margin:0 10px 5px 0;}
-                &:hover{color:$blue;}
+            a{float:left; width:100%; padding:5px; color:$black; line-height:50px; font-size:1rem; text-transform:uppercase; border-radius:$radius; font-weight:600;
+                //background:darken($sky,2%); margin:0 0 5px 0;
+                i{font-size:1.35rem; float:left; width:50px; height:50px; line-height:50px; border-radius:50%; /*border:1px solid $white;*/ text-align:center; margin:0 10px 0 0;}
+                &:hover{color:$blue; background:darken($sky,5%);}
             }
         }
     }
-    .dashContent{float:left; width:calc(100% - 300px); padding:20px; min-height:calc(100vh - 60px); padding-bottom:100px; position:relative;
-        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $black;
-            h1{float:left; width:100%; margin:20px 0;}
+    .dashContent{float:left; width:calc(100% - 300px); padding:20px; min-height:calc(100vh - 360px); padding-bottom:100px; position:relative;
+        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $silver;
+            h1{float:left; width:100%; margin:20px 0; font-size:2.2rem;}
+        }
+    }
+    .dashPanel{float:left; width:100%; padding:40px; box-shadow:$shadow; background:$white; border-radius:$radius; margin:10px 0;}
+    .notice{float:left; width:100%; padding:20px; background:$white; box-shadow:$shadow; margin:0px 0 20px 0; border-radius:$radius; font-weight:600;
+        text-align:center;
+        a{margin-left:10px;}
+        &.paymentMethod{background:$gold;}
+    }
+    .subscribeNotice{float:left; width:100%; padding:20px; background:$white; margin:0px 0 20px 0; border-radius:$radius; font-weight:600;
+        text-align:center; background:$green; color:$white; box-shadow:$shadow;
+        a, div{margin-left:10px;
+            &:hover{cursor:pointer;}
+        }
+    }
+
+    .courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
+        .item{float:left; width:100%; padding:10px;
+            .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:left;
+                h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
+                    a{color:$black;
+                        &:hover{color:$blue;}
+                    }
+                }
+                p{color:$black;}
+            }
+            a:hover{
+                h3{color:$blue;}
+            }
+        }
+    }
+
+    .courseAbout{float:left; width:100%; margin:0 0 20px 0; box-shadow:$shadow; border-radius:$radius; background:$white; padding:20px;
+        .headingAbout{float:left; width:100%; padding:10px; font-size:1.2rem; text-transform:uppercase; font-weight:600; 
+            transition:all 0.2s ease-in-out;
+            &.active{color:$blue;}
+            //&:hover{/*background:darken($grey,5%);*/ cursor:pointer; transition:all 0.2s ease-in-out;}
+        }
+        .contentAbout{float:left; width:100%; padding:10px;}
+    }
+
+    .lessonList{float:left; width:100%; margin:10px 0; padding:20px; background:$white; box-shadow:$shadow;
+        h2{font-size:1.5rem; margin:0 0 20px 0;}
+        .item{float:left; width:100%;
+            a{float:left; width:100%; color:$black; border:1px solid $silver; padding:20px 60px 20px 20px; font-weight:600; position:relative;
+                &:before{content:''; width:1px; height:80%; top:10%; right:60px; position:absolute; background:$silver;}
+                &:after{content:'\f054'; font-family:$faicons; color:$blue; position:absolute; right:20px; font-size:1.2rem;}
+                &:hover{color:$blue;}
+            }
+        }
+        .item + .item{margin-top:5px;}
+    }
+
+    .dashFooter{float:left; width:100%; padding:20px 0; border-top:1px solid $silver; margin-top:40px;
+        a{color:$black;
+            &:hover{color:$blue;}
         }
     }
 }
 
 @media only screen and (min-width:600px){
-
+    .courseDashboard{
+        .courseList{
+            .item{width:50%;
+                &:nth-child(2n + 1){clear:both;}
+            }
+        }
+    }
 }
 
 @media only screen and (min-width:1024px){
-
+    /*.courseDashboard{
+        .courseList{
+            .item{width:33.33333%;
+                &:nth-child(2n + 1){clear:none;}
+                &:nth-child(3n + 1){clear:both;}
+            }
+        }
+    }*/
 }
 
 @media only screen and (min-width:1360px){

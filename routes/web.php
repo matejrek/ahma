@@ -67,7 +67,7 @@ Route::get('/subende', 'App\Http\Controllers\SubscriptionController@createSubscr
 Route::get('/getallsubs', 'App\Http\Controllers\SubscriptionController@UpdateStatus');
 
 
-Route::get('/course/subscribe/{id}', 'App\Http\Controllers\SubscriptionController@CreateNewSubscription');
+Route::get('/course/subscribe/{sub}', 'App\Http\Controllers\SubscriptionController@CreateNewSubscription');
 
 //single payment
 

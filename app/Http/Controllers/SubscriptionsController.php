@@ -62,10 +62,11 @@ class SubscriptionController extends Controller
 
         //handle if already subscribed
         $user = $request->user();
-        $sub_key = LessonType::select('stripe_sub_id')->where('id', $sub)->get();
+        $sub_key = LessonType::select('stripe_sub_id')->where('id', $sub)->first();
         $paymentMethod = $user->defaultPaymentMethod()->paymentMethod;
         
-        $user->newSubscription('default', $sub_key)->create($paymentMethod);
+        $user->newSubscription('default', $sub_key->stripe_sub_id)->create($paymentMethod);
+
 
         return redirect('/courses');
     }

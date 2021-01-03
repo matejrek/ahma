@@ -4,17 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>AHMAlearn</title>
 
-        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         
-        <!--script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-        -->
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/c2cc5ff5ba.js" crossorigin="anonymous"></script>
         <!-- Styles -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -24,15 +22,21 @@
 
         <style>
             body {
-                font-family: 'Nunito';
+                /*font-family: 'Nunito';*/
+                font-family: 'Nunito Sans', sans-serif;
             }
         </style>
     </head>
     <body>
+        <div class="language">
+            {{__('localization.select_language')}}:
+            <a href="/lang/en">EN</a>
+            <a href="/lang/kr">KR</a>
+        </div>
         <div class="header">
             <div class="container">
                 <div class="logo">
-                    <img src="{{ URL::to('/') }}/img/ahma-logo.png" alt="AHMA learn" />
+                    <img src="{{ URL::to('/') }}/img/ahma-logo-3.png" alt="AHMA learn" />
                 </div>
                 @if (Route::has('login'))
                     <div class="authBar">
@@ -49,19 +53,19 @@
                 @endif
             </div>
         </div>
-        <div class="language">
-            {{__('localization.select_language')}}:
-            <a href="/lang/en">EN</a>
-            <a href="/lang/kr">KR</a>
-        </div>
+
         <div class="welcome">
-            <div class="container">
+            <div class="heroBoard">
+                <div class="container">
                 <div class="content">
-                    <!--span class="welcomeText">{{__('localization.welcome')}}</span-->
-                    <h1>{!!__('localization.web_title')!!}<br/></h1>
-                    <span class="subtitleText">{!!__('localization.web_subtitle')!!}</span>
-                    <!--span class="subtitleSpecial">{{__('localization.web_subtitle_special')}}</span--><br/>
-                    <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
+                    <h1>Start learning<br/> a new language</h1>
+                    <span>Extend your opportunities by learning <b>Korean</b><br/>
+                        or if you already know korean, then learn <b>English</b>
+                    </span>
+                    <div class="buttons">
+                    <a href="{{ route('register') }}" class="button">Register</a> <a href="{{ route('login') }}" class="button secondary">Login</a>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
@@ -69,57 +73,52 @@
         <div class="courses">
             <div class="container">
                 <span>Welcome to AHMAlearn</span>
-                <h2>Our amazing courses</h2>
+                <h2>Our lessons are amazing</h2>
                 <p>
-                    Choose from our thoughtfully crafted lectires,<br/> which offer a comparable corriculum and pace as highly reputed schools.
+                    Choose from our thoughtfully crafted lectures,<br/> which offer a even higher level at a better pace as highly reputed schools.
                 </p>
-                <div class="row">
-                    <div class="courseList">
-                        <div class="item">
-                            <div class="courseBox">
-                                <div class="icon">
-                                    <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                                </div>
-                                <h3>Learn Korean (EN)</h3>
-                                <p>This curriculum is instructed in english.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-
-                                </p>
-                                <a href="{{ route('login') }}" class="button">Read more</a>
-                                <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
-                            </div>
-                            <div class="courseBox">
-                                <div class="icon">
-                                    <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                                </div>
-                                <h3>Learn English (KR)</h3>
-                                <p>This curriculum is instructed in korean.
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-
-                                </p>
-                                <a href="{{ route('login') }}" class="button">Read more</a>
-                                <!--a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a-->
-                            </div>
+                <div class="courseList">
+                    <div class="courseBox kr">
+                        <span>Corriculum in English</span>
+                        <h3>Korean lessons</h3>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="{{ route('login') }}" class="button">Read more</a>
+                        <div class="icon">
+                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
                         </div>
                     </div>
-                </div>
-             </div>
-        </div>
-        <div class="centerCta">
-            <div class="container">
-                <div class="ctaPanel">
-                    <h2>What are you waiting for?</h2>
-                    <p>Signup or login and start your new learning journey</p>
-                    <a href="{{ route('login') }}" class="button">Login</a> <a href="{{ route('register') }}" class="button secondary">Register</a> 
+                    <div class="courseBox en">
+                        <span>Corriculum in Korean</span>
+                        <div class="icon">
+                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                        </div>
+                        <h3>English lessons</h3>
+                        <p>Lorem ipsum dolor sit amet</p>
+                        <a href="{{ route('login') }}" class="button">Read more</a>
+                    </div>
                 </div>
             </div>
         </div>
-        
+
+        <div class="superTop">
+            <div class="container">
+                <div class="content">
+                    <h2>What are you waiting for?</h2>
+                    <span>Start your learning journey now</span>
+                    <a href="{{ route('register') }}" class="button">Register</a> <a href="{{ route('login') }}" class="button secondary">Login</a>
+                </div>
+            </div>
+        </div>
+
         <div class="steps">
             <div class="container">
-
-                <div class="text">
-                    <h2>How it all works</h2>
+                <h2>How it all works</h2>
+                <div class="links">
+                    <a class="button terciary" href="/faq">FAQ</a>
+                    <a class="button terciary" href="/about/korean-lessons">Korean lessons</a>
+                    <a class="button terciary" href="/about/english-lessons">English lessons</a>
+                </div>
+                <div class="stepList">
                     <div class="step one">
                         <div class="icon">
                             <i class="fas fa-user-plus"></i>
@@ -144,12 +143,83 @@
                         <p>Subscribe to a course to enhance your learning journey. With a active sunscription you will get access to extended exercises, even more detailed explanations and examples, so you can climb the ladder of success with ease!</p>
                     </div>
                 </div>
-                <div class="image">
-                    <img src="{{ URL::to('/') }}/img/app.png" />
+            </div>
+        </div>
+
+        <div class="superBottom">
+            <div class="container">
+                <div class="content">
+                    <h2>Go and start learning now!</h2>
+                    <span>The best <b>Korean</b> and <b>English</b> lessons are waiting for you</span>
+                    <a href="{{ route('register') }}" class="button">Register</a> <a href="{{ route('login') }}" class="button secondary">Login</a>
                 </div>
             </div>
         </div>
 
-
+        <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h4>AHMA</h4>
+                    <ul>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#">English lessons</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Products</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Korean lessons</a>
+                        </li>
+                        <li>
+                            <a href="#">English lessons</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Developer blog</a>
+                        </li>
+                        <li>
+                            <a href="#">News</a>
+                        </li>
+                        <li>
+                            <a href="#">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Customer support</a>
+                        </li>
+                        <li>
+                            <a href="#">Feature request</a>
+                        </li>
+                        <li>
+                            <a href="#">Billing</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notation">
+                    ©{{ now()->year }} AHMAlearn 
+                </div>
+            </div>
+        </footer>
+        <div class="cookiesNotice">
+            <div class="container">
+                AHMAlearn is using cookies <span id="cookiesPreferences" class="cookieButton">Preferences</span>
+            </div>
+        </div>
     </body>
 </html>

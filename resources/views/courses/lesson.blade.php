@@ -2,37 +2,40 @@
 
 
 @section('content')
-   <div class="container">
+
         <div class="heading">
             <h1>{{$lesson->title}}</h1>
         </div>
         
         @if($subPlan->isEmpty())
-            <div class="subscribe">
-                Subscribe to this course to get the extended content <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+            <div class="subscribeNotice">
+                Subscribe to this course to get the extended content <a href="/course/subscribe/{{$course->id}}" class="button">Subscribe</a>
             </div>
         @endif 
 
         <div class="lesson">
+            <div class="dashPanel">
             <div class="content">
                 {!!$lesson->content!!}
             </div>
+            </div>
 
             @if($accessLevel->premium == 0)
-                <div class="subscribe">
+                <div class="subscribeNotice">
                     To unlock extra content for lessons you unlocked while you were not subscribed <div onclick="getLessonData()" class="button">Purchase lesson extras</div>
                 </div>
             @else
-                <h4>Extras:</h4>
-                <div class="extras">
-                    {!!$lesson->extras!!}
+                <div class="dashPanel">
+                    <h4>Extras:</h4>
+                    <div class="extras">
+                        {!!$lesson->extras!!}
+                    </div>
                 </div>
             @endif
         </div>
 
 
       
-    
 @endsection
 
 <script src="https://js.stripe.com/v3/"></script>

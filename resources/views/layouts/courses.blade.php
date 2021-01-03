@@ -35,59 +35,117 @@
     <div id="app">
         <div class="courseDashboard">
             <div class="dashHeader">
-                <div class="logo">
-                    <a href="/">
-                    <img src="{{ URL::to('/') }}/img/ahma-logo.png" alt="AHMA learn" />
-                    </a>
-                </div>
+                <div class="container">
+                    <div class="logo">
+                        <a href="/courses">
+                        <img src="{{ URL::to('/') }}/img/ahma-logo-3.png" alt="AHMA learn" />
+                        </a>
+                    </div>
 
-                <div class="menuBar">
-                    <a href="{{ url('/courses') }}" class="link">Courses</a>
-                    <a href="/billing" class="link">Billing</a>
-                    <a href="/user/profile" class="link">{{ __('Profile') }}</a>
-                </div>
-            </div>
-            <div class="dashSidebar">
-                <div class="item">
-                    <a href="/courses">
-                        <i class="fab fa-readme"></i>
-                        Courses
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="/courses">
-                        <i class="fas fa-star"></i>
-                        Subscriptions
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="/courses">
-                        <i class="far fa-question-circle"></i>
-                        Q & A
-                    </a>
-                </div>
-                <div class="item">
-                    <a href="/courses">
-                        <i class="far fa-envelope"></i>
-                        Support
-                    </a>
-                </div>
-            </div>
-
-            <div class="dashContent">
-                @yield('content')
-
-                <div class="dashFooter">
-                    <div class="container">
-                        <a href="/">AHMAlearn.com</a>
+                    <div class="menuBar">
+                        <a href="{{ url('/courses') }}" class="link">Courses</a>
+                        <a href="/billing" class="link">Billing</a>
+                        <a href="/user/profile" class="link">{{ __('Profile') }}</a>
                     </div>
                 </div>
             </div>
+            <div class="container">
+                <div class="dashSidebar">
+                    <div class="item">
+                        <a href="/courses">
+                            <i class="fab fa-readme"></i>
+                            Courses
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/courses">
+                            <i class="fas fa-star"></i>
+                            Subscriptions
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/courses">
+                            <i class="far fa-question-circle"></i>
+                            Q & A
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="/courses">
+                            <i class="far fa-envelope"></i>
+                            Support
+                        </a>
+                    </div>
+                </div>
 
+                <div class="dashContent">
+                    @yield('content')
 
-
+                    <!--div class="dashFooter">
+                        <a href="/">AHMAlearn.com</a>
+                    </div-->
+                </div>
+            </div>
         </div>
-
+                <footer class="footer">
+            <div class="container">
+                <div class="column">
+                    <h4>AHMA</h4>
+                    <ul>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact us</a>
+                        </li>
+                        <li>
+                            <a href="#">English lessons</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Products</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Korean lessons</a>
+                        </li>
+                        <li>
+                            <a href="#">English lessons</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Developer blog</a>
+                        </li>
+                        <li>
+                            <a href="#">News</a>
+                        </li>
+                        <li>
+                            <a href="#">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li>
+                            <a href="#">Customer support</a>
+                        </li>
+                        <li>
+                            <a href="#">Feature request</a>
+                        </li>
+                        <li>
+                            <a href="#">Billing</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notation">
+                    ©{{ now()->year }} AHMAlearn 
+                </div>
+            </div>
+        </footer>
 
 
 

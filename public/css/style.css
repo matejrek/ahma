@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -30,7 +32,6 @@ a:hover {
 .container {
   float: left;
   width: 100%;
-  padding: 0 15px;
 }
 
 .row {
@@ -67,6 +68,17 @@ a:hover {
 .button.secondary:active,
 .button.secondary:focus {
   background: #0ba6c9;
+  color: #ffffff;
+}
+
+.button.terciary {
+  background: #333333;
+}
+
+.button.terciary:hover,
+.button.terciary:active,
+.button.terciary:focus {
+  background: #454545;
   color: #ffffff;
 }
 
@@ -158,7 +170,7 @@ a:hover {
   float: left;
   width: 100%;
   padding: 15px 0;
-  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 100%);
+  background: #f5f7fa;
 }
 
 .header .logo {
@@ -181,7 +193,7 @@ a:hover {
 .header .authBar .link,
 .header .menuBar .link {
   display: inline-block;
-  color: #ffffff;
+  color: #333333;
   text-decoration: none;
   font-size: 1rem;
   line-height: 30px;
@@ -201,126 +213,66 @@ a:hover {
   float: left;
   width: 100%;
   padding: 10px;
-  background: #fff;
+  background: #1a73e8;
   text-align: center;
   font-weight: 400;
+  color: #ffffff;
 }
 
 .language a {
   text-decoration: none;
   font-weight: 700;
-  color: #333333;
+  color: #ffffff;
 }
 
 .language a:hover {
-  color: #1a73e8;
+  color: #098aa7;
 }
 
 .welcome {
   float: left;
   width: 100%;
-  padding: 20px;
-  text-align: center;
-  position: relative;
-  min-height: 80vh;
-  background: url(/images/hero-overlay-4.png?fe2ae06f5b2c2e535bd38a7e27d8f83e) bottom center;
+}
+
+.welcome .heroBoard {
+  display: flex;
+  padding: 80px;
+  background: url(/images/heading-img-2.jpg?48e18fedc300d6a52ce9f563c2eb7286) center center;
   background-size: cover;
 }
 
-.welcome:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: #fff;
-}
-
-.welcome .content {
+.welcome .heroBoard .content {
   float: left;
-  width: 100%;
+  width: 50%;
   position: relative;
-  margin: 10vh 0;
-  z-index: 3;
+  margin: 5% 0;
+  color: #ffffff;
 }
 
-.welcome span.welcomeText {
-  float: left;
-  width: 100%;
-  color: #ffffff;
-  font-size: 1.2rem;
+.welcome .heroBoard .content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 40px 0;
+  line-height: 1;
   text-transform: uppercase;
 }
 
-.welcome h1 {
-  float: left;
-  width: 100%;
-  color: #ffffff;
-  font-size: 2.5rem;
-  line-height: 1.1;
-  margin: 20px 0 20px 0;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.welcome h1 span {
-  float: left;
-  width: 100%;
+.welcome .heroBoard .content span {
+  font-size: 1.25rem;
   font-weight: 400;
 }
 
-.welcome span.subtitleText {
-  float: left;
-  width: 100%;
-  color: #ffffff;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin: 0 0 20px 0;
+.welcome .heroBoard .content .button {
+  margin: 40px 0 0 0;
 }
-
-.welcome span.subtitleSpecial {
-  float: left;
-  width: 100%;
-  color: #ffffff;
-  font-size: 1.2rem;
-  line-height: 1.5;
-  margin: 0 0 30px 0;
-}
-
-.devices {
-  float: left;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  height: 100px;
-  background: #fff;
-  display: none;
-}
-
-.devices img {
-  max-width: 600px;
-  bottom: 10px;
-  left: 50%;
-  position: absolute;
-  transform: translateX(-50%);
-}
-
-/*.cta-lr{float:left; width:100%; padding:20px; text-align:center;
-    background:linear-gradient(to right, rgba($blue,0.3) 0%,rgba($white,0) 100%), 
-                linear-gradient(to left, rgba($green,0.3) 0%,rgba($white,0) 100%),
-                url('../img/kr-1.jpg'); 
-    background-size:cover;
-}*/
 
 .courses {
   float: left;
   width: 100%;
   text-align: center;
-  padding: 60px 0 20px 0;
+  padding: 80px 0 20px 0;
   position: relative;
-  background: #fff;
+  background: #f5f7fa;
 }
 
 .courses span {
@@ -334,191 +286,168 @@ a:hover {
 }
 
 .courses h2 {
-  margin: 0 0 30px 0;
+  margin: 0;
   color: #333333;
   font-size: 2.5rem;
   font-weight: 700;
+  line-height: 1;
 }
 
-.courses .item {
-  float: left;
-  width: 100%;
-  padding: 15px;
+.courses p {
+  font-weight: 400;
+  margin: 20px 0 50px 0;
+  font-size: 1.2rem;
 }
 
 .courses .courseList {
-  float: left;
-  width: calc(100% + 20px);
-  margin: 10px -10px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  flex-flow: wrap;
 }
 
 .courses .courseList .courseBox {
-  float: left;
-  width: calc(100% - 20px);
-  margin: 10px;
-  padding: 60px 45px;
-  position: relative;
   background: #f4f4f4;
-  box-shadow: none;
-  border-radius: 5px;
-  transition: all 0.2s ease;
-}
-
-.courses .courseList .courseBox .learn {
-  float: left;
-  width: 50%;
-  padding: 15px;
-  text-align: right;
-}
-
-.courses .courseList .courseBox .learn img,
-.courses .courseList .courseBox .learn svg {
-  display: inline-block;
-  width: 40px;
-  height: auto;
-  border: 1px solid #098aa7;
-  border-radius: 50%;
-}
-
-.courses .courseList .courseBox .lang {
-  float: left;
-  width: 50%;
-  padding: 15px;
-  text-align: left;
-}
-
-.courses .courseList .courseBox .lang img,
-.courses .courseList .courseBox .lang svg {
-  display: inline-block;
-  width: 40px;
-  height: auto;
-  border: 1px solid #098aa7;
-  border-radius: 50%;
-}
-
-.courses .courseList .courseBox .icon {
-  float: left;
+  padding: 80px 80px;
   width: 100%;
-  padding: 15px;
-  text-align: center;
+  text-align: left;
+  flex: 2;
+  position: relative;
+  transition: all 0.5s ease-in-out;
+  /*&:hover{transition:all 0.5s ease-in-out;
+      background-position:10px -10px;
+  }*/
 }
 
-.courses .courseList .courseBox .icon img,
-.courses .courseList .courseBox .icon svg {
-  display: inline-block;
-  width: 40px;
-  height: auto;
-  border: 1px solid #098aa7;
-  border-radius: 50%;
+.courses .courseList .courseBox span {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #098aa7;
+  margin: 0;
 }
 
 .courses .courseList .courseBox h3 {
-  margin: 0 0 30px 0;
-  font-size: 1.5rem;
-  font-weight: 700;
+  margin: 10px 0;
   color: #333333;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .courses .courseList .courseBox p {
+  margin: 0 0 20px 0;
+  font-weight: 400;
   color: #333333;
-  margin: 0 0 20px 0;
 }
 
-.courses .courseList .courseBox a {
-  display: inline-block;
-  margin: 0 10px;
+.courses .courseList .courseBox .icon {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  display: none;
 }
 
-.centerCta {
-  float: left;
-  width: 100%;
-  background: #fff;
+.courses .courseList .courseBox .icon svg,
+.courses .courseList .courseBox .icon img {
+  width: 70px;
 }
 
-.centerCta h2 {
-  float: left;
-  width: 100%;
-  text-align: center;
-  color: #ffffff;
-  font-size: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 10px 0;
-}
-
-.centerCta p {
-  color: #ffffff;
-  margin: 0 0 20px 0;
-}
-
-.centerCta .ctaPanel {
-  float: left;
-  width: 100%;
-  padding: 40px;
-  text-align: center;
-  background: linear-gradient(to right, rgba(26, 115, 232, 0.65) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, rgba(9, 138, 167, 0.65) 0%, rgba(255, 255, 255, 0) 100%), url(/images/kr-3.jpg?861da8c4909b94eb8581e085fed8bc91);
+.courses .courseList .courseBox.kr {
+  background: #e7d8d4;
+  background: url(/images/kr-bg.jpg?cbc2105138a507c34c2ae9e629db774a) center right;
   background-size: cover;
-  background-position: center;
+}
+
+.courses .courseList .courseBox.en {
+  background: #d1ebf2;
+  background: url(/images/en-bg.jpg?15d9236e02d1cd895ebc76aa7917076d) center right;
+  background-size: cover;
+}
+
+.superTop {
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 80px;
+  background: #f5f7fa;
+}
+
+.superTop .content {
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-top.jpg?0089916841372be0ec6aaac0cdac0156) bottom center;
+  background-size: cover;
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.superTop .content h2 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.superTop .content span {
+  float: left;
+  width: 100%;
+  margin: 0px 0 20px 0;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
 .steps {
   float: left;
   width: 100%;
-  padding: 60px 0;
-  background: #fff;
-  text-align: left;
-  /*background:linear-gradient(to right, rgba($sky,1) 50%,rgba($white,0) 100%), 
-      linear-gradient(to bottom, rgba($sky,1) 0%,rgba($white,0) 25%), 
-      linear-gradient(to top, rgba($sky,1) 0%,rgba($white,0) 45%), 
-      url('../img/steps-2.jpg');
-  background-size:cover; background-position:center right;*/
-}
-
-.steps .text {
-  float: left;
-  width: 50%;
-}
-
-.steps .image {
-  float: left;
-  width: 70%;
+  padding: 80px 0;
+  background: #f5f7fa;
+  margin: 0;
   text-align: center;
-  margin-right: -20%;
-}
-
-.steps .image img {
-  max-width: 90%;
-  position: relative;
-  margin-top: 50px;
 }
 
 .steps h2 {
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
   color: #333333;
   font-size: 2.5rem;
   font-weight: 700;
+  float: left;
+  width: 100%;
 }
 
-.steps .step {
+.steps .links {
   float: left;
   width: 100%;
   margin: 0 0 20px 0;
-  text-align: left;
-  padding: 15px 15px 15px 80px;
-  position: relative;
-  clear: both;
-  /*border:2px solid rgba($silver,0.5);*/
-  transition: all 0.2s ease;
-  background: #f4f4f4;
-  border-radius: 5px;
 }
 
-.steps .step .icon {
+.steps .stepList {
+  float: left;
+  width: 100%;
+  padding: 5px;
+}
+
+.steps .stepList .step {
+  padding: 20px 20px 20px 80px;
+  position: relative;
+  text-align: left;
+  margin: 5px 5px 15px 5px;
+  width: calc(100% - 10px);
+  float: left;
+  background: #ffffff;
+  /*border:1px solid $silver;*/
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.steps .stepList .step .icon {
   float: left;
   width: 80px;
   height: 80px;
   position: absolute;
   left: 15px;
-  top: 10px;
+  top: 15px;
   font-size: 2.5rem;
   color: #098aa7;
   background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%);
@@ -526,117 +455,138 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
-.steps .step h3 {
+.steps .stepList .step h3 {
   font-size: 2rem;
   font-weight: 600;
   margin: 0px 0 10px 0;
 }
 
-/*
-.startCta{float:left; width:100%; padding:230px 0; line-height:40px; text-align:center; 
-    span{color:$white; font-weight:700; font-size:1.5rem; float:left; width:100%; margin:0 0 10px 0;}
-    a{margin:0 10px;}
-    background:
-        linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-            linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%),
-            url('../img/header-1.jpg'); 
-    background-size:cover; background-position:center;
+.steps .stepList .step:hover {
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
 }
 
-.cta{float:left; width:100%; padding:180px 0 250px 0; text-align:center; display:none;
-    background:url('../img/header-1.jpg'); 
-    background-size:cover;
-    h2{font-size:3rem; font-weight:700; margin:0 0 30px 0;}
-    a{margin:0 10px;}
+.superBottom {
+  float: left;
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-bottom.jpg?1bd10ce2296d459c898bd21e8516b7ff) bottom center;
+  background-size: cover;
 }
 
-.footer{float:left; width:100%; text-align:center; background:$green; color:$white; padding:30px 0;
-    background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-                linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-    a{color:$white; text-decoration:none;}
+.superBottom .content {
+  padding: 80px 0;
+  color: #ffffff;
 }
 
-/*
-.button{display:inline-block; background:$blue; color:$white; font-size:1rem; line-height:1.1; padding:10px 27px; transition:all 0.2s ease; text-decoration:none;
-    &:hover, &:active, &:focus{background:lighten($blue,7%);}
-
-    &.secondary{background:$green;
-        &:hover, &:active, &:focus{background:lighten($green,7%);}
-    }
+.superBottom .content h2 {
+  float: left;
+  width: 100%;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
-
-.header{float:left; width:100%; background:$blue; padding:15px 0;
-    .logo{float:left; width:auto;
-        img{float:left; height:30px; width:auto;}
-    }
-    .authBar{float:right; width:auto;
-        .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
-            &:hover, &:active, &:focus{color:$green;}
-        }
-    }
+.superBottom .content span {
+  float: left;
+  width: 100%;
+  margin: 0px 0 20px 0;
+  font-weight: 400;
+  font-size: 1.2rem;
 }
 
-.welcome{float:left; width:100%; background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 70%), 
-    linear-gradient(to top, rgba($white,1) 0%,rgba($white,0) 70%), 
-    url('../img/header-2.jpg'); 
-    background-size:cover; text-align:center; position:relative;
-    padding:30vh 0; color:$white;
-    h1{font-size:3rem; font-weight:700; text-shadow:$shadow; margin:0 0 30px 0;}
-    p{font-size:1.5rem; font-weight:600; text-shadow:$shadow; margin:15px 0 45px 0;}
-    a{display:inline-block; margin:0 10px;}
+.footer {
+  float: left;
+  width: 100%;
+  padding: 40px 0;
+  background: #f2f2f2;
 }
 
-.courses{float:left; width:100%; text-align:center; padding:30px 0 60px 0; position:relative; margin-top:-160px;
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-
-    .courseList{float:left; width:100%;
-        .courseBox{float:left; width:100%; border:1px solid $grey; padding:60px 15px; position:relative; background:$white; box-shadow:$shadow; border-radius:4px;
-            //&:before{content:''; width:33.3333%; height:5px; background:$green; position:absolute; top:-5px; left:50%; transform:translateX(-50%);}
-            h3{margin:0 0 30px 0; font-size:1.5rem; font-weight:700; color:$black;}
-            p{color:$black; margin:0 0 30px 0;}
-            a{display:inline-block; margin:0 10px;}
-        }
-    }
+.footer .column {
+  float: left;
+  width: 100%;
+  padding: 10px;
 }
 
-.steps{float:left; width:100%; padding:45px 0; background:$white; text-align:center;
-    h2{margin:0 0 30px 0; color:$black; font-size:2.5rem; font-weight:700;}
-    .step{float:left; width:100%; margin:0 0 45px 0; text-align:left; padding:30px 30px 30px 120px; position:relative;
-        box-shadow:$shadow;
-        &:before{content:''; color:$white; position:absolute; width:90px; top:50%; left:0; font-size:3rem; text-align:center; line-height:1;
-            transform:translateY(-50%); z-index:2;
-        }
-        &:after{content:''; background:$blue; position:absolute; width:90px; top:0; left:0; height:100%;}
-        &.one{
-            &:before{content:'1';}
-        }
-        &.two{
-            &:before{content:'2';}
-        }
-        &.three{
-            &:before{content:'3';}
-        }
-        h3{font-size:2rem; font-weight:600; margin:10px 0 30px 0;}
-    }
+.footer .column h4 {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #333333;
+  margin: 0 0 10px 0;
 }
 
-.cta{float:left; width:100%; padding:180px 0 250px 0; text-align:center; 
-    background:linear-gradient(to bottom, rgba($white,1) 0%,rgba($white,0) 40%), 
-        linear-gradient(to top, rgba($blue,1) 0%,rgba($white,0) 60%), url('../img/header-1.jpg'); 
-    background-size:cover;
-    h2{font-size:3rem; font-weight:700; margin:0 0 30px 0;}
-    a{margin:0 10px;}
+.footer .column ul {
+  float: left;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
-.footer{float:left; width:100%; text-align:center; background:$blue; color:$white; padding:30px 0;
-    a{color:$white; text-decoration:none;}
-}*/
+.footer .column ul li {
+  float: left;
+  width: 100%;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+.footer .column a {
+  display: inline-block;
+  font-size: 1rem;
+  color: #333333;
+  text-decoration: none;
+}
+
+.footer .column a:hover {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.footer .notation {
+  float: left;
+  width: calc(100% - 20px);
+  border-top: 1px solid #c0c0c0;
+  margin: 20px 10px 0;
+  padding: 20px 0;
+}
+
+.cookiesNotice {
+  float: left;
+  width: 100%;
+  background: #f4f4f4;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+}
+
+.cookiesNotice .cookieButton {
+  color: #ffffff;
+  background: #1a73e8;
+  padding: 3px 10px;
+  margin: 0 5px;
+}
 
 @media only screen and (min-width: 1024px) {
+  .courses h2 {
+    font-size: 2.5rem;
+  }
+
   .courses .courseList .courseBox {
-    width: calc(50% - 20px);
-    margin: 10px;
+    flex: 1;
+  }
+
+  .steps .stepList .step {
+    max-width: 760px;
+    margin: 5px calc(50% - 380px) 15px;
+  }
+
+  .steps .stepList .step:nth-child(2n+1) {
+    clear: both;
+  }
+
+  .footer .column {
+    width: 25%;
   }
 }
 
@@ -647,153 +597,31 @@ a:hover {
   }
 }
 
-/*.courseDashboard{float:left; width:100%; 
-    .dashHeader{float:left; width:100%; padding:0px 0px; background:$blue;
-        background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
-        .logo{float:left; width:auto; 
-            a{float:left; height:60px; width:150px; padding:15px 20px;}
-            img{float:left; height:30px; width:auto;}
-        }
-        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
-            .link{display:inline-block; color:$white; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
-                &:hover, &:active, &:focus{color:$blue;}
-            }
-        }
-    }
-    .dashSidebar{float:left; width:150px; min-height:calc(100vh - 60px); 
-        background:linear-gradient(to bottom, rgba($blue,1) 0%,rgba($white,0) 100%), 
-            linear-gradient(to top, rgba($green,1) 0%,rgba($white,0) 100%); 
-        .item{float:left; width:100%; text-align:center; margin:0; color:$white;
-            a{float:left; width:100%; padding:15px; text-align:center; color:$white; border-bottom:1px solid rgba($white,0.4);
-                font-size:1rem; text-transform:uppercase;
-                i{font-size:1.35rem; float:left; width:100%; text-align:center; margin:0 0 5px 0;}
-                &:hover, &:active, &:focus{background:darken($blue,7%);}
-            }
-            &:nth-child(1){border-top:1px solid rgba($white,0.4);}
-        }
-    }
-    .dashContent{float:left; width:calc(100% - 150px); padding:20px; min-height:calc(100vh - 60px); padding-bottom:100px; position:relative;
-        background:$sky;
-        .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $black;
-            h1{float:left; width:100%; margin:20px 0;}
-        }
-    }
+@media only screen and (min-width: 1600px) {
+  .container {
+    max-width: 1600px;
+    margin: 0 calc(50% - 800px);
+  }
 
-    .dashFooter{float:left; width:100%; text-align:center; background:$sky; border-top:1px solid $grey; color:$black; height:80px; line-height:80px;
-        position:absolute; left:0; bottom:1px; right:0; 
-        //background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 70%), 
-         //           linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-        a{color:$black; text-decoration:none;}
-    }
+  .container.ext {
+    max-width: 1500px;
+    margin: 0 calc(50% - 750px);
+  }
 }
-
-.courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
-    .item{float:left; width:100%; padding:10px;
-        .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:center;
-            h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
-                a{color:$black;
-                    &:hover{color:$blue;}
-                }
-            }
-            p{color:$black;}
-        }
-        a:hover{
-            h3{color:$blue;}
-        }
-    }
-}
-
-.subscribe-alert{float:left; max-width:100%; padding:10px; border:1px solid darken($gold,5%); background:$gold; position:relative;
-    font-weight:600; text-align:center; //left:50%; transform:translateX(-50%);
-}
-
-
-//coming soon page
-.comingSoonPage{float:left; width:100%; margin:0; padding:0; background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,0.9) 0%,rgba($white,0) 100%), url('../img/seoul.jpg'); background-size:cover; background-repeat:no-repeat;
-                    text-transform:2px 2px 5px rgba($black,0.75); min-height:100vh;
-    .pageCenter{float:left; width:100%; position:absolute; top:50%; transform:translateY(-50%);}               
-        .logo{float:left; width:100%; text-align:center;
-            img{height:50px; width:auto;}
-        }
-        .cd-text{float:left; width:100%; text-align:center; color:$white; font-size:1.5rem; font-weight:700; margin:10px 0; text-transform:uppercase;}
-        .cd-paragraph{float:left; width:100%; text-align:center; color:$white; font-size:1.2rem; line-height:1.5; font-weight:600;}
-        .countdown{float:left; width:100%; text-align:center; color:$white; font-size:4rem; font-weight:600; margin:5px 0; min-height:100px; line-height:100px;}
-        .instagram{margin:10px; display:inline-block;
-            img{height:60px; width:auto;}
-        }
-}
-
-.courseAbout{float:left; width:100%; margin:0 0 20px 0;
-    .headingAbout{float:left; width:100%; padding:10px; font-size:1.2rem; text-transform:uppercase; font-weight:600; background:$grey; border:1px solid rgba($black,0.3);
-        transition:all 0.2s ease-in-out;
-        &.active{background:darken($grey,3%);}
-        &:hover{background:darken($grey,5%); cursor:pointer; transition:all 0.2s ease-in-out;}
-    }
-    .contentAbout{float:left; width:100%; padding:10px; background:$grey; border-bottom:1px solid rgba($black,0.3); display:none;
-        border-left:1px solid rgba($black,0.3); border-right:1px solid rgba($black,0.3);
-    }
-}
-.lessonList{float:left; width:100%; margin:0 0 20px 0;
-    .item{float:left; width:100%; margin:0 0 1px 0;
-        a{float:left; width:100%; padding:10px; color:$white; font-size:1.1rem; font-weight:600;background:$blue;
-            background:linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
-                    linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); 
-            &:hover{background:$blue;
-                background:linear-gradient(to right, rgba($blue,0.9) 0%,rgba($white,0) 70%), 
-                        linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
-
-            }
-        }
-    }
-}
-
-.lesson{float:left; width:100%;
-    p{margin:0;}
-    p + p{margin-top:1rem;}
-    .content{float:left; width:100%;}
-    .extras{float:left; width:100%; padding:10px; background:$grey; margin:20px 0 0 0;}
-}
-
-
-@media only screen and (min-width:600px){
-    .courseList{
-        .item{width:50%;
-            &:nth-child(2n + 1){clear:both;}
-        }
-    }
-}
-
-@media only screen and (min-width:1024px){
-    .courseList{
-        .item{width:33.33333%;
-            &:nth-child(2n + 1){clear:none;}
-            &:nth-child(3n + 1){clear:both;}
-        }
-    }
-}
-
-@media only screen and (min-width:1360px){
-
-}
-
-@media only screen and (min-width:1600px){
-
-}*/
 
 .courseDashboard {
   float: left;
   width: 100%;
-  background: rgba(51, 51, 51, 0.3);
+  background: #f5f7fa;
+  border-bottom: 1px solid #333333;
 }
 
 .courseDashboard .dashHeader {
   float: left;
   width: 100%;
   padding: 0px 0px;
-  background: #1a73e8;
-  background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 100%);
+  background: #f5f7fa;
+  border-bottom: 1px solid #333333;
 }
 
 .courseDashboard .dashHeader .logo {
@@ -823,7 +651,7 @@ a:hover {
 
 .courseDashboard .dashHeader .menuBar .link {
   display: inline-block;
-  color: #ffffff;
+  color: #333333;
   text-decoration: none;
   font-size: 1rem;
   line-height: 30px;
@@ -850,11 +678,13 @@ a:hover {
 .courseDashboard .dashSidebar .item a {
   float: left;
   width: 100%;
-  padding: 15px;
-  color: #ffffff;
+  padding: 5px;
+  color: #333333;
   line-height: 50px;
   font-size: 1rem;
   text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 .courseDashboard .dashSidebar .item a i {
@@ -862,22 +692,23 @@ a:hover {
   float: left;
   width: 50px;
   height: 50px;
-  line-height: 48px;
+  line-height: 50px;
   border-radius: 50%;
-  border: 1px solid #ffffff;
+  /*border:1px solid $white;*/
   text-align: center;
-  margin: 0 10px 5px 0;
+  margin: 0 10px 0 0;
 }
 
 .courseDashboard .dashSidebar .item a:hover {
   color: #1a73e8;
+  background: #e4e9f2;
 }
 
 .courseDashboard .dashContent {
   float: left;
   width: calc(100% - 300px);
   padding: 20px;
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 360px);
   padding-bottom: 100px;
   position: relative;
 }
@@ -886,12 +717,235 @@ a:hover {
   float: left;
   width: 100%;
   margin: 0 0 20px 0;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #c0c0c0;
 }
 
 .courseDashboard .dashContent .heading h1 {
   float: left;
   width: 100%;
   margin: 20px 0;
+  font-size: 2.2rem;
+}
+
+.courseDashboard .dashPanel {
+  float: left;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.courseDashboard .notice {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+  margin: 0px 0 20px 0;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.courseDashboard .notice a {
+  margin-left: 10px;
+}
+
+.courseDashboard .notice.paymentMethod {
+  background: #FFDF00;
+}
+
+.courseDashboard .subscribeNotice {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  margin: 0px 0 20px 0;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  background: #098aa7;
+  color: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+}
+
+.courseDashboard .subscribeNotice a,
+.courseDashboard .subscribeNotice div {
+  margin-left: 10px;
+}
+
+.courseDashboard .subscribeNotice a:hover,
+.courseDashboard .subscribeNotice div:hover {
+  cursor: pointer;
+}
+
+.courseDashboard .courseList {
+  float: left;
+  width: calc(100% + 20px);
+  margin: 0 -10px;
+}
+
+.courseDashboard .courseList .item {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.courseDashboard .courseList .item .box {
+  float: left;
+  width: 100%;
+  border: 1px solid #ebebeb;
+  background: #ebebeb;
+  padding: 20px;
+  text-align: left;
+}
+
+.courseDashboard .courseList .item .box h3 {
+  color: #333333;
+  float: left;
+  width: 100%;
+  margin: 0 0 10px 0;
+  font-size: 1.7rem;
+}
+
+.courseDashboard .courseList .item .box h3 a {
+  color: #333333;
+}
+
+.courseDashboard .courseList .item .box h3 a:hover {
+  color: #1a73e8;
+}
+
+.courseDashboard .courseList .item .box p {
+  color: #333333;
+}
+
+.courseDashboard .courseList .item a:hover h3 {
+  color: #1a73e8;
+}
+
+.courseDashboard .courseAbout {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+  border-radius: 5px;
+  background: #ffffff;
+  padding: 20px;
+}
+
+.courseDashboard .courseAbout .headingAbout {
+  float: left;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+.courseDashboard .courseAbout .headingAbout.active {
+  color: #1a73e8;
+}
+
+.courseDashboard .courseAbout .contentAbout {
+  float: left;
+  width: 100%;
+  padding: 10px;
+}
+
+.courseDashboard .lessonList {
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  padding: 20px;
+  background: #ffffff;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+}
+
+.courseDashboard .lessonList h2 {
+  font-size: 1.5rem;
+  margin: 0 0 20px 0;
+}
+
+.courseDashboard .lessonList .item {
+  float: left;
+  width: 100%;
+}
+
+.courseDashboard .lessonList .item a {
+  float: left;
+  width: 100%;
+  color: #333333;
+  border: 1px solid #c0c0c0;
+  padding: 20px 60px 20px 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.courseDashboard .lessonList .item a:before {
+  content: "";
+  width: 1px;
+  height: 80%;
+  top: 10%;
+  right: 60px;
+  position: absolute;
+  background: #c0c0c0;
+}
+
+.courseDashboard .lessonList .item a:after {
+  content: "\F054";
+  font-family: "Font Awesome 5 Free";
+  color: #1a73e8;
+  position: absolute;
+  right: 20px;
+  font-size: 1.2rem;
+}
+
+.courseDashboard .lessonList .item a:hover {
+  color: #1a73e8;
+}
+
+.courseDashboard .lessonList .item + .item {
+  margin-top: 5px;
+}
+
+.courseDashboard .dashFooter {
+  float: left;
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid #c0c0c0;
+  margin-top: 40px;
+}
+
+.courseDashboard .dashFooter a {
+  color: #333333;
+}
+
+.courseDashboard .dashFooter a:hover {
+  color: #1a73e8;
+}
+
+@media only screen and (min-width: 600px) {
+  .courseDashboard .courseList .item {
+    width: 50%;
+  }
+
+  .courseDashboard .courseList .item:nth-child(2n+1) {
+    clear: both;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  /*.courseDashboard{
+      .courseList{
+          .item{width:33.33333%;
+              &:nth-child(2n + 1){clear:none;}
+              &:nth-child(3n + 1){clear:both;}
+          }
+      }
+  }*/
 }
 

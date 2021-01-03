@@ -2,98 +2,96 @@
 
 
 @section('content')
-   <div class="container">
-        <div class="heading">
-            <h1>Courses</h1>
-        </div>
+    <div class="heading">
+        <h1>Courses</h1>
+    </div>
 
-        @if($paymentMethods->isEmpty())
-            <div>Setup a payment method in billing before you can subscribe</div>
-        @endif
-
-        <div class="courseList">
-            @foreach($subscribed as $item)
-                <div class="item">
-                    <a href="course/{{$item->id}}" class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>{{$item->name}}</h3>
-                        <p>This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-
-                        </p>
-                        <span class="button">Go to course</span>
-                    </a>
-                    <div class="button subscribed">
-                        Active subscription
+    @if($paymentMethods->isEmpty())
+        <div class="notice paymentMethod">Setup a payment method in billing before you can subscribe <a href="/billing" class="button">Billing</a></div>
+    @endif
+    <div class="courseList">
+        @foreach($subscribed as $item)
+            <div class="item">
+                <a href="course/{{$item->id}}" class="box">
+                    <!--div class="learn">
+                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
                     </div>
-                </div>
-            @endforeach
+                    <div class="lang">
+                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                    </div-->
+                    <h3>{{$item->name}}</h3>
+                    <p>This curriculum is in english.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
 
-            @foreach($enrolled as $item)
-                <div class="item">
-                    <div class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>
-                            <a href="course/{{$item->id}}">
-                                {{$item->name}}
-                            </a>
-                        </h3>
-                        <p>
-                            This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </p>
-                        <a href="course/{{$item->id}}" class="button">
-                            Go to course
+                    </p>
+                    <span class="button">Go to course</span>
+                </a>
+                <div class="button subscribed">
+                    Active subscription
+                </div>
+            </div>
+        @endforeach
+
+        @foreach($enrolled as $item)
+            <div class="item">
+                <div class="box">
+                    <!--div class="learn">
+                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
+                    </div>
+                    <div class="lang">
+                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                    </div-->
+                    <h3>
+                        <a href="course/{{$item->id}}">
+                            {{$item->name}}
                         </a>
-                    </div>
-                    <a href="course/subscribe/{{$item->id}}" class="button subscribe">
-                        Subscribe
+                    </h3>
+                    <p>
+                        This curriculum is in english.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
+                    <a href="course/{{$item->id}}" class="button">
+                        Go to course
                     </a>
                 </div>
-            @endforeach
+                <a href="course/subscribe/{{$item->id}}" class="button subscribe">
+                    Subscribe
+                </a>
+            </div>
+        @endforeach
 
-            @foreach($remaining as $item)
-                <div class="item">
-                    <div class="box">
-                        <!--div class="learn">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
-                        <div class="lang">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div-->
-                        <h3>
-                            <a href="course/{{$item->id}}">
-                                {{$item->name}}
-                            </a>
-                            {{--<a href="lesson/{{$item->id}}">
-                                {{$item->name}}
-                            </a>--}}
-                        </h3>
-                        <p>
-                            This curriculum is in english.
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
-                        </p>
-                        <a href="course/{{$item->id}}" class="button">
-                            Go to course
+        @foreach($remaining as $item)
+            <div class="item">
+                <div class="box">
+                    <!--div class="learn">
+                        <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
+                    </div>
+                    <div class="lang">
+                        <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
+                    </div-->
+                    <h3>
+                        <a href="course/{{$item->id}}">
+                            {{$item->name}}
                         </a>
-                    </div>
-                    <a href="course/enroll/{{$item->id}}" class="button enroll">
-                        Enroll
+                        {{--<a href="lesson/{{$item->id}}">
+                            {{$item->name}}
+                        </a>--}}
+                    </h3>
+                    <p>
+                        This curriculum is in english.
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+                    </p>
+                    <a href="course/{{$item->id}}" class="button">
+                        Go to course
                     </a>
                 </div>
-            @endforeach
+                <a href="course/enroll/{{$item->id}}" class="button enroll">
+                    Enroll
+                </a>
+            </div>
+        @endforeach
+    </div>
 
-        </div>
 
     
 @endsection
