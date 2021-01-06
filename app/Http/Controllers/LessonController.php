@@ -175,6 +175,18 @@ class LessonController extends Controller
         return redirect('/admin');
     }
 
+    public function storeImage(Request $request){ 
+        $file=$request->file('file');
+        $path= url('/uploads/').'/'.$file->getClientOriginalName();
+        $imgpath=$file->move(public_path('/uploads/'),$file->getClientOriginalName());
+        $fileNameToStore= $path;
+
+        return json_encode(['location' => $fileNameToStore]); 
+    }
+
+
+
+
     /**
      * Remove the specified resource from storage.
      *
@@ -266,7 +278,8 @@ class LessonController extends Controller
 
     public function singlePurchaseCancel(Request $request){
         /*$lessonData = Lesson::all()->where('user_id', auth()->user()->id)->where('id', $id)->first();*/
-        return "purchase was canceled, retry";
+        //return "purchase was canceled, retry";
+        return redirect('/courses');
     }
 
     public function singlePurchaseError(Request $request){

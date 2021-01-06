@@ -1,6 +1,6 @@
-*{box-sizing:border-box;}
+*{box-sizing:border-box;  font-family:'Nunito Sans';}
 body{margin:0; padding:0;}
-a{
+a{text-decoration:none;
     &:hover{text-decoration:none;}
 }
 
@@ -15,6 +15,7 @@ $sky:#f5f7fa;
 $red:#da0606;
 $samgrey:#f4f4f4;
 $footerbg:#f2f2f2;
+$dashbg:#eeefff;
 
 $shadow:0 8px 16px 0 rgba($black,0.2);//rgba(146,184,255,.2);
 $radius:5px;
@@ -26,7 +27,12 @@ $faicons:"Font Awesome 5 Free";
 .logo{max-height:50px; max-width:100%;}
 
 .container{float:left; width:100%;}
-.row{float:left; width:calc(100% + 30px); margin:0 -15px}
+.row{/*float:left; width:100%; padding:5px;*/ display:flex; width:100%; flex-wrap:wrap; margin:0; padding:5px;}
+.col-1{width:100%; padding:5px;}
+.col-12{width:50%; padding:5px;}
+.col-13{width:33.33333%; padding:5px;}
+.col-14{width:25%; padding:5px;}
+.col-15{max-width:20%; padding:5px;}
 
 .button{display:inline-block; background:$blue; color:$white; font-size:1rem; line-height:1.1; padding:11px 30px; transition:all 0.2s ease; text-decoration:none;
     border-radius:$radius; font-weight:700;
@@ -110,7 +116,7 @@ $faicons:"Font Awesome 5 Free";
     }
 }
 
-.superTop{float:left; width:100%; text-align:center; padding-bottom:80px; background:$sky;
+.superTop{float:left; width:100%; text-align:center; padding-bottom:10px; background:$sky;
     .content{background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-top.jpg') bottom center; background-size:cover;
         padding:80px 0; color:$white;
         h2{float:left; width:100%; margin:0; font-size:2.2rem; font-weight:700;}
@@ -170,6 +176,12 @@ $faicons:"Font Awesome 5 Free";
 }
 
 @media only screen and (min-width:1024px){
+    .col-t-1{width:100%; padding:5px;}
+    .col-t-12{width:50%; padding:5px;}
+    .col-t-13{width:33.33333%; padding:5px;}
+    .col-t-14{width:25%; padding:5px;}
+    .col-t-15{width:20%; padding:5px;}
+
     .courses{
         h2{font-size:2.5rem;}
         .courseList{
@@ -190,6 +202,12 @@ $faicons:"Font Awesome 5 Free";
 }
 
 @media only screen and (min-width:1360px){
+    .col-d-1{width:100%; padding:5px;}
+    .col-d-12{width:50%; padding:5px;}
+    .col-d-13{width:33.33333%; padding:5px;}
+    .col-d-14{width:25%; padding:5px;}
+    .col-d-15{width:20%; padding:5px;}
+
     //.container{max-width:1350px; margin:0 calc(50% - 675px);}
     .container{max-width:1200px; margin:0 calc(50% - 600px);}
 }

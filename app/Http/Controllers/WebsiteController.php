@@ -55,8 +55,16 @@ class WebsiteController extends Controller
         //$enrolled = Enrolls::doesntHave('lessonType.subscription.user')->get();
         
         $subscribed = LessonType::has('subscription.user')->get();
+        //$subscribedLessonType = LessonType::has('subscription.user')->first();
+        //$isActiveSub = Subscriptions::all()->where('stripe_plan', $subscribedLessonType->stripe_sub_id)->where('user_id', auth()->user()->id)->where('stripe_status', 'active');
+        //$subscribed = Subscriptions::where('stripe_plan', $subscribedLessonType->stripe_sub_id)->where('user_id', auth()->user()->id)->where('stripe_status', 'active')->get();
+
+        //$isEnrolled = Enrolls::where('user_id', auth()->user()->id);
         $enrolled = LessonType::doesntHave('enrolls.lessonType.subscription.user')->has('enrolls.lessonType')->get();
+        
+
         $remaining = LessonType::doesntHave('enrolls')->get();
+
         
         //$userPaymentMethod = $user->paymentMethods();
         
@@ -64,7 +72,8 @@ class WebsiteController extends Controller
         $paymentMethods = $user->paymentMethods()->map(function($paymentMethod){
             return $paymentMethod->asStripePaymentMethod();
         });
-    
+
+        //return $isActiveSub;
         return view('courses/index', compact('enrolled', 'subscribed', 'remaining', 'paymentMethods'));
     }
 

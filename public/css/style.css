@@ -5,11 +5,16 @@
 @tailwind utilities;
 * {
   box-sizing: border-box;
+  font-family: "Nunito Sans";
 }
 
 body {
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 a:hover {
@@ -35,9 +40,37 @@ a:hover {
 }
 
 .row {
-  float: left;
-  width: calc(100% + 30px);
-  margin: 0 -15px;
+  /*float:left; width:100%; padding:5px;*/
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 5px;
+}
+
+.col-1 {
+  width: 100%;
+  padding: 5px;
+}
+
+.col-12 {
+  width: 50%;
+  padding: 5px;
+}
+
+.col-13 {
+  width: 33.33333%;
+  padding: 5px;
+}
+
+.col-14 {
+  width: 25%;
+  padding: 5px;
+}
+
+.col-15 {
+  max-width: 20%;
+  padding: 5px;
 }
 
 .button {
@@ -371,7 +404,7 @@ a:hover {
   float: left;
   width: 100%;
   text-align: center;
-  padding-bottom: 80px;
+  padding-bottom: 10px;
   background: #f5f7fa;
 }
 
@@ -568,6 +601,31 @@ a:hover {
 }
 
 @media only screen and (min-width: 1024px) {
+  .col-t-1 {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .col-t-12 {
+    width: 50%;
+    padding: 5px;
+  }
+
+  .col-t-13 {
+    width: 33.33333%;
+    padding: 5px;
+  }
+
+  .col-t-14 {
+    width: 25%;
+    padding: 5px;
+  }
+
+  .col-t-15 {
+    width: 20%;
+    padding: 5px;
+  }
+
   .courses h2 {
     font-size: 2.5rem;
   }
@@ -591,6 +649,31 @@ a:hover {
 }
 
 @media only screen and (min-width: 1360px) {
+  .col-d-1 {
+    width: 100%;
+    padding: 5px;
+  }
+
+  .col-d-12 {
+    width: 50%;
+    padding: 5px;
+  }
+
+  .col-d-13 {
+    width: 33.33333%;
+    padding: 5px;
+  }
+
+  .col-d-14 {
+    width: 25%;
+    padding: 5px;
+  }
+
+  .col-d-15 {
+    width: 20%;
+    padding: 5px;
+  }
+
   .container {
     max-width: 1200px;
     margin: 0 calc(50% - 600px);
@@ -612,7 +695,7 @@ a:hover {
 .courseDashboard {
   float: left;
   width: 100%;
-  background: #f5f7fa;
+  background: #eeefff;
   border-bottom: 1px solid #333333;
 }
 
@@ -779,6 +862,45 @@ a:hover {
 .courseDashboard .subscribeNotice a:hover,
 .courseDashboard .subscribeNotice div:hover {
   cursor: pointer;
+}
+
+.courseDashboard .voiceContainer {
+  float: left;
+  width: 100%;
+  margin: 5px 0 10px;
+}
+
+.courseDashboard .voiceContainer .voice {
+  float: left;
+  width: 100%;
+  background: #f4f4f4;
+  padding: 8px;
+  border-left: 5px solid #1a73e8;
+}
+
+.courseDashboard .voiceContainer .playVoice {
+  float: left;
+  padding: 8px 20px;
+  background: #1a73e8;
+  color: #ffffff;
+  text-align: center;
+  width: 100%;
+  max-width: 100px;
+}
+
+.courseDashboard .voiceContainer .playVoice:hover {
+  background: #3181ea;
+  cursor: pointer;
+}
+
+.courseDashboard blockquote {
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  background: #f4f4f4;
+  color: #333333;
+  border-left: 5px solid #1a73e8;
+  padding: 10px;
 }
 
 .courseDashboard .courseList {

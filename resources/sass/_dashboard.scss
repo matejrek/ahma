@@ -1,4 +1,4 @@
-.courseDashboard{float:left; width:100%; background:$sky; //lighten($black,3%);
+.courseDashboard{float:left; width:100%; background:$dashbg; //lighten($black,3%);
     border-bottom:1px solid $black;
     .dashHeader{float:left; width:100%; padding:0px 0px; background:$sky; border-bottom:1px solid $black;
         .logo{float:left; width:auto; 
@@ -38,6 +38,15 @@
             &:hover{cursor:pointer;}
         }
     }
+
+    .voiceContainer{float:left; width:100%; margin:5px 0 10px;
+        .voice{float:left; width:100%; background:$samgrey; padding:8px; border-left:5px solid $blue;}
+        .playVoice{float:left; padding:8px 20px; background:$blue; color:$white; text-align:center; width:100%; max-width:100px;
+            &:hover{background:lighten($blue,5%); cursor:pointer;}
+        }
+    }
+
+    blockquote{float:left; width:100%; margin:10px 0; background:$samgrey; color:$black; border-left:5px solid $blue; padding:10px;}
 
     .courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
         .item{float:left; width:100%; padding:10px;

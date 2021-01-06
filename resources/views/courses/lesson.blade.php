@@ -37,11 +37,37 @@
 
       
 @endsection
+@section('scripts')
+    <script>
+        let voices = window.speechSynthesis.getVoices();
+
+        $(window).on('load', function(){
+            var i = 0;
+            $('span.voice').each(function(){
+                $(this).wrap('<div class="voice-'+i+' voiceContainer"></div>')
+                $('.voice-'+i+'').append('<span class="playVoice" onclick="playVoice(this)"><i class="far fa-play-circle"></i></span>');
+                i++;
+            });
+        });
+
+        
+        function playVoice(e){
+            voices = window.speechSynthesis.getVoices();
+            console.log(voices);
+
+            var myVoice = $(e).parent().find('.voice');
+
+            var msg = new SpeechSynthesisUtterance();
+            msg.text = myVoice.text();
+            msg.voice = voices[4]; //4uk 13kr
+            window.speechSynthesis.speak(msg);
+        }
+    </script>
+@endsection
 
 <script src="https://js.stripe.com/v3/"></script>
 
 <script>
-
     function getLessonData(){
         var lessonId = @json($lesson->id);
         $.ajax({

@@ -49,7 +49,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/admin/send', 'App\Http\Co
 Route::middleware(['auth:sanctum', 'verified'])->get('/admin/lesson/type/create', 'App\Http\Controllers\LessonTypeController@create');
 Route::middleware(['auth:sanctum', 'verified'])->post('/admin/lesson/type/store', 'App\Http\Controllers\LessonTypeController@store');
 
-
+Route::middleware(['auth:sanctum', 'verified'])->post('/images/lessons/uploads/', 'App\Http\Controllers\LessonController@storeImage');
 
 //enrolls
 Route::get('/course/enroll/{id}', 'App\Http\Controllers\LessonController@enroll');
