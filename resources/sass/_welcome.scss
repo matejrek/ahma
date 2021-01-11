@@ -1,5 +1,5 @@
 *{box-sizing:border-box;  font-family:'Nunito Sans';}
-body{margin:0; padding:0;}
+body{margin:0; padding:0; float:left; width:100%;}
 a{text-decoration:none;
     &:hover{text-decoration:none;}
 }
@@ -17,6 +17,8 @@ $samgrey:#f4f4f4;
 $footerbg:#f2f2f2;
 $dashbg:#eeefff;
 
+//npm run production  -minified css
+
 $shadow:0 8px 16px 0 rgba($black,0.2);//rgba(146,184,255,.2);
 $radius:5px;
 $faicons:"Font Awesome 5 Free";
@@ -27,7 +29,7 @@ $faicons:"Font Awesome 5 Free";
 .logo{max-height:50px; max-width:100%;}
 
 .container{float:left; width:100%;}
-.row{/*float:left; width:100%; padding:5px;*/ display:flex; width:100%; flex-wrap:wrap; margin:0; padding:5px;}
+.row{/*float:left; width:100%; padding:5px;*/ display:flex; width:calc(100% + 20px); flex-wrap:wrap; margin:0 - 10px; padding:5px;}
 .col-1{width:100%; padding:5px;}
 .col-12{width:50%; padding:5px;}
 .col-13{width:33.33333%; padding:5px;}
@@ -44,6 +46,10 @@ $faicons:"Font Awesome 5 Free";
 
     &.terciary{background:$black;
         &:hover, &:active, &:focus{background:lighten($black,7%); color:$white;}
+    }
+
+    &.quaternary{background:$white; color:$blue;
+        &:hover, &:active, &:focus{background:darken($white,7%); color:$blue;}
     }
 
     &.subscribe{background:$gold; width:100%; border-radius:0; text-align:center; margin:7px 0 20px 0; position:relative; color:$black; text-transform:uppercase;
@@ -65,7 +71,7 @@ $faicons:"Font Awesome 5 Free";
     }
 }
 
-.header{float:left; width:100%; padding:15px 0;
+.header{float:left; width:100%; padding:15px 10px;
     background:/*linear-gradient(to right, rgba($blue,1) 0%,rgba($white,0) 100%), 
                 linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 100%); */
                 $sky;
@@ -84,12 +90,12 @@ $faicons:"Font Awesome 5 Free";
     }
 }
 .welcome{float:left; width:100%;
-    .heroBoard{display:flex; padding:80px;
-        background:url('../img/heading-img-2.jpg') center center; background-size:cover;
-        .content{float:left; width:50%; position:relative; margin:5% 0; color:$white;
-            h1{font-size:3.5rem; font-weight:800; margin:0 0 40px 0; line-height:1; text-transform:uppercase;}
-            span{font-size:1.25rem; font-weight:400;}
-            .button{margin:40px 0 0 0;}
+    .heroBoard{display:flex; padding:40px 20px;
+        background:url('../img/ahma-app-mobile.jpg') center center; background-size:cover;
+        .content{float:left; width:100%; position:relative; margin:5% 0; color:$white;
+            h1{font-size:2rem; font-weight:800; margin:0 0 40px 0; line-height:1; text-transform:uppercase;}
+            span{font-size:1.15rem; font-weight:400;}
+            .button{margin:20px 0 0 0;}
         }
     }
 } 
@@ -97,17 +103,19 @@ $faicons:"Font Awesome 5 Free";
     span{float:left; width:100%; margin:0 0 10px 0; text-transform:uppercase; color:$blue; font-weight:600; font-size:1rem;}
     h2{margin:0; color:$black; font-size:2.5rem; font-weight:700; line-height:1;}
 
-    p{font-weight:400; margin:20px 0 50px 0; font-size:1.2rem;}
+    p{font-weight:400; margin:20px 0 50px 0; font-size:1.2rem;
+        @media only screen and (max-width:600px){margin:20px 20px 50px 20px;}
+    }
     .courseList{display:flex; gap:20px; flex-direction:column; flex-flow:wrap;
-        .courseBox{background:$samgrey; padding:80px 80px; width:100%; text-align:left; flex:2; position:relative;
+        .courseBox{background:$samgrey; padding:40px 20px; width:100%; text-align:left; position:relative;
             span{text-transform:uppercase; font-weight:600; font-size:1rem; color:$green; margin:0;}
             h3{margin:10px 0; color:$black; font-size:2rem; font-weight:700;}
             p{margin:0 0 20px 0; font-weight:400; color:$black;}
             .icon{width:70px; height:70px; position:absolute; top:50%; right:80px; transform:translateY(-50%); display:none;
                 svg,img{width:70px;}
             }
-            &.kr{background:#e7d8d4; background:url('../img/kr-bg.jpg') center right; background-size:cover;}
-            &.en{background:#d1ebf2; background:url('../img/en-bg.jpg') center right; background-size:cover;}
+            &.kr{background:#e7d8d4; background:url('../img/kr-bg-mobile.jpg') center right; background-size:cover;}
+            &.en{background:#d1ebf2; background:url('../img/en-bg-mobile.jpg') center right; background-size:cover;}
             transition:all 0.5s ease-in-out;
             /*&:hover{transition:all 0.5s ease-in-out;
                 background-position:10px -10px;
@@ -117,16 +125,18 @@ $faicons:"Font Awesome 5 Free";
 }
 
 .superTop{float:left; width:100%; text-align:center; padding-bottom:10px; background:$sky;
-    .content{background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-top.jpg') bottom center; background-size:cover;
-        padding:80px 0; color:$white;
-        h2{float:left; width:100%; margin:0; font-size:2.2rem; font-weight:700;}
+    .content{background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-top-mobile.jpg') bottom center; background-size:cover;
+        padding:80px 20px; color:$white;
+        h2{float:left; width:100%; margin:0 0 10px 0; font-size:2.2rem; font-weight:700; line-height:1;}
         span{float:left; width:100%; margin:0px 0 20px 0; font-weight:400; font-size:1.2rem;}
     }
 }
 
 .steps{float:left; width:100%; padding:80px 0; background:$sky; margin:0; text-align:center;
     h2{margin:0 0 20px 0; color:$black; font-size:2.5rem; font-weight:700; float:left; width:100%;}
-    .links{float:left; width:100%; margin:0 0 20px 0;}
+    .links{float:left; width:100%; margin:0 0 20px 0;
+        @media only screen and (max-width:600px){a{margin:5px;}}
+    }
     .stepList{float:left; width:100%; padding:5px;
         .step{padding:20px 20px 20px 80px; position:relative; text-align:left; margin:5px 5px 15px 5px; width:calc(100% - 10px); float:left;
             background:$white; /*border:1px solid $silver;*/ box-shadow:none;
@@ -146,17 +156,17 @@ $faicons:"Font Awesome 5 Free";
 }
 
 .superBottom{float:left; width:100%; text-align:center;
-    background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-bottom.jpg') bottom center; background-size:cover;
+    background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-bottom-mobile.jpg') bottom center; background-size:cover;
     .content{
-        padding:80px 0; color:$white;
-        h2{float:left; width:100%; margin:0; font-size:2.2rem; font-weight:700;}
+        padding:80px 20px; color:$white;
+        h2{float:left; width:100%; margin:0 0 10px 0; font-size:2.2rem; font-weight:700; line-height:1;}
         span{float:left; width:100%; margin:0px 0 20px 0; font-weight:400; font-size:1.2rem;}
     }
 }
 
 .footer{float:left; width:100%; padding:40px 0; background:$footerbg;
     .column{float:left; width:100%; padding:10px;
-        h4{font-size:1.2rem; text-transform:uppercase; font-weight:700; color:$black; margin:0 0 10px 0;}
+        h3, h4{font-size:1.2rem; text-transform:uppercase; font-weight:700; color:$black; margin:0 0 10px 0;}
         ul{float:left; width:100%; padding:0; margin:0; list-style-type:none;;
             li{float:left; width:100%; margin:0 0 8px 0; padding:0;}
         }
@@ -172,7 +182,7 @@ $faicons:"Font Awesome 5 Free";
 }
 
 @media only screen and (min-width:600px){
-
+    .header{float:left; width:100%; padding:15px 0;}
 }
 
 @media only screen and (min-width:1024px){
@@ -182,23 +192,44 @@ $faicons:"Font Awesome 5 Free";
     .col-t-14{width:25%; padding:5px;}
     .col-t-15{width:20%; padding:5px;}
 
-    .courses{
-        h2{font-size:2.5rem;}
-        .courseList{
-            .courseBox{flex:1;}
+    .welcome{
+        .heroBoard{
+            background:url('../img/ahma-app-heading.jpg') center center; background-size:cover;
         }
     }
 
-    .steps{
-        .stepList{
-            .step{max-width:760px; margin:5px calc(50% - 380px) 15px;
-                &:nth-child(2n + 1){clear:both;}
+    .welcome{
+        .heroBoard{padding:80px;
+            .content{width:50%;
+                h1{font-size:3.5rem;}
+                span{font-size:1.25rem;}
+                .button{margin:40px 0 0 0;}
+            }
+        }
+    } 
+    .courses{
+        h2{font-size:2.5rem;}
+
+        .courseList{
+            .courseBox{padding:80px 80px; flex:1;
+                &.kr{background:#e7d8d4; background:url('../img/kr-bg.jpg') center right; background-size:cover;}
+                &.en{background:#d1ebf2; background:url('../img/en-bg.jpg') center right; background-size:cover;}
             }
         }
     }
+
+    .superTop{
+        .content{background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-top.jpg') bottom center; background-size:cover;}
+    }
+
+    .superBottom{
+        background:linear-gradient(to right, rgba($black,0.3) 0%,rgba($black,0.3) 100%), url('../img/super-bottom.jpg') bottom center; background-size:cover;
+    }
+
     .footer{
         .column{width:25%;}
     }
+
 }
 
 @media only screen and (min-width:1360px){

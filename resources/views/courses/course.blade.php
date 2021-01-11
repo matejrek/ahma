@@ -18,7 +18,7 @@
         
         @if($subPlan->isEmpty())
             <div class="subscribeNotice">
-                Subscribe to this course to get the most benefits <a href="/subscribe/{{$course->id}}" class="button">Subscribe</a>
+                Subscribe to this course to get the most benefits <a href="/course/subscribe/{{$course->id}}" class="button">Subscribe</a>
             </div>
         @endif
 

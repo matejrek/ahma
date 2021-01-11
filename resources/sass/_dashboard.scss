@@ -1,18 +1,50 @@
-.courseDashboard{float:left; width:100%; background:$dashbg; //lighten($black,3%);
+body.lock{overflow:hidden;}
+.courseDashboard{float:left; width:100%; background:$dashbg;
     border-bottom:1px solid $black;
+    h1, h2, h3, h4, h5{font-weight:700;
+        &.blue{color:$blue;}
+    }
+    h1{font-size:1.5rem;}
+    h2{font-size:1.4rem;}
+    h3{font-size:1,3rem;}
+    h4{font-size:1.2rem}
+    h5{font-size:1.1rem;}
+
     .dashHeader{float:left; width:100%; padding:0px 0px; background:$sky; border-bottom:1px solid $black;
         .logo{float:left; width:auto; 
             a{float:left; height:60px; width:150px; padding:15px 20px;}
             img{float:left; height:30px; width:auto;}
         }
-        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px;
+        .menuBar{float:right; width:auto; margin:15px 0; padding:0 20px; display:none;
             .link{display:inline-block; color:$black; text-decoration:none; font-size:1rem; line-height:30px; margin:0 0 0 20px;
                 &:hover, &:active, &:focus{color:$blue;}
             }
         }
+        .mobileMenuButton{float:right; width:30px; height:40px; margin:10px 15px; position:relative;
+            .dash{width:100%; height:2px; background:$blue; position:absolute; top:calc(50% - 1px); left:0;
+                &:before, &:after{content:''; width:100%; height:2px; background:$blue; position:absolute; left:0;}
+                &:before{top:-8px;}
+                &:after{top:8px;}
+            }
+        }
+        .mobileMenu{float:left; width:300px; height:100vh; background:$samgrey; padding:20px; z-index:999; position:fixed; top:0; left:0; display:none;
+            .close{position:absolute; right:10px; top:10px; width:32px; height:2px; opacity:0.3;
+                &:hover{opacity:1;}
+                &:before, &:after{position:absolute; left:15px; content:' '; height:33px; width:2px; background-color:$black;}
+                &:before{transform:rotate(45deg);}
+                &:after {transform:rotate(-45deg);}
+            }
+
+            .userMenu{float:left; width:100%; border-bottom:1px solid $silver; padding-bottom:20px; margin-bottom:20px;}
+            .dashMenu{float:left; width:100%;}
+            a{float:left; width:auto; clear:both; color:$black; font-weight:400; line-height:1.5; margin:10px 0;}
+        }
+        .mobileFade{float:left; width:100%; height:100%; position:fixed; z-index:998; top:0; left:0; display:none;
+            background:rgba(0,0,0,0.7);
+        }
     }
 
-    .dashSidebar{float:left; width:300px; padding:40px 0;
+    .dashSidebar{float:left; width:300px; padding:40px 0; display:none;
         .item{float:left; width:100%; 
             a{float:left; width:100%; padding:5px; color:$black; line-height:50px; font-size:1rem; text-transform:uppercase; border-radius:$radius; font-weight:600;
                 //background:darken($sky,2%); margin:0 0 5px 0;
@@ -21,12 +53,12 @@
             }
         }
     }
-    .dashContent{float:left; width:calc(100% - 300px); padding:20px; min-height:calc(100vh - 360px); padding-bottom:100px; position:relative;
+    .dashContent{float:left; width:100%; padding:20px; min-height:calc(100vh - 360px); padding-bottom:100px; position:relative;
         .heading{float:left; width:100%; margin:0 0 20px 0; border-bottom:1px solid $silver;
             h1{float:left; width:100%; margin:20px 0; font-size:2.2rem;}
         }
     }
-    .dashPanel{float:left; width:100%; padding:40px; box-shadow:$shadow; background:$white; border-radius:$radius; margin:10px 0;}
+    .dashPanel{float:left; width:100%; padding:40px; box-shadow:$shadow; background:$white; border-radius:$radius; margin:10px 0; font-size:1.1rem; line-height:1.5;}
     .notice{float:left; width:100%; padding:20px; background:$white; box-shadow:$shadow; margin:0px 0 20px 0; border-radius:$radius; font-weight:600;
         text-align:center;
         a{margin-left:10px;}
@@ -41,16 +73,20 @@
 
     .voiceContainer{float:left; width:100%; margin:5px 0 10px;
         .voice{float:left; width:100%; background:$samgrey; padding:8px; border-left:5px solid $blue;}
-        .playVoice{float:left; padding:8px 20px; background:$blue; color:$white; text-align:center; width:100%; max-width:100px;
+        .playVoice{float:left; padding:8px 20px; background:$blue; color:$white; text-align:center; width:100%; max-width:100px; font-size:1.2rem;
             &:hover{background:lighten($blue,5%); cursor:pointer;}
         }
     }
+    .singleLarge{font-size:2.5rem;}
+    .textCenter{text-align:center;}
+    .paymentProcessNotification{float:left; width:100%; margin:30vh 0;}
+    span#count{margin:20px; font-size:2rem; font-weight:700;}
 
     blockquote{float:left; width:100%; margin:10px 0; background:$samgrey; color:$black; border-left:5px solid $blue; padding:10px;}
 
     .courseList{float:left; width:calc(100% + 20px); margin:0 -10px;
         .item{float:left; width:100%; padding:10px;
-            .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:left;
+            .box{float:left; width:100%; border:1px solid $grey; background:$grey; padding:20px; text-align:center;
                 h3{color:$black; float:left; width:100%; margin:0 0 10px 0; font-size:1.7rem;
                     a{color:$black;
                         &:hover{color:$blue;}
@@ -92,6 +128,30 @@
     }
 }
 
+.supportTypes{float:left; width:calc(100% + 10px); margin:0 -5px 10px;
+    a{float:left; width:auto; font-size:1.1rem; text-transform:uppercase; padding:10px; margin:5px; border-radius:$radius;
+        &:hover{color:$blue; background:darken($sky,5%);}
+    }
+    &.support{
+        a.support{color:$blue; background:darken($sky,5%);}
+    }
+    &.feature-request{
+        a.feature-request{color:$blue; background:darken($sky,5%);}
+    }
+    &.billing{
+        a.billing{color:$blue; background:darken($sky,5%);}
+    }
+}
+.ahma-form{float:left; width:100%;
+    .form-control{float:left; width:100%; margin:0 0 20px 0; color:black; border-color:$black; border-radius:$radius; padding:10px;}
+    input.form-control{ height:50px;}
+    textarea.form-control{min-height:150px; max-width:100%;}
+    input[type="submit"]{border:none; outline:none;
+        &:hover{cursor:pointer;}
+    }
+}
+
+
 @media only screen and (min-width:600px){
     .courseDashboard{
         .courseList{
@@ -103,14 +163,18 @@
 }
 
 @media only screen and (min-width:1024px){
-    /*.courseDashboard{
-        .courseList{
-            .item{width:33.33333%;
-                &:nth-child(2n + 1){clear:none;}
-                &:nth-child(3n + 1){clear:both;}
-            }
+    .courseDashboard{
+        .dashHeader{
+        .logo{
+            a{padding:15px 20px;}
         }
-    }*/
+            .menuBar{display:block;}
+        }
+        .mobileMenuButton{display:none;}
+        .dashSidebar{display:block;}
+        .dashContent{width:calc(100% - 300px);}
+    }
+
 }
 
 @media only screen and (min-width:1360px){

@@ -287,18 +287,19 @@ class LessonController extends Controller
         return "There was an error with your purchase";
     }
     public function singlePurchaseCompleted(Request $request){
-        return "Your single purchase was compelted successfully";
+        //return "Your single purchase was compelted successfully";
+        return view('/billing/success');
     }
 
 
-/*
-When you have an URI such as login?r=articles, you can retrieve articles like this:
+    /*
+    When you have an URI such as login?r=articles, you can retrieve articles like this:
 
-request()->r
-You can also use request()->has('r') to determine if it's present in the URI.
+    request()->r
+    You can also use request()->has('r') to determine if it's present in the URI.
 
-And request()->filled('r') to find out if it's present in the URI and its value is not empty.
-*/
+    And request()->filled('r') to find out if it's present in the URI and its value is not empty.
+    */
 
 
     public function send()

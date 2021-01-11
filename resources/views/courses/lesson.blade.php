@@ -59,7 +59,7 @@
 
             var msg = new SpeechSynthesisUtterance();
             msg.text = myVoice.text();
-            msg.voice = voices[4]; //4uk 13kr
+            msg.voice = voices[13]; //4uk 13kr
             window.speechSynthesis.speak(msg);
         }
     </script>

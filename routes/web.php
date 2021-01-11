@@ -16,6 +16,32 @@ use Illuminate\Support\Facades\Route;
 /*HOMEPAGE*/
 Route::get('/', 'App\Http\Controllers\WebsiteController@index');
 Route::get('/soon', 'App\Http\Controllers\WebsiteController@soon');
+/*PAGES*/
+//lessons
+Route::get('/korean-lessons', 'App\Http\Controllers\WebsiteController@koreanlessons');
+Route::get('/english-lessons', 'App\Http\Controllers\WebsiteController@englishlessons');
+//blog
+Route::get('/blog', 'App\Http\Controllers\WebsiteController@blog');
+Route::get('/blog/{id}', 'App\Http\Controllers\WebsiteController@showblog');
+//misc
+Route::get('/about', 'App\Http\Controllers\WebsiteController@about');
+Route::get('/faq', 'App\Http\Controllers\WebsiteController@faq');
+
+
+//Support
+//Route::get('/contact', 'App\Http\Controllers\SupportController@contact');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/support', 'App\Http\Controllers\SupportController@support');
+Route::middleware(['auth:sanctum', 'verified'])->get('/feature-request', 'App\Http\Controllers\SupportController@featurerequest');
+Route::middleware(['auth:sanctum', 'verified'])->get('/billing-support', 'App\Http\Controllers\SupportController@billingsupport');
+
+Route::middleware(['auth:sanctum', 'verified'])->post('/support/store', 'App\Http\Controllers\SupportController@store');
+/*
+Route::get('/kr', function(){
+    \Session::put('locale','kr');
+    return view('welcome-kr');
+});*/
+
 
 /*LANGUAGES*/
 Route::get('/lang/{locale}', function ($locale) {
@@ -51,22 +77,19 @@ Route::middleware(['auth:sanctum', 'verified'])->post('/admin/lesson/type/store'
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/images/lessons/uploads/', 'App\Http\Controllers\LessonController@storeImage');
 
+
 //enrolls
 Route::get('/course/enroll/{id}', 'App\Http\Controllers\LessonController@enroll');
 
 
 /*stripe*/
 Route::get('/billing', 'App\Http\Controllers\SubscriptionController@billingPortal');
-
 Route::get('/update', 'App\Http\Controllers\SubscriptionController@updatePaymentMethod');
 
 Route::get('/subenkr', 'App\Http\Controllers\SubscriptionController@createSubscription');
-
 Route::get('/subende', 'App\Http\Controllers\SubscriptionController@createSubscriptionENDE');
 
 Route::get('/getallsubs', 'App\Http\Controllers\SubscriptionController@UpdateStatus');
-
-
 Route::get('/course/subscribe/{sub}', 'App\Http\Controllers\SubscriptionController@CreateNewSubscription');
 
 //single payment

@@ -50,6 +50,24 @@
                         <a href="/billing" class="link">Billing</a>
                         <a href="/user/profile" class="link">{{ __('Profile') }}</a>
                     </div>
+                    <div class="mobileMenuButton">
+                        <div class="dash"></div>
+                    </div>
+                    <div class="mobileMenu">
+                        <div class="close"></div>
+                        <div class="userMenu">
+                            <a href="{{ url('/courses') }}" class="link">Courses</a>
+                            <a href="/billing" class="link">Billing</a>
+                            <a href="/user/profile" class="link">{{ __('Profile') }}</a>
+                        </div>
+                        <div class="dashMenu">
+                            <a href="/courses">Courses</a>
+                            <a href="/courses">Subscriptions</a>
+                            <a href="/courses">Q & A</a>
+                            <a href="/courses">Support</a>
+                        </div>
+                    </div>
+                    <div class="mobileFade"></div>
                 </div>
             </div>
             <div class="container">
@@ -61,19 +79,19 @@
                         </a>
                     </div>
                     <div class="item">
-                        <a href="/courses">
+                        <a href="/billing">
                             <i class="fas fa-star"></i>
                             Subscriptions
                         </a>
                     </div>
                     <div class="item">
-                        <a href="/courses">
+                        <a href="/faq">
                             <i class="far fa-question-circle"></i>
-                            Q & A
+                            F.A.Q.
                         </a>
                     </div>
                     <div class="item">
-                        <a href="/courses">
+                        <a href="/support">
                             <i class="far fa-envelope"></i>
                             Support
                         </a>
@@ -155,6 +173,15 @@
     </div>
 
     @yield('scripts')
+
+    <script>
+        $(function(){
+            $('.mobileMenuButton, .mobileFade, .mobileMenu .close').on('click', function(){
+                $('body').toggleClass('lock');
+                $('.mobileMenu, .mobileFade').fadeToggle();
+            });
+        });
+    </script>
 </body>
     
 </html>

@@ -4,26 +4,37 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <meta name="title" content="AHMAlearn - Korean and English learning platform">
+        <meta name="description" content="AHMA learn is the best platform to learn Korean and English. Korean lessons are instructed in english and English lessons in Korean.">
+        <meta name="keywords" content="Korean, English, Learn Korean, Korean lessons, Language learning, Native speakers, Learning platform">
+        <meta name="robots" content="index,follow">
+
         <title>AHMAlearn</title>
 
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        
+        <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.map"></script-->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+
         <link rel="preconnect" href="https://fonts.gstatic.com">
+        <!-- Fonts -->
+        <!--link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet"-->
         <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+
         <script src="https://kit.fontawesome.com/c2cc5ff5ba.js" crossorigin="anonymous"></script>
+
+
         <!-- Styles -->
         <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!--script src="{{ asset('js/app.js') }}" defer></script-->
 
         <style>
             body {
                 /*font-family: 'Nunito';*/
-                font-family: 'Nunito Sans', sans-serif;
+                font-family:'Nunito Sans', sans-serif;
             }
         </style>
     </head>
@@ -36,7 +47,7 @@
         <div class="header">
             <div class="container">
                 <div class="logo">
-                    <img src="{{ URL::to('/') }}/img/ahma-logo-3.png" alt="AHMA learn" />
+                    <img src="{{ URL::to('/') }}/img/ahma-logo-3.png" alt="AHMA learn" height="30px" width="auto"/>
                 </div>
                 @if (Route::has('login'))
                     <div class="authBar">
@@ -82,19 +93,13 @@
                         <span>Corriculum in English</span>
                         <h3>Korean lessons</h3>
                         <p>Lorem ipsum dolor sit amet</p>
-                        <a href="{{ route('login') }}" class="button">Read more</a>
-                        <div class="icon">
-                            <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
-                        </div>
+                        <a href="/korean-lessons" class="button">Lessons overview</a>
                     </div>
                     <div class="courseBox en">
                         <span>Corriculum in Korean</span>
-                        <div class="icon">
-                            <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
-                        </div>
                         <h3>English lessons</h3>
                         <p>Lorem ipsum dolor sit amet</p>
-                        <a href="{{ route('login') }}" class="button">Read more</a>
+                        <a href="/english-lessons" class="button">Lessons overview</a>
                     </div>
                 </div>
             </div>
@@ -159,7 +164,7 @@
         <footer class="footer">
             <div class="container">
                 <div class="column">
-                    <h4>AHMA</h4>
+                    <h3>AHMA</h3>
                     <ul>
                         <li>
                             <a href="#">About</a>
@@ -173,7 +178,7 @@
                     </ul>
                 </div>
                 <div class="column">
-                    <h4>Products</h4>
+                    <h3>Products</h3>
                     <ul>
                         <li>
                             <a href="#">Korean lessons</a>
@@ -184,7 +189,7 @@
                     </ul>
                 </div>
                 <div class="column">
-                    <h4>Discover</h4>
+                    <h3>Discover</h3>
                     <ul>
                         <li>
                             <a href="#">Developer blog</a>
@@ -198,7 +203,7 @@
                     </ul>
                 </div>
                 <div class="column">
-                    <h4>Support</h4>
+                    <h3>Support</h3>
                     <ul>
                         <li>
                             <a href="#">Customer support</a>

@@ -160,4 +160,12 @@ class WebsiteController extends Controller
     {
         //
     }
+
+
+    public function faq()
+    {
+        return view('pages/faq');
+    }
+
+
 }

@@ -11,6 +11,8 @@
 body {
   margin: 0;
   padding: 0;
+  float: left;
+  width: 100%;
 }
 
 a {
@@ -42,9 +44,9 @@ a:hover {
 .row {
   /*float:left; width:100%; padding:5px;*/
   display: flex;
-  width: 100%;
+  width: calc(100% + 20px);
   flex-wrap: wrap;
-  margin: 0;
+  margin: -10px;
   padding: 5px;
 }
 
@@ -113,6 +115,18 @@ a:hover {
 .button.terciary:focus {
   background: #454545;
   color: #ffffff;
+}
+
+.button.quaternary {
+  background: #ffffff;
+  color: #1a73e8;
+}
+
+.button.quaternary:hover,
+.button.quaternary:active,
+.button.quaternary:focus {
+  background: #ededed;
+  color: #1a73e8;
 }
 
 .button.subscribe {
@@ -202,7 +216,7 @@ a:hover {
 .header {
   float: left;
   width: 100%;
-  padding: 15px 0;
+  padding: 15px 10px;
   background: #f5f7fa;
 }
 
@@ -269,21 +283,21 @@ a:hover {
 
 .welcome .heroBoard {
   display: flex;
-  padding: 80px;
-  background: url(/images/heading-img-2.jpg?48e18fedc300d6a52ce9f563c2eb7286) center center;
+  padding: 40px 20px;
+  background: url(/images/ahma-app-mobile.jpg?100dd24509b5cd99a4bcfeb24988c72a) center center;
   background-size: cover;
 }
 
 .welcome .heroBoard .content {
   float: left;
-  width: 50%;
+  width: 100%;
   position: relative;
   margin: 5% 0;
   color: #ffffff;
 }
 
 .welcome .heroBoard .content h1 {
-  font-size: 3.5rem;
+  font-size: 2rem;
   font-weight: 800;
   margin: 0 0 40px 0;
   line-height: 1;
@@ -291,12 +305,12 @@ a:hover {
 }
 
 .welcome .heroBoard .content span {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 400;
 }
 
 .welcome .heroBoard .content .button {
-  margin: 40px 0 0 0;
+  margin: 20px 0 0 0;
 }
 
 .courses {
@@ -332,6 +346,12 @@ a:hover {
   font-size: 1.2rem;
 }
 
+@media only screen and (max-width: 600px) {
+  .courses p {
+    margin: 20px 20px 50px 20px;
+  }
+}
+
 .courses .courseList {
   display: flex;
   gap: 20px;
@@ -341,10 +361,9 @@ a:hover {
 
 .courses .courseList .courseBox {
   background: #f4f4f4;
-  padding: 80px 80px;
+  padding: 40px 20px;
   width: 100%;
   text-align: left;
-  flex: 2;
   position: relative;
   transition: all 0.5s ease-in-out;
   /*&:hover{transition:all 0.5s ease-in-out;
@@ -390,13 +409,13 @@ a:hover {
 
 .courses .courseList .courseBox.kr {
   background: #e7d8d4;
-  background: url(/images/kr-bg.jpg?cbc2105138a507c34c2ae9e629db774a) center right;
+  background: url(/images/kr-bg-mobile.jpg?92c514af5b143bc92dce93246d433d11) center right;
   background-size: cover;
 }
 
 .courses .courseList .courseBox.en {
   background: #d1ebf2;
-  background: url(/images/en-bg.jpg?15d9236e02d1cd895ebc76aa7917076d) center right;
+  background: url(/images/en-bg-mobile.jpg?1844d2ad3e0372cbbfdecd694b29d8c6) center right;
   background-size: cover;
 }
 
@@ -409,18 +428,19 @@ a:hover {
 }
 
 .superTop .content {
-  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-top.jpg?0089916841372be0ec6aaac0cdac0156) bottom center;
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-top-mobile.jpg?d35a9abb16e6db6928b2336e3e4564d6) bottom center;
   background-size: cover;
-  padding: 80px 0;
+  padding: 80px 20px;
   color: #ffffff;
 }
 
 .superTop .content h2 {
   float: left;
   width: 100%;
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 2.2rem;
   font-weight: 700;
+  line-height: 1;
 }
 
 .superTop .content span {
@@ -453,6 +473,12 @@ a:hover {
   float: left;
   width: 100%;
   margin: 0 0 20px 0;
+}
+
+@media only screen and (max-width: 600px) {
+  .steps .links a {
+    margin: 5px;
+  }
 }
 
 .steps .stepList {
@@ -503,21 +529,22 @@ a:hover {
   float: left;
   width: 100%;
   text-align: center;
-  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-bottom.jpg?1bd10ce2296d459c898bd21e8516b7ff) bottom center;
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-bottom-mobile.jpg?ec8796272c8292c9eebf173acbf20d95) bottom center;
   background-size: cover;
 }
 
 .superBottom .content {
-  padding: 80px 0;
+  padding: 80px 20px;
   color: #ffffff;
 }
 
 .superBottom .content h2 {
   float: left;
   width: 100%;
-  margin: 0;
+  margin: 0 0 10px 0;
   font-size: 2.2rem;
   font-weight: 700;
+  line-height: 1;
 }
 
 .superBottom .content span {
@@ -541,6 +568,7 @@ a:hover {
   padding: 10px;
 }
 
+.footer .column h3,
 .footer .column h4 {
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -600,6 +628,14 @@ a:hover {
   margin: 0 5px;
 }
 
+@media only screen and (min-width: 600px) {
+  .header {
+    float: left;
+    width: 100%;
+    padding: 15px 0;
+  }
+}
+
 @media only screen and (min-width: 1024px) {
   .col-t-1 {
     width: 100%;
@@ -626,21 +662,60 @@ a:hover {
     padding: 5px;
   }
 
+  .welcome .heroBoard {
+    background: url(/images/ahma-app-heading.jpg?94bfb64545b966fc5d26437930eaecb9) center center;
+    background-size: cover;
+  }
+
+  .welcome .heroBoard {
+    padding: 80px;
+  }
+
+  .welcome .heroBoard .content {
+    width: 50%;
+  }
+
+  .welcome .heroBoard .content h1 {
+    font-size: 3.5rem;
+  }
+
+  .welcome .heroBoard .content span {
+    font-size: 1.25rem;
+  }
+
+  .welcome .heroBoard .content .button {
+    margin: 40px 0 0 0;
+  }
+
   .courses h2 {
     font-size: 2.5rem;
   }
 
   .courses .courseList .courseBox {
+    padding: 80px 80px;
     flex: 1;
   }
 
-  .steps .stepList .step {
-    max-width: 760px;
-    margin: 5px calc(50% - 380px) 15px;
+  .courses .courseList .courseBox.kr {
+    background: #e7d8d4;
+    background: url(/images/kr-bg.jpg?3feed1fb18a6ae8f9544ba0b5c87f6ff) center right;
+    background-size: cover;
   }
 
-  .steps .stepList .step:nth-child(2n+1) {
-    clear: both;
+  .courses .courseList .courseBox.en {
+    background: #d1ebf2;
+    background: url(/images/en-bg.jpg?5f74fd02f1311d5695ff370804c1f29d) center right;
+    background-size: cover;
+  }
+
+  .superTop .content {
+    background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-top.jpg?9cc5fd288dd2d776f6857a4cab0030d1) bottom center;
+    background-size: cover;
+  }
+
+  .superBottom {
+    background: linear-gradient(to right, rgba(51, 51, 51, 0.3) 0%, rgba(51, 51, 51, 0.3) 100%), url(/images/super-bottom.jpg?bab704e727bc715f289cc81b075a29c7) bottom center;
+    background-size: cover;
   }
 
   .footer .column {
@@ -692,11 +767,51 @@ a:hover {
   }
 }
 
+body.lock {
+  overflow: hidden;
+}
+
 .courseDashboard {
   float: left;
   width: 100%;
   background: #eeefff;
   border-bottom: 1px solid #333333;
+}
+
+.courseDashboard h1,
+.courseDashboard h2,
+.courseDashboard h3,
+.courseDashboard h4,
+.courseDashboard h5 {
+  font-weight: 700;
+}
+
+.courseDashboard h1.blue,
+.courseDashboard h2.blue,
+.courseDashboard h3.blue,
+.courseDashboard h4.blue,
+.courseDashboard h5.blue {
+  color: #1a73e8;
+}
+
+.courseDashboard h1 {
+  font-size: 1.5rem;
+}
+
+.courseDashboard h2 {
+  font-size: 1.4rem;
+}
+
+.courseDashboard h3 {
+  font-size: 1, 3rem;
+}
+
+.courseDashboard h4 {
+  font-size: 1.2rem;
+}
+
+.courseDashboard h5 {
+  font-size: 1.1rem;
 }
 
 .courseDashboard .dashHeader {
@@ -730,6 +845,7 @@ a:hover {
   width: auto;
   margin: 15px 0;
   padding: 0 20px;
+  display: none;
 }
 
 .courseDashboard .dashHeader .menuBar .link {
@@ -747,10 +863,125 @@ a:hover {
   color: #1a73e8;
 }
 
+.courseDashboard .dashHeader .mobileMenuButton {
+  float: right;
+  width: 30px;
+  height: 40px;
+  margin: 10px 15px;
+  position: relative;
+}
+
+.courseDashboard .dashHeader .mobileMenuButton .dash {
+  width: 100%;
+  height: 2px;
+  background: #1a73e8;
+  position: absolute;
+  top: calc(50% - 1px);
+  left: 0;
+}
+
+.courseDashboard .dashHeader .mobileMenuButton .dash:before,
+.courseDashboard .dashHeader .mobileMenuButton .dash:after {
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #1a73e8;
+  position: absolute;
+  left: 0;
+}
+
+.courseDashboard .dashHeader .mobileMenuButton .dash:before {
+  top: -8px;
+}
+
+.courseDashboard .dashHeader .mobileMenuButton .dash:after {
+  top: 8px;
+}
+
+.courseDashboard .dashHeader .mobileMenu {
+  float: left;
+  width: 300px;
+  height: 100vh;
+  background: #f4f4f4;
+  padding: 20px;
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.courseDashboard .dashHeader .mobileMenu .close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 32px;
+  height: 2px;
+  opacity: 0.3;
+}
+
+.courseDashboard .dashHeader .mobileMenu .close:hover {
+  opacity: 1;
+}
+
+.courseDashboard .dashHeader .mobileMenu .close:before,
+.courseDashboard .dashHeader .mobileMenu .close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333333;
+}
+
+.courseDashboard .dashHeader .mobileMenu .close:before {
+  transform: rotate(45deg);
+}
+
+.courseDashboard .dashHeader .mobileMenu .close:after {
+  transform: rotate(-45deg);
+}
+
+.courseDashboard .dashHeader .mobileMenu .userMenu {
+  float: left;
+  width: 100%;
+  border-bottom: 1px solid #c0c0c0;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.courseDashboard .dashHeader .mobileMenu .dashMenu {
+  float: left;
+  width: 100%;
+}
+
+.courseDashboard .dashHeader .mobileMenu a {
+  float: left;
+  width: auto;
+  clear: both;
+  color: #333333;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+.courseDashboard .dashHeader .mobileFade {
+  float: left;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: 0;
+  display: none;
+  background: rgba(0, 0, 0, 0.7);
+}
+
 .courseDashboard .dashSidebar {
   float: left;
   width: 300px;
   padding: 40px 0;
+  display: none;
 }
 
 .courseDashboard .dashSidebar .item {
@@ -789,7 +1020,7 @@ a:hover {
 
 .courseDashboard .dashContent {
   float: left;
-  width: calc(100% - 300px);
+  width: 100%;
   padding: 20px;
   min-height: calc(100vh - 360px);
   padding-bottom: 100px;
@@ -818,6 +1049,8 @@ a:hover {
   background: #ffffff;
   border-radius: 5px;
   margin: 10px 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .courseDashboard .notice {
@@ -886,11 +1119,32 @@ a:hover {
   text-align: center;
   width: 100%;
   max-width: 100px;
+  font-size: 1.2rem;
 }
 
 .courseDashboard .voiceContainer .playVoice:hover {
   background: #3181ea;
   cursor: pointer;
+}
+
+.courseDashboard .singleLarge {
+  font-size: 2.5rem;
+}
+
+.courseDashboard .textCenter {
+  text-align: center;
+}
+
+.courseDashboard .paymentProcessNotification {
+  float: left;
+  width: 100%;
+  margin: 30vh 0;
+}
+
+.courseDashboard span#count {
+  margin: 20px;
+  font-size: 2rem;
+  font-weight: 700;
 }
 
 .courseDashboard blockquote {
@@ -921,7 +1175,7 @@ a:hover {
   border: 1px solid #ebebeb;
   background: #ebebeb;
   padding: 20px;
-  text-align: left;
+  text-align: center;
 }
 
 .courseDashboard .courseList .item .box h3 {
@@ -1050,6 +1304,75 @@ a:hover {
   color: #1a73e8;
 }
 
+.supportTypes {
+  float: left;
+  width: calc(100% + 10px);
+  margin: 0 -5px 10px;
+}
+
+.supportTypes a {
+  float: left;
+  width: auto;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.supportTypes a:hover {
+  color: #1a73e8;
+  background: #e4e9f2;
+}
+
+.supportTypes.support a.support {
+  color: #1a73e8;
+  background: #e4e9f2;
+}
+
+.supportTypes.feature-request a.feature-request {
+  color: #1a73e8;
+  background: #e4e9f2;
+}
+
+.supportTypes.billing a.billing {
+  color: #1a73e8;
+  background: #e4e9f2;
+}
+
+.ahma-form {
+  float: left;
+  width: 100%;
+}
+
+.ahma-form .form-control {
+  float: left;
+  width: 100%;
+  margin: 0 0 20px 0;
+  color: black;
+  border-color: #333333;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.ahma-form input.form-control {
+  height: 50px;
+}
+
+.ahma-form textarea.form-control {
+  min-height: 150px;
+  max-width: 100%;
+}
+
+.ahma-form input[type=submit] {
+  border: none;
+  outline: none;
+}
+
+.ahma-form input[type=submit]:hover {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 600px) {
   .courseDashboard .courseList .item {
     width: 50%;
@@ -1061,13 +1384,24 @@ a:hover {
 }
 
 @media only screen and (min-width: 1024px) {
-  /*.courseDashboard{
-      .courseList{
-          .item{width:33.33333%;
-              &:nth-child(2n + 1){clear:none;}
-              &:nth-child(3n + 1){clear:both;}
-          }
-      }
-  }*/
+  .courseDashboard .dashHeader .logo a {
+    padding: 15px 20px;
+  }
+
+  .courseDashboard .dashHeader .menuBar {
+    display: block;
+  }
+
+  .courseDashboard .mobileMenuButton {
+    display: none;
+  }
+
+  .courseDashboard .dashSidebar {
+    display: block;
+  }
+
+  .courseDashboard .dashContent {
+    width: calc(100% - 300px);
+  }
 }
 
