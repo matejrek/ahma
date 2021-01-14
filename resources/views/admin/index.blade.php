@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="heading">
-        <h1>Lessons</h1>
+        <h1 class="card-title">Lessons</h1>
     </div>
 
     <div class="container">
@@ -26,7 +26,7 @@
         </ul>
         
         <hr/>
-        <ul>
+        <!--ul>
             <li><a href="/billing">Manage your billing</a></li>
             <li><a href="/update">Update card info</a></li>
             <li><a href="/subenkr">Sub EN-KR</a></li>
@@ -37,7 +37,7 @@
 
         <hr/>
             <input id="payOne" type="button" value="payOne" onclick="payOne();" />
-        <hr/>
+        <hr/-->
 
         <a class="btn btn-primary" href="/admin/lesson/create">Create new lesson</a>
     </div>

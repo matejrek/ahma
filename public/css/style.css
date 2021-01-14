@@ -31,18 +31,12 @@ a:hover {
   background: linear-gradient(to right, rgba(26, 115, 232, 0.7) 0%, rgba(9, 138, 167, 0.7) 100%);
 }
 
-.logo {
-  max-height: 50px;
-  max-width: 100%;
-}
-
 .container {
   float: left;
   width: 100%;
 }
 
 .row {
-  /*float:left; width:100%; padding:5px;*/
   display: flex;
   width: calc(100% + 20px);
   flex-wrap: wrap;
@@ -279,6 +273,7 @@ a:hover {
 .welcome {
   float: left;
   width: 100%;
+  display: none;
 }
 
 .welcome .heroBoard {
@@ -512,6 +507,7 @@ a:hover {
   background: linear-gradient(to right, #1a73e8 0%, rgba(255, 255, 255, 0) 70%), linear-gradient(to left, #098aa7 0%, rgba(255, 255, 255, 0) 70%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .steps .stepList .step h3 {
@@ -1385,7 +1381,7 @@ body.lock {
 
 @media only screen and (min-width: 1024px) {
   .courseDashboard .dashHeader .logo a {
-    padding: 15px 20px;
+    padding: 15px 5px;
   }
 
   .courseDashboard .dashHeader .menuBar {
@@ -1401,6 +1397,226 @@ body.lock {
   }
 
   .courseDashboard .dashContent {
+    width: calc(100% - 300px);
+  }
+}
+
+.ahmaPager {
+  float: left;
+  width: 100%;
+  margin: 10px 0 30px 0;
+}
+
+.ahmaPager nav {
+  float: Left;
+  width: 100%;
+  /*>div{float:left; width:100%;
+      span.cursor-default{float:left; width:auto; background:$white; border:1px solid $silver; padding:10px; color:$black;}
+      a{float:left; width:auto; background:$white; border:1px solid $silver; padding:10px; color:$black;
+          &:hover{background:$silver;}
+      }
+      svg{color:$black;}
+  }*/
+}
+
+.ahmaPager nav ul.pagination {
+  float: left;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ahmaPager nav ul.pagination li {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.ahmaPager nav ul.pagination li span,
+.ahmaPager nav ul.pagination li a {
+  float: left;
+  padding: 5px;
+  font-size: 1rem;
+  color: #333333;
+  background: #ffffff;
+  margin: 1px;
+  text-align: center;
+  width: 30px;
+}
+
+.ahmaPager nav ul.pagination li span:hover,
+.ahmaPager nav ul.pagination li a:hover {
+  color: #1a73e8;
+  cursor: pointer;
+}
+
+.ahmaPager nav ul.pagination li.active span,
+.ahmaPager nav ul.pagination li.active a {
+  color: #1a73e8;
+}
+
+/*PAGE BASIC LAYOUT*/
+
+.pageContainer {
+  float: left;
+  width: 100%;
+}
+
+.pageContainer .sidebar {
+  float: left;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.pageContainer .pageContainer {
+  float: left;
+  width: 100%;
+  padding: 20px;
+}
+
+/*BLOG POST PAGE*/
+
+.blogPostSidebar {
+  float: left;
+  width: 100%;
+  padding: 40px 0;
+}
+
+.blogPostSidebar .backToList {
+  float: left;
+  width: 100%;
+  padding: 5px;
+  color: #333333;
+  line-height: 50px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.blogPostSidebar .backToList i {
+  font-size: 1.35rem;
+  float: left;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  margin: 0 10px 0 0;
+}
+
+.blogPostSidebar .backToList:hover {
+  color: #1a73e8;
+  background: #e4e9f2;
+}
+
+.blogPostSidebar .sideTitle {
+  float: left;
+  width: 100%;
+  margin: 30px 0 10px 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.blogPostSidebar .sideBlogList {
+  float: left;
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.blogPostSidebar .sideBlogList .item {
+  float: left;
+  width: 100%;
+}
+
+.blogPostSidebar .sideBlogList .item .link {
+  float: left;
+  width: 100%;
+  color: #333333;
+  padding: 20px;
+  margin: 0;
+  border-bottom: 1px solid #c0c0c0;
+}
+
+.blogPostSidebar .sideBlogList .item .link .title {
+  float: left;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  line-height: 1;
+}
+
+.blogPostSidebar .sideBlogList .item .link .summary {
+  float: left;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.blogPostSidebar .sideBlogList .item .link .summary p {
+  margin: 0;
+  line-height: 1;
+}
+
+.blogPostSidebar .sideBlogList .item .link:hover {
+  background: #e4e9f2;
+}
+
+.blogPostSidebar .sideBlogList .item .link:hover .title {
+  color: #1a73e8;
+}
+
+.blogPostSidebar .sideBlogList .item:nth-last-child(1) .link {
+  border-bottom: none;
+}
+
+.blogPost {
+  float: left;
+  width: 100%;
+  padding: 20px;
+}
+
+.blogPost .blogPanel {
+  float: left;
+  width: 100%;
+  padding: 40px;
+  box-shadow: 0 8px 16px 0 rgba(51, 51, 51, 0.2);
+  background: #ffffff;
+  border-radius: 5px;
+  margin: 20px 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.blogPost .blogPanel .blogPostHeading {
+  float: left;
+  width: 100%;
+}
+
+.blogPost .blogPanel .blogPostHeading h1 {
+  margin: 0 0 10px 0;
+}
+
+.blogPost .blogPanel .blogPostContent {
+  float: left;
+  width: 100%;
+}
+
+.blogPost .blogPanel .blogPostContent p {
+  margin: 0 0 10px 0;
+}
+
+@media only screen and (min-width: 1360px) {
+  .blogPostSidebar {
+    width: 300px;
+  }
+
+  .blogPost {
     width: calc(100% - 300px);
   }
 }

@@ -25,11 +25,21 @@
 
     <script src="https://cdn.tiny.cloud/1/626ohkakcw8r5gtwmm2ct9296u1cq1tzq0r95c3ba2l8tzts/tinymce/5/tinymce.min.js" referrerpolicy="origin"/></script>
 
+    <style>
+        .adminHeading{float:left; width:100%; padding:20px; color:white; background:#1a73e8; margin:20px 0;}
+    </style>
 
 </head>
 <body>
     <div id="app">
-        <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="adminHeading">
+                        <h1>Admin panel</h1>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-md-3">
                     <div class="mysidebar card">
@@ -40,6 +50,7 @@
                             <li class="item">
                                 <a class="link" href="/admin">Dashboard</a>
                             </li>
+                            <br/><br/>
                             <li class="item">
                                 <a class="link" href="/admin">Lessons</a>
                             </li>
@@ -49,8 +60,12 @@
                             <li class="item">
                                 <a class="link" href="/admin/lesson/type/create">Create new lesson type</a>
                             </li>
+                            <br/><br/>
                             <li class="item">
-                                <br/><br/><br/>
+                                <a class="link" href="/admin/blog/create">Create new blog post</a>
+                            </li>
+                            <br/><br/>
+                            <li class="item">
                                 <a class="link" href="/admin/send">Send mails manually</a>
                             </li>
                         </ul>
@@ -58,7 +73,9 @@
                 </div>
                 <div class="col-md-9">
                     <main class="mainContent card">
-                        @yield('content')
+                        <div class="card-body">
+                            @yield('content')
+                        </div>
                     </main>
                 </div>
             </div>

@@ -12,7 +12,6 @@ use App\Models\Progress;
 use App\Models\LessonAccessLevel;
 use DB;
 
-
 class WebsiteController extends Controller
 {
     /**
@@ -166,6 +165,7 @@ class WebsiteController extends Controller
     {
         return view('pages/faq');
     }
+
 
 
 }

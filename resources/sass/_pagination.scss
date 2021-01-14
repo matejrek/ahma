@@ -1,0 +1,22 @@
+.ahmaPager{float:left; width:100%; margin:10px 0 30px 0;
+    nav{float:Left; width:100%;
+        ul.pagination{float:left; margin:0; padding:0; list-style-type:none; position:relative; left:50%; transform:translateX(-50%);
+            li{float:left; margin:0; padding:0;
+                span, a{float:left; padding:5px; font-size:1rem; color:$black; background:$white; margin:1px; text-align:center; width:30px;
+                    &:hover{color:$blue; cursor:pointer;}
+                }
+                &.active{
+                    span, a{color:$blue;}
+                }
+            }
+        }
+        /*>div{float:left; width:100%;
+            span.cursor-default{float:left; width:auto; background:$white; border:1px solid $silver; padding:10px; color:$black;}
+            a{float:left; width:auto; background:$white; border:1px solid $silver; padding:10px; color:$black;
+                &:hover{background:$silver;}
+            }
+            svg{color:$black;}
+        }*/
+    }
+    //.hidden{display:none;}
+}

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <meta name="title" content="AHMAlearn - Korean and English learning platform">
         <meta name="description" content="AHMA learn is the best platform to learn Korean and English. Korean lessons are instructed in english and English lessons in Korean.">

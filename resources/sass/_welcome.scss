@@ -26,10 +26,10 @@ $faicons:"Font Awesome 5 Free";
 //transform: translateY(-10px);
 .guest-layout{background:linear-gradient(to right, rgba($blue,0.7) 0%,rgba($green,0.7) 100%);}
 .bg-gray-100{background:linear-gradient(to right, rgba($blue,0.7) 0%,rgba($green,0.7) 100%);}
-.logo{max-height:50px; max-width:100%;}
+//.logo{max-height:50px; max-width:100%;}
 
 .container{float:left; width:100%;}
-.row{/*float:left; width:100%; padding:5px;*/ display:flex; width:calc(100% + 20px); flex-wrap:wrap; margin:0 - 10px; padding:5px;}
+.row{display:flex; width:calc(100% + 20px); flex-wrap:wrap; margin:0 - 10px; padding:5px;}
 .col-1{width:100%; padding:5px;}
 .col-12{width:50%; padding:5px;}
 .col-13{width:33.33333%; padding:5px;}
@@ -89,7 +89,7 @@ $faicons:"Font Awesome 5 Free";
         &:hover{color:$green; }
     }
 }
-.welcome{float:left; width:100%;
+.welcome{float:left; width:100%; display:none;
     .heroBoard{display:flex; padding:40px 20px;
         background:url('../img/ahma-app-mobile.jpg') center center; background-size:cover;
         .content{float:left; width:100%; position:relative; margin:5% 0; color:$white;
@@ -145,6 +145,7 @@ $faicons:"Font Awesome 5 Free";
                     linear-gradient(to left, rgba($green,1) 0%,rgba($white,0) 70%); 
                 -webkit-background-clip:text;
                 -webkit-text-fill-color:transparent;
+                background-clip:text;
             }
             h3{font-size:2rem; font-weight:600; margin:0px 0 10px 0;}
             transition:all 0.2s ease-in-out;

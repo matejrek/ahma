@@ -21,27 +21,26 @@ Route::get('/soon', 'App\Http\Controllers\WebsiteController@soon');
 Route::get('/korean-lessons', 'App\Http\Controllers\WebsiteController@koreanlessons');
 Route::get('/english-lessons', 'App\Http\Controllers\WebsiteController@englishlessons');
 //blog
-Route::get('/blog', 'App\Http\Controllers\WebsiteController@blog');
-Route::get('/blog/{id}', 'App\Http\Controllers\WebsiteController@showblog');
+Route::get('/blog', 'App\Http\Controllers\BlogController@index');
+Route::get('/blog/{slug}', 'App\Http\Controllers\BlogController@show');
+
 //misc
 Route::get('/about', 'App\Http\Controllers\WebsiteController@about');
 Route::get('/faq', 'App\Http\Controllers\WebsiteController@faq');
 
 
 //Support
-//Route::get('/contact', 'App\Http\Controllers\SupportController@contact');
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/support', 'App\Http\Controllers\SupportController@support');
 Route::middleware(['auth:sanctum', 'verified'])->get('/feature-request', 'App\Http\Controllers\SupportController@featurerequest');
 Route::middleware(['auth:sanctum', 'verified'])->get('/billing-support', 'App\Http\Controllers\SupportController@billingsupport');
 
 Route::middleware(['auth:sanctum', 'verified'])->post('/support/store', 'App\Http\Controllers\SupportController@store');
+
 /*
 Route::get('/kr', function(){
     \Session::put('locale','kr');
     return view('welcome-kr');
 });*/
-
 
 /*LANGUAGES*/
 Route::get('/lang/{locale}', function ($locale) {
@@ -65,18 +64,23 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/single/success/completed'
 
 
 /*ADMIN*/
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin', 'App\Http\Controllers\LessonController@index');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/lesson/create', 'App\Http\Controllers\LessonController@create');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/lesson/{id}', 'App\Http\Controllers\LessonController@show');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/lesson/edit/{id}', 'App\Http\Controllers\LessonController@edit');
-Route::middleware(['auth:sanctum', 'verified'])->post('/admin/lesson/{id}/edit/save', 'App\Http\Controllers\LessonController@update');  
-Route::middleware(['auth:sanctum', 'verified'])->post('/admin/lesson/store', 'App\Http\Controllers\LessonController@store');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/send', 'App\Http\Controllers\LessonController@send');
-Route::middleware(['auth:sanctum', 'verified'])->get('/admin/lesson/type/create', 'App\Http\Controllers\LessonTypeController@create');
-Route::middleware(['auth:sanctum', 'verified'])->post('/admin/lesson/type/store', 'App\Http\Controllers\LessonTypeController@store');
+Route::group(['middleware' => 'isadmin'], function(){
+    Route::get('/admin', 'App\Http\Controllers\LessonController@index');
 
-Route::middleware(['auth:sanctum', 'verified'])->post('/images/lessons/uploads/', 'App\Http\Controllers\LessonController@storeImage');
+    Route::get('/admin/lesson/create', 'App\Http\Controllers\LessonController@create');
+    Route::get('/admin/lesson/{id}', 'App\Http\Controllers\LessonController@show');
+    Route::get('/admin/lesson/edit/{id}', 'App\Http\Controllers\LessonController@edit');
+    Route::post('/admin/lesson/{id}/edit/save', 'App\Http\Controllers\LessonController@update');  
+    Route::post('/admin/lesson/store', 'App\Http\Controllers\LessonController@store');
+    Route::get('/admin/send', 'App\Http\Controllers\LessonController@send');
+    Route::get('/admin/lesson/type/create', 'App\Http\Controllers\LessonTypeController@create');
+    Route::post('/admin/lesson/type/store', 'App\Http\Controllers\LessonTypeController@store');
 
+    Route::post('/images/lessons/uploads/', 'App\Http\Controllers\LessonController@storeImage');
+
+    Route::get('/admin/blog/create', 'App\Http\Controllers\BlogController@create');
+    Route::post('/admin/blog/store', 'App\Http\Controllers\BlogController@store');
+});
 
 //enrolls
 Route::get('/course/enroll/{id}', 'App\Http\Controllers\LessonController@enroll');
