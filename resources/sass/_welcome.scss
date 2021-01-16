@@ -89,7 +89,7 @@ $faicons:"Font Awesome 5 Free";
         &:hover{color:$green; }
     }
 }
-.welcome{float:left; width:100%; display:none;
+.welcome{float:left; width:100%;
     .heroBoard{display:flex; padding:40px 20px;
         background:url('../img/ahma-app-mobile.jpg') center center; background-size:cover;
         .content{float:left; width:100%; position:relative; margin:5% 0; color:$white;
@@ -215,6 +215,14 @@ $faicons:"Font Awesome 5 Free";
             .courseBox{padding:80px 80px; flex:1;
                 &.kr{background:#e7d8d4; background:url('../img/kr-bg.jpg') center right; background-size:cover;}
                 &.en{background:#d1ebf2; background:url('../img/en-bg.jpg') center right; background-size:cover;}
+            }
+        }
+    }
+    
+    .steps{
+        .stepList{
+            .step{max-width:760px; margin:5px calc(50% - 380px) 15px;
+                &:nth-child(2n + 1){clear:both;}
             }
         }
     }

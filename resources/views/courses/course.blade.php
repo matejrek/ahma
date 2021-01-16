@@ -26,7 +26,7 @@
             <h2>Select a lesson to begin:</h2>
             @foreach($lessons as $item)
                 <div class="item">
-                    <a href="/course/lesson/{{$item->id}}" class="lesson">
+                    <a href="/course/lesson/{{$item->slug}}" class="lesson">
                         {{$item->title}}
                     </a>
                 </div>

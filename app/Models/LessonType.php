@@ -13,7 +13,7 @@ class LessonType extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'stripe_sub_id', 'about',
+        'name', 'stripe_sub_id', 'slug', 'about',
     ];
 
     public function enrolls()

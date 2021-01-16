@@ -14,7 +14,7 @@ class Lesson extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lesson_type', 'title', 'description', 'content', 
+        'lesson_type', 'title', 'slug', 'description', 'content', 
     ];
 
     public function accessLevel(){

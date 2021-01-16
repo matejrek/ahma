@@ -53,14 +53,17 @@ Route::get('/lang/{locale}', function ($locale) {
 
 /*COURSES*/
 Route::middleware(['auth:sanctum', 'verified'])->get('/courses', 'App\Http\Controllers\WebsiteController@courses')->name('courses');
-Route::middleware(['auth:sanctum', 'verified'])->get('/course/{id}', 'App\Http\Controllers\LessonController@course');
-Route::middleware(['auth:sanctum', 'verified'])->get('/course/lesson/{id}', 'App\Http\Controllers\LessonController@show');
+Route::middleware(['auth:sanctum', 'verified'])->get('/course/{slug}', 'App\Http\Controllers\LessonController@course');
+Route::middleware(['auth:sanctum', 'verified'])->get('/course/lesson/{slug}', 'App\Http\Controllers\LessonController@show');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/unlockLessonData/{id}', 'App\Http\Controllers\LessonController@unlockLessonData');
 Route::middleware(['auth:sanctum', 'verified'])->get('/single/success', 'App\Http\Controllers\LessonController@singlePurchaseSuccess');
 Route::middleware(['auth:sanctum', 'verified'])->get('/single/cancel', 'App\Http\Controllers\LessonController@singlePurchaseCancel');
 Route::middleware(['auth:sanctum', 'verified'])->get('/single/error', 'App\Http\Controllers\LessonController@singlePurchaseError');
 Route::middleware(['auth:sanctum', 'verified'])->get('/single/success/completed', 'App\Http\Controllers\LessonController@singlePurchaseCompleted');
+//enrolls
+Route::middleware(['auth:sanctum', 'verified'])->get('/course/enroll/{id}', 'App\Http\Controllers\LessonController@enroll');
+
 
 
 /*ADMIN*/
@@ -68,7 +71,7 @@ Route::group(['middleware' => 'isadmin'], function(){
     Route::get('/admin', 'App\Http\Controllers\LessonController@index');
 
     Route::get('/admin/lesson/create', 'App\Http\Controllers\LessonController@create');
-    Route::get('/admin/lesson/{id}', 'App\Http\Controllers\LessonController@show');
+    Route::get('/admin/lesson/{slug}', 'App\Http\Controllers\LessonController@show');
     Route::get('/admin/lesson/edit/{id}', 'App\Http\Controllers\LessonController@edit');
     Route::post('/admin/lesson/{id}/edit/save', 'App\Http\Controllers\LessonController@update');  
     Route::post('/admin/lesson/store', 'App\Http\Controllers\LessonController@store');
@@ -81,9 +84,6 @@ Route::group(['middleware' => 'isadmin'], function(){
     Route::get('/admin/blog/create', 'App\Http\Controllers\BlogController@create');
     Route::post('/admin/blog/store', 'App\Http\Controllers\BlogController@store');
 });
-
-//enrolls
-Route::get('/course/enroll/{id}', 'App\Http\Controllers\LessonController@enroll');
 
 
 /*stripe*/

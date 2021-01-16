@@ -15,7 +15,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogposts = Blog::orderBy('id', 'DESC')->paginate(3); //Blog::all();
+        $blogposts = Blog::orderBy('id', 'DESC')->paginate(10); //Blog::all();
         return view('pages/blog/blog', compact('blogposts'));
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Str;
 
 class LessonTypeController extends Controller
 {
@@ -57,9 +58,32 @@ class LessonTypeController extends Controller
         $type->stripe_sub_id = $requestArr['stripe_sub_id'];
         $type->about = $requestArr['about'];
 
+
+        //create unque slug
+        $uniqueslug = Str::slug($requestArr['name'], "-");
+        
+        $isslug = LessonType::where('slug', '=', $uniqueslug)->first();
+        if($isslug === null){
+
+        }
+        else{
+            $cnt = 1;
+            $tempslug = $uniqueslug."-".$cnt;
+            $amnew = LessonType::where('slug', '=',  $tempslug)->first();
+            while( $amnew != null){
+                $cnt++;
+                $tempslug = $uniqueslug."-".$cnt;
+                $amnew = LessonType::where('slug', '=',  $tempslug)->first();
+            }  
+            $uniqueslug = $tempslug;
+        }
+
+        $type->slug = $uniqueslug;
+
+
         $type->save();
 
-        return redirect('/');
+        return redirect('/admin');
     }
 
     /**

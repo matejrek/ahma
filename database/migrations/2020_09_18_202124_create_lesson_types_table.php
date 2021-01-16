@@ -18,6 +18,7 @@ class CreateLessonTypesTable extends Migration
 
             $table->string('name');
             $table->string('stripe_sub_id');
+             $table->string('slug');
             $table->text('about');
 
             $table->timestamps();

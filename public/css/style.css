@@ -273,7 +273,6 @@ a:hover {
 .welcome {
   float: left;
   width: 100%;
-  display: none;
 }
 
 .welcome .heroBoard {
@@ -702,6 +701,15 @@ a:hover {
     background: #d1ebf2;
     background: url(/images/en-bg.jpg?5f74fd02f1311d5695ff370804c1f29d) center right;
     background-size: cover;
+  }
+
+  .steps .stepList .step {
+    max-width: 760px;
+    margin: 5px calc(50% - 380px) 15px;
+  }
+
+  .steps .stepList .step:nth-child(2n+1) {
+    clear: both;
   }
 
   .superTop .content {

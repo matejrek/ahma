@@ -14,6 +14,7 @@ use App\Models\LessonType;
 use App\Models\Enrolls;
 use App\Models\LessonAccessLevel;
 use App\Models\SinglePurchase;
+use Illuminate\Support\Str;
 
 use App\Jobs\sendMails;
 
@@ -76,21 +77,43 @@ class LessonController extends Controller
         $lesson->content = $requestArr['content'];
         $lesson->extras = $requestArr['extras'];
 
+        //create unque slug
+        $uniqueslug = Str::slug($requestArr['title'], "-");
+        
+        $isslug = Lesson::where('slug', '=', $uniqueslug)->first();
+        if($isslug === null){
+
+        }
+        else{
+            $cnt = 1;
+            $tempslug = $uniqueslug."-".$cnt;
+            $amnew = Lesson::where('slug', '=',  $tempslug)->first();
+            while( $amnew != null){
+                $cnt++;
+                $tempslug = $uniqueslug."-".$cnt;
+                $amnew = Lesson::where('slug', '=',  $tempslug)->first();
+            }  
+            $uniqueslug = $tempslug;
+        }
+
+        $lesson->slug = $uniqueslug;
+
+
         $lesson->save();
 
         return redirect('/admin');
     }
 
-    public function course($id)
+    public function course($slug)
     {   
         $userId = auth()->user()->id;
-        $course = LessonType::where('id', $id)->first();
-        $subPlan = LessonType::has('subscription.user')->where('id', $id)->get();
-        $progress = Progress::where('lesson_type_id', $id)->where('user_id', $userId)->first();
+        $course = LessonType::where('slug', $slug)->first();
+        $subPlan = LessonType::has('subscription.user')->where('id', $course->id)->get();
+        $progress = Progress::where('lesson_type_id', $course->id)->where('user_id', $userId)->first();
 
         $lessons = [];
         if($progress){
-            $lessons = Lesson::all()->where('lesson_type_id', $id)->where('id', '<=', $progress->lesson_id)->sortByDesc('created_at');
+            $lessons = Lesson::all()->where('lesson_type_id', $course->id)->where('id', '<=', $progress->lesson_id)->sortByDesc('created_at');
         }
         else{
             //handle for no lessons to type "wait for 1st scheduled lesson"
@@ -112,14 +135,15 @@ class LessonController extends Controller
      * @return \Illuminate\Http\Response
      */
     //public function show(Lesson $lesson)
-    public function show($id)
+    public function show($slug)
     {
         $userId = auth()->user()->id;
-        $courseId = Lesson::select('lesson_type_id')->where('id', $id)->first();
+        $courseId = Lesson::select('lesson_type_id')->where('slug', $slug)->first();
         $subPlan = LessonType::has('subscription.user')->where('id', $courseId->lesson_type_id)->get();
         $course = LessonType::where('id', $courseId->lesson_type_id)->first();
-        $lesson = Lesson::findOrFail($id);
-        $accessLevel = LessonAccessLevel::where('lesson_id', $id)->where('user_id', $userId)->first();
+        //$lesson = Lesson::findOrFail($slug);
+        $lesson = Lesson::where('slug',$slug)->first();
+        $accessLevel = LessonAccessLevel::where('lesson_id', $lesson->id)->where('user_id', $userId)->first();
         //if accesslevel doesnt exist for some reason
         if(!$accessLevel){
             $accessLevel = new LessonAccessLevel();

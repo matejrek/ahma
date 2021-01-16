@@ -12,7 +12,7 @@
     <div class="courseList">
         @foreach($subscribed as $item)
             <div class="item">
-                <a href="course/{{$item->id}}" class="box">
+                <a href="course/{{$item->slug}}" class="box">
                     <!--div class="learn">
                         <img src="{{ URL::to('/') }}/img/lang/south-korea.svg" />
                     </div>
@@ -42,7 +42,7 @@
                         <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
                     </div-->
                     <h3>
-                        <a href="course/{{$item->id}}">
+                        <a href="course/{{$item->slug}}">
                             {{$item->name}}
                         </a>
                     </h3>
@@ -50,7 +50,7 @@
                         This curriculum is in english.
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                     </p>
-                    <a href="course/{{$item->id}}" class="button">
+                    <a href="course/{{$item->slug}}" class="button">
                         Go to course
                     </a>
                 </div>
@@ -70,7 +70,7 @@
                         <img src="{{ URL::to('/') }}/img/lang/united-kingdom.svg" />
                     </div-->
                     <h3>
-                        <a href="course/{{$item->id}}">
+                        <a href="course/{{$item->slug}}">
                             {{$item->name}}
                         </a>
                         {{--<a href="lesson/{{$item->id}}">
@@ -81,7 +81,7 @@
                         This curriculum is in english.
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
                     </p>
-                    <a href="course/{{$item->id}}" class="button">
+                    <a href="course/{{$item->slug}}" class="button">
                         Go to course
                     </a>
                 </div>

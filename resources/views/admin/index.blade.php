@@ -10,7 +10,7 @@
         <ul>
         @foreach($lessons as $item)
             <li>
-                <a href="/admin/lesson/{{$item->id}}">
+                <a href="/admin/lesson/{{$item->slug}}">
                     {{ $item['title'] }}
                 </a>
                 |
